@@ -1,0 +1,440 @@
+<meta charset="utf-8">
+<!--
+  WHOTRAIN — Page de résultats personnels
+  ----------------------------------------
+  À coller dans un bloc « Code intégré / HTML personnalisé » sur une page
+  du site Hostinger Builder (ex. la page /mon-resultat).
+
+  Chaque répondant ouvre son lien personnel :  .../mon-resultat?id=JETON
+  La page lit le jeton, retrouve ses réponses et réaffiche le même écran
+  de résultat que la fin du quiz. Aucun email n'est stocké dans ce code.
+
+  Pour mettre à jour les données : remplacer l'objet WT_DATA plus bas.
+-->
+<div id="whotrain-result-embed">
+  <section class="wt-screen wt-result" data-screen="result">
+    <p class="wt-kicker">Votre profil dominant</p>
+    <h2 data-result-profile=""></h2>
+    <p class="wt-signature" data-signature=""></p>
+    <div class="wt-result-grid">
+      <article class="wt-panel wt-panel-large">
+        <p class="wt-panel-title">Synthèse</p>
+        <h3 data-subprofile=""></h3>
+        <p class="wt-secondary" data-secondary=""></p>
+        <p data-description=""></p>
+        <div class="wt-profile-bars" data-profile-bars=""></div>
+      </article>
+      <article class="wt-panel">
+        <p class="wt-panel-title">Approche pédagogique</p>
+        <div data-axis-bars=""></div>
+      </article>
+      <article class="wt-panel">
+        <p class="wt-panel-title">Forces</p>
+        <ul data-strengths=""></ul>
+      </article>
+      <article class="wt-panel">
+        <p class="wt-panel-title">Point de vigilance</p>
+        <ul data-watchouts=""></ul>
+      </article>
+      <article class="wt-panel wt-panel-large">
+        <p class="wt-panel-title">Partager</p>
+        <p data-share=""></p>
+        <div class="wt-actions">
+          <button class="wt-button wt-button-primary" type="button" data-share-linkedin="">Partager sur LinkedIn</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wt-screen wt-message" data-screen="message">
+    <div class="wt-hero">
+      <div>
+        <p class="wt-kicker">Whotrain</p>
+        <h2 data-message-title="">Résultat introuvable</h2>
+        <p data-message-text=""></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wt-toast" data-toast="" role="status" aria-live="polite"></div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..1000&display=swap');
+
+  #whotrain-result-embed {
+    --wt-ink: #1a1620;
+    --wt-text: #3a343c;
+    --wt-muted: #817f7f;
+    --wt-paper: #fdf6fb;
+    --wt-line: #ececec;
+    --wt-rose: #fe36aa;
+    --wt-rose-soft: #fff0f8;
+    --wt-rose-deep: #d61f8a;
+    --wt-orange: #fd7f08;
+    --wt-pink: #ff7ac6;
+    color: var(--wt-ink);
+    font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0;
+  }
+
+  #whotrain-result-embed * { box-sizing: border-box; }
+  #whotrain-result-embed button { font: inherit; cursor: pointer; }
+
+  #whotrain-result-embed .wt-screen {
+    display: none;
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    border: 1px solid var(--wt-line);
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ffffff 0%, var(--wt-paper) 100%);
+    padding: clamp(22px, 4vw, 44px);
+  }
+  #whotrain-result-embed .wt-screen.is-active { display: block; }
+
+  #whotrain-result-embed .wt-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(22px, 4vw, 48px);
+    align-items: center;
+    min-height: 320px;
+  }
+
+  #whotrain-result-embed .wt-kicker,
+  #whotrain-result-embed .wt-panel-title {
+    margin: 0 0 12px;
+    color: var(--wt-rose);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+  }
+
+  #whotrain-result-embed h2,
+  #whotrain-result-embed h3,
+  #whotrain-result-embed p { overflow-wrap: anywhere; }
+
+  #whotrain-result-embed h2,
+  #whotrain-result-embed h3 { margin: 0; line-height: 1.05; }
+  #whotrain-result-embed h2 { font-size: clamp(2.45rem, 7vw, 5.8rem); }
+  #whotrain-result-embed h3 { font-size: clamp(1.35rem, 3vw, 2rem); }
+
+  #whotrain-result-embed .wt-signature,
+  #whotrain-result-embed [data-message-text] {
+    max-width: 700px;
+    color: var(--wt-text);
+    font-size: clamp(1.05rem, 2vw, 1.28rem);
+    font-weight: 650;
+    line-height: 1.45;
+  }
+
+  #whotrain-result-embed .wt-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-weight: 850;
+    line-height: 1.1;
+    text-align: center;
+  }
+  #whotrain-result-embed .wt-button-primary {
+    background: var(--wt-rose);
+    color: #fff;
+    box-shadow: 0 12px 26px rgba(254, 54, 170, 0.26);
+  }
+  #whotrain-result-embed .wt-button-ghost {
+    background: #fff;
+    border-color: var(--wt-line);
+    color: var(--wt-ink);
+  }
+
+  #whotrain-result-embed .wt-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  #whotrain-result-embed .wt-progress,
+  #whotrain-result-embed .wt-bar-track {
+    height: 10px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #f0e6ee;
+  }
+  #whotrain-result-embed .wt-bar-track i {
+    display: block;
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--wt-rose);
+  }
+
+  #whotrain-result-embed .wt-result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 26px;
+  }
+  #whotrain-result-embed .wt-panel {
+    min-height: 210px;
+    border: 1px solid var(--wt-line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.86);
+    padding: clamp(18px, 3vw, 26px);
+  }
+  #whotrain-result-embed .wt-panel-large { grid-column: span 2; }
+  #whotrain-result-embed .wt-panel p,
+  #whotrain-result-embed .wt-panel li {
+    color: var(--wt-text);
+    font-weight: 720;
+    line-height: 1.48;
+  }
+  #whotrain-result-embed .wt-panel ul {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding-left: 18px;
+  }
+  #whotrain-result-embed .wt-secondary {
+    margin: 6px 0 14px;
+    color: var(--wt-muted);
+    font-size: 0.95rem;
+    font-weight: 800;
+  }
+  #whotrain-result-embed .wt-secondary b { color: var(--wt-rose); font-weight: 900; }
+
+  #whotrain-result-embed .wt-bar {
+    display: grid;
+    grid-template-columns: minmax(0, 150px) 1fr auto;
+    gap: 10px;
+    align-items: center;
+    margin-top: 12px;
+    font-weight: 850;
+  }
+  #whotrain-result-embed .wt-bar-track { min-width: 70px; }
+  #whotrain-result-embed .wt-bar:nth-child(2n) i { background: var(--wt-orange); }
+  #whotrain-result-embed .wt-bar:nth-child(3n) i { background: var(--wt-pink); }
+
+  #whotrain-result-embed .wt-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    z-index: 9999;
+    max-width: min(440px, calc(100vw - 32px));
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: var(--wt-ink);
+    color: #fff;
+    font-weight: 850;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 12px);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+  #whotrain-result-embed .wt-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+  @media (max-width: 900px) {
+    #whotrain-result-embed .wt-result-grid { grid-template-columns: 1fr; }
+    #whotrain-result-embed .wt-panel-large { grid-column: auto; }
+  }
+  @media (max-width: 620px) {
+    #whotrain-result-embed .wt-screen { padding: 20px; }
+    #whotrain-result-embed .wt-bar { grid-template-columns: 1fr auto; }
+    #whotrain-result-embed .wt-bar-track { grid-column: 1 / -1; grid-row: 2; }
+  }
+</style>
+
+<script>
+(() => {
+  const root = document.querySelector("#whotrain-result-embed");
+  if (!root) return;
+
+  const SHARE_URL = "https://www.whotrain.com/quel-formateur-etes-vous";
+
+  // ====== DONNÉES DES RÉPONDANTS (jeton -> 16 réponses) ======
+  const WT_DATA = /*WT_DATA*/{"ncpy78h0":[4,5,5,5,5,1,1,5,1,3,5,1,5,5,5,1],"fr3mhp8x":[3,5,1,5,5,5,5,1,5,5,5,5,5,5,5,5],"e4gwcrr2":[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],"kk1ibehw":[5,5,3,3,1,3,3,3,3,5,1,3,5,5,3,1],"6iq2c4ip":[3,3,3,5,3,4,3,3,5,4,4,3,4,5,3,5],"ikwkxdsi":[1,1,4,3,3,3,3,3,3,4,4,3,4,4,3,2],"y9cwwwbb":[3,4,4,4,2,5,5,1,5,5,2,4,4,5,4,3],"grbtjzl6":[1,5,1,5,3,3,3,4,3,3,3,3,3,2,3,3],"we4wv7of":[5,4,3,4,3,3,5,5,5,5,4,5,5,5,5,5],"irc7nv6p":[5,5,5,5,5,5,1,1,5,5,5,5,5,5,5,5],"2s9e7vts":[1,5,5,5,5,1,1,1,5,5,5,5,5,5,1,5],"so6rws9s":[3,5,1,5,1,1,1,1,5,1,5,1,1,1,1,1],"avh301be":[1,4,3,4,1,5,3,1,5,4,4,4,5,3,4,1],"17o4anbm":[5,5,1,5,5,5,1,3,5,3,5,1,5,4,5,3],"xlcf6uth":[2,3,4,3,2,4,2,3,4,2,3,2,4,4,4,4],"70a4l099":[4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],"grvye3sx":[3,3,3,5,3,5,3,3,1,1,5,3,5,5,5,3],"2acmi8ag":[1,1,2,5,1,5,1,5,1,5,1,5,4,5,2,2],"2i8k5cy6":[1,1,3,2,5,5,1,2,3,3,3,3,5,3,5,5],"m4iwxfpn":[3,5,3,5,4,4,3,2,4,5,4,3,4,4,3,3],"cxs0edv4":[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],"63ogy08u":[4,4,5,3,5,5,5,4,4,4,4,3,4,4,4,5],"hzehxxrd":[3,5,3,4,1,5,2,2,5,5,3,3,5,4,5,2],"szlgjogi":[1,1,1,5,1,5,5,5,1,1,5,1,1,1,5,5],"v3cenk3n":[4,5,3,5,5,5,4,3,3,5,5,5,4,4,5,5],"srv3ug3s":[5,5,5,3,5,3,1,1,5,5,3,3,5,5,3,5],"d224ock2":[5,5,5,5,5,5,1,5,1,5,1,5,5,5,1,5],"wqg9omvj":[3,4,4,4,4,5,5,4,4,4,4,4,4,4,5,5],"h5pbsqso":[5,5,5,3,3,5,3,1,5,5,3,5,5,3,5,3],"x9okfbpi":[4,3,5,5,5,5,3,1,3,1,3,3,5,5,5,3],"85c67b88":[1,5,1,5,1,1,1,1,1,1,1,1,1,1,1,1],"rjpnj62w":[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],"rcy35u58":[2,3,2,2,2,5,2,2,4,3,3,2,4,4,3,3],"xa8lmpjq":[5,5,1,4,3,3,5,2,3,3,5,2,4,4,1,3],"dy0e9ac3":[5,5,3,5,3,5,1,3,5,5,3,3,5,5,3,3],"sez7pbta":[3,4,2,4,4,4,3,4,4,3,4,2,4,5,3,3],"1dfzzxxj":[5,4,5,3,4,3,2,3,4,5,3,4,5,4,4,3],"of1qtqab":[3,5,4,4,3,4,4,3,4,3,2,3,5,3,4,3],"b578s5wc":[4,5,4,5,4,5,1,1,5,5,3,3,5,4,5,3],"08hgt17h":[5,5,5,5,5,5,3,5,5,5,3,5,5,5,5,5],"uvklzmbs":[5,3,3,3,5,3,5,1,1,3,5,3,5,5,3,3],"5jacv49f":[4,4,2,4,4,5,3,2,4,4,4,4,4,3,5,3],"nf5yxx11":[4,5,4,4,4,5,4,4,1,3,2,5,4,3,5,3],"ggt5ikrw":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"cfbx33dg":[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],"h5hcdpjd":[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],"38ganpn9":[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],"cixdgy6u":[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],"3xjsk5ql":[3,4,3,3,2,4,3,2,4,4,2,3,4,4,4,3],"t9r315i8":[4,5,3,4,1,1,1,4,5,5,4,4,5,5,5,1],"awsl9cnm":[1,1,5,5,5,5,1,1,1,5,5,1,5,1,1,1],"5ibshj3n":[4,5,3,5,3,5,3,3,4,3,3,3,4,4,4,1],"jy0z5dce":[5,5,5,3,5,1,5,1,5,1,3,1,3,5,1,1],"gtn7g7ze":[5,5,5,5,5,5,5,5,5,5,4,5,5,5,5,3],"avf9bn6j":[3,4,5,5,3,5,3,3,5,5,3,5,5,5,5,5],"qloclz1x":[5,1,5,5,1,5,5,1,5,1,5,5,5,5,5,5],"dpjdnci9":[5,5,3,5,5,4,5,3,5,5,3,5,5,5,4,4],"iell3bpc":[1,5,1,5,5,3,2,5,5,3,3,5,5,5,5,5],"zls29gb3":[3,3,1,5,5,3,5,5,5,1,3,5,5,5,5,5],"l4vwl454":[5,5,1,5,5,5,5,5,3,3,3,3,3,5,1,3],"bhz3ihpe":[4,5,3,3,2,5,4,1,5,4,5,1,5,5,5,5],"v7cc746z":[2,3,2,3,3,4,3,2,3,3,3,3,3,3,4,2],"0pfsvy9b":[3,3,5,3,3,5,1,2,5,5,3,3,5,3,5,3],"rq6io2w9":[5,5,1,5,5,5,5,1,5,5,5,5,5,5,5,5],"khtd0k0c":[5,3,1,5,1,3,5,1,3,2,5,3,5,5,5,1],"blona9pl":[5,5,5,5,5,5,1,5,3,5,5,5,5,5,5,3],"drlkplm0":[3,3,5,5,3,5,3,4,4,3,3,3,5,5,5,3],"iznwwb96":[4,4,3,3,3,4,1,2,1,4,3,1,4,5,4,3],"qjcxwcoe":[3,3,2,4,3,4,3,3,4,5,4,5,5,5,4,4],"1y8k6tfe":[3,5,1,5,3,3,5,3,5,3,5,5,5,5,5,5],"2sc22686":[4,5,4,3,3,5,3,4,3,3,2,3,3,3,5,3],"fgb7ha9z":[5,5,4,5,5,5,4,3,5,5,3,4,5,5,4,3],"7zszo2xt":[5,5,1,5,3,5,1,5,1,5,5,1,5,5,5,3],"7zutww93":[5,5,1,5,1,5,5,5,5,5,5,5,5,5,1,5],"sz46wzsh":[3,5,2,5,3,5,3,3,4,5,5,4,5,5,3,2],"0kyxmsut":[3,5,2,4,4,4,3,2,5,5,5,3,5,5,3,2],"etcopjs8":[4,5,2,5,3,5,2,3,5,5,4,5,4,3,5,3],"h4lhe8fm":[5,5,3,3,1,5,5,5,3,3,5,3,5,3,5,5],"pe94gufu":[5,5,3,5,3,5,5,5,4,4,3,5,3,5,5,3],"c2qoot84":[3,3,5,3,5,5,3,3,5,3,5,3,5,5,5,3],"qdfbrh4s":[5,5,5,5,1,4,5,5,5,3,3,5,5,4,5,5],"9648zn9d":[5,5,1,5,3,3,2,3,4,2,3,3,5,5,5,3],"dvwl6umu":[5,5,5,5,5,5,5,3,3,5,4,5,5,5,5,3],"x4e3pjmi":[5,5,3,5,3,3,3,3,3,3,3,3,5,5,5,3],"v5k7hrzk":[3,5,1,4,5,1,2,1,4,3,4,5,4,3,2,3],"fhxuza7k":[3,3,1,3,2,4,3,2,4,4,3,3,4,4,4,3],"vyn9tev7":[3,5,3,4,3,5,5,3,4,2,4,4,3,4,4,5],"tnzwoadw":[5,5,5,3,5,5,5,3,5,5,5,3,5,5,5,5],"nipqrn7u":[5,5,5,5,5,5,3,3,5,5,4,5,5,5,5,3],"8cp0q4l4":[5,5,1,5,3,5,3,4,3,3,5,3,4,2,4,3],"pfjxba1u":[5,1,2,4,4,3,1,1,1,2,3,3,4,3,5,3],"b7mb9rjv":[4,4,5,4,3,5,5,2,3,3,4,4,3,3,4,5],"2c6vsjfe":[5,5,4,5,4,5,5,4,5,5,5,5,5,5,5,5],"1juxomsd":[5,4,5,5,4,4,5,4,5,5,3,5,5,5,4,5],"8wepyy85":[2,3,2,3,2,3,2,2,3,2,3,2,3,5,5,3],"oh6skcj0":[3,4,5,3,3,3,4,3,5,5,5,3,4,4,3,3],"0z0bag5b":[2,1,2,1,5,3,3,1,5,2,5,2,5,5,4,2],"xjoox0pg":[3,4,5,5,5,5,3,3,5,5,3,3,5,5,5,3],"9dkzr2y5":[5,5,1,5,3,3,3,1,3,3,3,3,5,3,1,1],"gsbfdmcy":[1,5,5,5,1,3,3,5,3,3,3,3,5,5,3,3],"rzc29kcc":[4,4,3,4,3,5,4,3,4,5,4,4,4,5,5,3],"sszdfpoq":[3,5,3,5,3,5,3,3,5,3,3,3,5,5,5,5],"a6x7ypfh":[4,4,4,4,3,5,5,3,5,3,4,5,5,5,5,3],"exjulsgm":[5,5,5,4,3,5,1,3,5,5,3,3,4,5,3,4],"x4qrhe98":[5,3,5,5,5,5,3,5,5,5,5,5,5,5,5,4],"eht5nx3m":[1,1,3,5,5,3,5,5,5,5,3,1,1,5,3,1],"7yjj7tqa":[3,5,1,3,5,5,5,3,5,5,5,3,5,5,5,5],"01i5hwx9":[1,5,3,4,4,1,3,1,3,1,3,1,2,2,2,2],"pji9e2ge":[1,3,2,4,3,5,3,3,5,4,5,4,5,4,5,4],"5igk0fz9":[5,5,5,5,5,5,1,5,3,5,4,3,5,3,4,3],"g1k06ip6":[5,5,3,5,3,5,1,3,5,1,5,3,5,5,3,3],"5bjjrdn2":[2,4,2,4,1,2,3,3,2,2,3,4,3,2,3,5],"svrmn0o5":[5,5,5,5,5,5,5,5,5,5,1,5,3,5,5,5],"5i28zpt3":[2,3,2,3,2,1,3,2,4,3,4,4,5,4,3,4],"5h0wjzjd":[1,2,3,3,1,2,2,1,5,4,3,4,4,2,3,1],"ebt7dfam":[3,4,3,5,5,3,2,3,5,3,3,4,4,4,5,5],"dal8cbod":[1,5,2,5,1,4,4,1,4,5,4,2,5,4,4,3],"slfb0mee":[5,3,3,3,2,4,2,2,4,4,4,3,5,4,4,3],"dt0e1avh":[5,5,1,5,1,5,3,1,1,3,3,5,5,5,5,1],"0pfpz7gz":[1,4,2,3,2,4,1,1,4,4,3,2,4,4,3,2],"kn7cwvpe":[3,4,4,5,5,5,3,5,5,5,4,5,5,5,5,5],"f99qu0n6":[2,3,2,3,3,3,1,1,3,3,2,5,3,4,3,3],"kg6vyooc":[3,2,4,2,4,2,4,1,2,4,4,4,4,3,1,4],"cqccgbal":[4,5,4,3,4,4,3,4,3,5,3,4,4,3,4,3],"svvuf62l":[4,5,5,5,4,5,4,3,4,4,3,4,4,5,4,3],"qu3c3qwp":[5,5,3,5,5,5,1,3,5,3,3,3,5,5,5,5],"pqpb6q2x":[5,5,3,5,5,5,1,3,4,5,5,5,4,3,4,5],"ylbxstsd":[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],"agmgmpg9":[4,3,2,4,3,3,2,4,3,3,5,3,4,4,3,3],"3g6d71sm":[1,5,4,1,4,4,1,1,2,1,1,1,1,2,1,4],"n7fxxmch":[5,5,2,4,4,5,2,4,5,3,3,4,5,5,5,3],"uj0z3c66":[5,1,1,5,5,3,3,3,5,1,3,2,2,1,1,3],"87c0pwtl":[5,4,3,4,4,1,3,3,3,3,3,3,4,5,5,3],"e7cggmih":[5,5,5,5,5,3,5,5,5,5,5,5,5,3,5,5],"45tpbdda":[3,4,3,3,2,2,2,4,5,5,4,4,5,4,3,5],"ggt872fn":[1,1,3,1,3,3,3,1,5,5,3,3,3,3,1,5],"lnaj5mad":[1,1,3,3,3,3,1,3,3,3,3,3,3,3,1,3],"t5mfctzg":[5,3,5,5,5,5,5,5,1,1,3,1,5,1,5,1],"h5h1hxw3":[3,4,3,5,3,4,3,1,5,3,5,3,5,5,3,1],"gino2bx2":[4,3,2,5,1,3,1,2,4,2,5,3,3,3,3,3],"9qra3mbk":[4,5,2,3,4,5,3,2,3,2,5,5,3,5,3,5],"k7hs6l67":[3,5,5,5,4,3,3,1,3,3,5,3,5,2,1,2],"suzkpiqw":[2,4,4,3,3,5,2,3,3,4,4,3,5,3,3,4],"q2c1xsha":[5,5,2,3,2,3,3,2,4,4,3,4,5,4,4,3],"jcma5jeu":[5,5,5,5,5,5,5,5,5,1,5,5,5,5,5,1],"4m795zbk":[2,3,5,3,2,5,3,1,3,3,4,4,4,4,3,2],"ry5a5x8g":[5,3,5,5,3,5,5,5,3,2,5,5,2,3,2,3],"l0o7ljnh":[2,2,2,2,2,2,2,2,2,2,4,3,5,3,3,2],"vl13ndvl":[3,4,3,4,3,4,4,2,4,3,3,4,4,4,4,3],"p0dht6wr":[4,5,5,5,5,5,5,1,5,5,5,5,5,5,5,3],"sgow5e2i":[5,5,1,5,1,1,5,1,1,1,5,1,1,1,1,1],"yz5m9bio":[3,4,3,5,3,4,5,4,3,4,3,3,5,4,3,2],"v1951alp":[5,3,5,3,1,5,3,5,3,5,5,5,5,3,3,3],"52kmew7s":[5,5,4,5,3,5,4,2,3,5,3,5,5,5,5,5],"xnk79hau":[2,4,3,4,3,4,4,3,3,4,4,3,3,4,3,3],"hcqk1oiy":[5,5,5,5,3,3,4,1,3,5,4,5,5,5,3,5],"6jxtsynd":[5,5,5,3,3,3,5,3,4,5,4,3,5,5,5,3],"orqoe3y0":[2,3,1,3,1,1,3,3,4,2,3,3,2,3,3,2],"2ih1r98u":[5,3,1,5,1,5,5,5,1,3,4,3,4,3,2,3],"3x20kac4":[3,3,5,3,1,5,5,3,5,3,3,3,5,5,5,3],"b0mkas7f":[3,4,4,3,3,4,3,3,3,4,4,4,4,5,3,3],"jn9jzchp":[1,5,5,1,1,5,3,5,1,3,2,3,5,5,3,3],"yuc7svyr":[5,5,1,1,5,5,1,1,1,3,1,5,5,5,5,5],"x32wvxfs":[1,4,5,3,4,3,2,5,2,1,2,2,2,2,1,5],"ruta5s05":[4,5,3,5,4,5,4,5,5,5,5,5,5,5,5,3],"3brrnrua":[5,3,5,5,1,5,1,5,1,5,1,5,5,5,5,1],"nv56gscs":[3,4,4,3,3,4,2,3,5,4,3,4,5,5,5,3],"n20bk74k":[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],"94085th1":[3,3,5,5,3,5,1,3,5,5,5,3,5,5,3,3],"4k9payt6":[5,3,5,5,5,5,1,5,5,5,5,5,5,5,5,3],"f69jcs98":[1,5,1,5,1,5,1,1,5,5,5,5,3,3,5,3],"bqd1bpup":[5,5,5,5,1,5,5,5,5,5,5,5,5,5,5,1],"vq074air":[1,3,3,3,3,3,3,3,5,5,3,3,3,3,3,3],"zlt3kjjl":[5,5,1,5,3,5,4,1,5,5,3,5,5,5,5,5],"phg46d0l":[5,5,3,5,1,3,5,3,1,1,3,4,3,1,3,1],"wanus73v":[5,5,5,5,5,1,5,1,5,1,5,2,5,5,5,3],"qgdjpvls":[1,5,5,5,1,5,1,2,3,5,5,5,5,3,4,3],"nkqqld9f":[5,3,3,4,4,4,3,1,3,1,3,3,5,4,2,3],"mc6mjpv4":[3,3,2,5,1,5,3,2,5,5,4,4,4,5,4,3],"7mkjck4g":[5,5,3,5,1,5,5,1,5,5,5,5,5,3,5,5],"m7flzl9l":[5,3,1,3,3,1,3,5,5,3,5,3,5,5,5,1],"gz9sbkyr":[5,5,3,3,3,3,3,1,3,5,3,3,3,5,5,5],"3ake5q3u":[5,5,3,5,3,4,2,1,3,3,3,3,3,3,5,3],"5zoq92hy":[5,5,1,5,1,4,3,3,4,3,3,2,5,3,2,3],"oi5x2xct":[5,4,4,4,3,3,4,3,4,4,4,4,2,3,3,4],"y9poelad":[5,5,3,5,3,5,5,4,5,5,5,5,5,5,5,5],"em6yvdq4":[3,3,4,5,3,3,4,2,5,5,3,4,4,5,5,3],"h06x6xjo":[5,1,1,3,1,1,3,1,3,1,3,3,3,4,3,1],"pvam0cpw":[5,5,3,5,5,1,3,1,3,5,5,3,5,4,3,3],"ywychaqy":[3,5,5,5,5,5,3,1,5,5,3,3,5,5,5,2],"6e6ui102":[4,4,2,5,4,5,5,3,5,5,5,5,5,5,5,5],"5563cx97":[4,5,4,4,4,5,4,3,4,4,4,5,4,5,5,5],"40wix39j":[5,5,3,3,3,3,3,1,3,3,3,3,5,5,3,3],"6pc4sju7":[1,3,3,4,2,3,2,2,5,3,3,4,5,5,4,3],"chnj1750":[1,5,3,1,5,5,5,3,3,5,3,1,5,3,5,1],"63hhh50e":[1,1,1,3,1,5,1,1,3,3,3,1,5,3,3,1],"imyhu33h":[3,1,5,5,1,5,3,1,1,5,5,3,5,5,5,3],"xlftyw3w":[3,3,3,3,1,3,1,3,5,5,1,1,5,3,3,3],"omfcnzfa":[1,3,5,1,3,5,1,3,5,5,5,3,5,5,5,5],"p5ecinkv":[5,3,3,5,5,5,3,3,3,5,3,3,5,5,5,3],"yny3cxcj":[3,5,3,5,1,5,1,5,5,4,4,3,5,5,5,3],"4bantqvy":[1,3,1,5,3,5,3,3,1,5,3,1,5,3,3,5],"mjw233ku":[5,5,3,5,3,5,4,5,4,4,4,4,4,3,5,3],"yq66rmiy":[1,5,5,5,1,5,1,5,5,5,5,5,5,5,5,5],"zly9g8y0":[5,5,3,5,3,5,3,1,5,5,5,3,5,5,5,1],"sv7l8r4n":[5,5,1,5,5,5,5,5,1,5,5,5,5,5,5,1],"0uucegm0":[5,3,3,5,1,3,5,2,3,5,3,3,5,3,5,5],"gs619xug":[4,3,3,4,3,4,2,3,5,3,3,4,3,4,5,5],"3uhzx6ny":[5,4,4,3,3,5,1,1,2,3,3,5,5,5,5,5],"lyehj0gs":[2,2,1,2,4,3,2,1,2,4,3,2,4,3,2,1],"7oui3d3z":[1,4,3,3,2,3,2,1,2,2,3,3,5,4,4,2],"0a2gn6wq":[5,5,4,5,5,5,5,3,3,4,4,5,4,5,5,5],"d180gmhc":[4,5,3,5,4,3,3,4,3,3,3,3,4,3,5,4],"hecaayx6":[3,5,3,5,3,3,3,1,3,5,5,3,5,5,5,2],"hqwv0hry":[1,5,5,5,1,5,1,5,5,5,1,5,5,5,5,5],"2t23us5j":[5,5,5,5,1,4,5,5,5,5,5,5,5,5,5,5],"khx2vfsq":[5,5,5,5,5,5,3,1,5,5,5,5,5,5,5,5],"gam5liz2":[3,4,2,3,2,3,3,1,4,4,3,3,5,4,5,5],"u14bp7qe":[5,5,2,3,3,4,3,3,3,1,4,3,5,4,3,4],"b10f2046":[3,1,4,4,1,3,3,3,5,3,2,3,5,5,2,4],"5ivagx4l":[5,1,1,5,1,1,3,1,1,5,5,1,5,3,1,1],"ipoxw1hc":[2,1,3,3,5,3,2,5,3,1,3,3,5,5,2,1],"lvf3cgl4":[1,1,3,3,5,3,1,5,3,3,3,3,5,3,3,3],"hpfrnw0y":[1,5,5,5,3,5,2,2,2,5,3,3,5,5,5,3],"o9dt9ll4":[3,5,4,4,4,5,1,3,4,5,4,4,5,5,5,5],"p8j5lfeo":[3,4,1,5,2,2,3,1,4,2,4,5,5,4,2,3],"lihwvwif":[5,5,3,3,1,5,3,3,5,3,3,5,5,5,5,3],"3ut9ln0c":[3,3,5,3,1,1,3,3,3,5,3,3,5,3,1,3],"o8nl0uj2":[3,4,4,5,4,4,4,4,4,4,4,5,4,5,4,3],"8osl92wt":[3,4,3,3,4,3,2,4,3,3,2,3,3,3,2,3],"e7rra569":[4,1,5,5,3,3,1,3,5,5,4,3,5,3,1,3],"um3nnpe0":[5,5,5,4,2,5,1,5,5,5,4,3,2,5,4,5],"ze9973hu":[5,5,3,5,5,5,5,1,3,5,5,5,5,5,5,3],"e1fer8ji":[5,4,4,4,4,5,1,4,5,5,5,4,5,5,4,3],"g5xp2txm":[5,5,3,5,3,5,5,5,5,5,5,5,5,5,5,3],"6z9a3kmh":[5,5,5,5,5,5,5,5,5,5,4,5,5,5,5,5],"mi0b441e":[3,5,4,3,3,4,2,1,4,4,3,3,5,4,3,3],"qfk5uz6d":[3,3,5,5,4,4,1,2,5,4,4,3,5,4,4,5],"se1sdxjb":[5,5,1,5,1,5,1,1,5,5,5,5,5,5,5,5],"qqopvfvs":[5,5,5,5,5,5,5,5,5,4,5,5,5,5,5,5],"eoviasi9":[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],"m2f18q10":[3,5,5,3,1,5,2,2,5,5,3,3,5,3,3,3],"x01ghrv5":[1,3,2,3,2,4,1,1,3,2,3,2,4,5,5,3],"6v3nzn7n":[1,5,1,5,5,5,1,1,1,5,1,1,5,1,5,1],"gl5hjs58":[5,3,5,5,1,5,1,3,5,3,4,3,4,4,3,5],"t5ib2vaz":[5,5,1,3,3,1,3,1,3,1,5,5,5,5,3,3],"urjc7yxl":[5,5,2,4,4,5,3,5,4,5,4,1,5,4,4,3],"c2wj90if":[5,5,5,5,3,5,3,3,5,5,5,3,5,5,4,3],"tv46qrxh":[4,5,5,4,3,5,2,1,5,5,4,3,5,4,5,5],"o8cjg3bt":[1,3,3,2,4,1,3,4,3,4,3,2,4,5,4,2],"cn7f17qt":[3,4,1,3,5,5,1,5,5,4,4,3,4,4,4,2],"wjd36mvd":[4,4,4,5,4,4,1,4,4,2,4,3,4,4,4,5],"z4nb3r64":[5,5,4,3,5,5,3,5,4,2,3,5,3,4,5,3],"rs6i8inb":[3,4,1,4,1,4,1,2,5,5,4,4,5,5,4,2],"c74p49xl":[3,4,4,3,3,4,3,3,4,5,4,4,5,4,3,4],"ebyh9tup":[5,5,1,5,1,5,5,1,4,5,5,1,5,1,1,1],"t0hyse05":[3,4,1,3,2,5,4,3,5,4,3,4,4,4,4,3],"zmjuvgd3":[1,2,1,2,1,3,3,1,3,2,2,3,3,3,3,3],"njp9tu3w":[5,4,4,5,4,3,4,1,4,3,3,4,4,4,5,3],"90eh5ank":[5,5,3,3,5,5,1,3,3,5,3,3,5,5,3,1],"qbx65lcy":[5,5,5,5,5,3,5,3,5,5,3,5,5,5,5,5],"3fnu29pp":[4,4,2,5,5,5,5,5,5,5,5,5,5,5,5,5],"mrxs3u7d":[4,4,2,3,2,4,2,2,3,2,3,4,4,3,4,4],"ukegccu0":[2,5,3,5,3,5,5,3,5,5,5,3,5,5,3,3],"8u64p23y":[3,5,3,5,5,3,1,5,5,3,3,5,4,4,5,3],"2xzy87xs":[5,3,5,3,1,5,1,1,5,1,5,3,5,5,3,3],"zmsvi3yd":[1,5,1,3,1,1,3,3,3,3,5,1,5,5,3,3],"0aw3xivx":[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],"zxf71gzr":[3,5,2,4,4,5,3,3,4,5,3,4,4,4,4,3],"ommgg0zp":[4,5,3,3,3,5,3,3,4,2,3,4,3,4,4,4],"wqcro2v0":[3,5,3,3,1,5,3,1,5,5,3,3,5,5,5,5],"48g44q5p":[2,5,5,5,4,4,3,3,5,5,5,3,5,5,5,3],"8odkk037":[1,5,5,5,3,5,3,1,5,5,5,5,5,5,5,3],"3qblcb2g":[2,2,2,2,2,3,3,2,3,3,3,2,3,2,3,2],"8sogh2er":[3,5,3,3,5,3,5,5,3,5,5,3,5,5,3,5],"v9xq4zsh":[1,5,1,3,5,5,5,1,5,3,5,3,5,3,3,3],"n9h6cbsk":[5,5,2,4,1,3,2,2,5,4,5,3,4,4,2,5],"ua5qteuu":[5,5,5,5,3,5,1,5,5,3,5,3,5,5,3,3],"a09ihzk4":[5,5,4,4,5,5,4,1,4,3,3,5,4,4,4,4],"f41hp1oi":[5,5,5,5,4,3,4,5,3,5,3,3,5,5,3,3],"nhgcq5rd":[3,5,3,3,5,3,3,1,5,3,2,3,2,4,1,4],"y04pb51c":[5,5,5,5,1,5,1,5,5,5,5,5,5,4,5,5]}/*WT_DATA_END*/;
+  // ===========================================================
+
+  const questions = [
+    ["approach"], ["approach"], ["approach"], ["approach"],
+    ["approach"], ["approach"], ["approach"], ["approach"],
+    ["posture"], ["posture"], ["posture"], ["posture"],
+    ["posture"], ["posture"], ["posture"], ["posture"],
+  ];
+
+  const profiles = {
+    maitre: {
+      name: "Le Maître",
+      signature: "Je suis là pour transmettre ce que je sais.",
+      description: "Votre force est la clarté. Vous installez un cadre solide, vous rendez les notions lisibles et vous rassurez les participants par votre maîtrise du sujet.",
+      strengths: ["Expertise solide", "Grande clarté pédagogique", "Cadre rassurant", "Crédibilité forte"],
+      watchouts: ["Veiller à laisser suffisamment de place aux échanges", "Transformer certains apports en exercices pour renforcer l'appropriation"],
+      subs: [["Le Professeur", "Expert de la transmission structurée des connaissances."], ["Le Référent", "Expert terrain qui partage son expérience et ses bonnes pratiques."]],
+    },
+    architecte: {
+      name: "L'Architecte",
+      signature: "Je vais vous faire comprendre par l'action.",
+      description: "Vous concevez des situations qui font progresser. Vos formations sont concrètes, orientées résultats et structurées autour de cas pratiques.",
+      strengths: ["Cas pratiques pertinents", "Simulations efficaces", "Forte orientation résultats", "Progression pédagogique lisible"],
+      watchouts: ["Simplifier les activités lorsque le groupe découvre le sujet", "Laisser une part d'autonomie aux participants dans l'analyse"],
+      subs: [["L'Ingénieur pédagogique", "Conçoit des parcours précis et méthodiques."], ["Le Stratège", "Utilise simulations et cas réels pour développer les compétences."]],
+    },
+    facilitateur: {
+      name: "Le Facilitateur",
+      signature: "Le savoir est déjà dans le groupe.",
+      description: "Vous créez les conditions de l'échange. Vous faites circuler les idées, vous donnez de la place aux expériences et vous stimulez l'intelligence collective.",
+      strengths: ["Intelligence collective", "Engagement des participants", "Partage d'expériences", "Climat propice à la participation"],
+      watchouts: ["Maintenir un fil conducteur clair", "Apporter des repères nouveaux lorsque le groupe en a besoin"],
+      subs: [["Le Connecteur", "Fait circuler les idées et les expériences du groupe."], ["Le Médiateur", "Favorise l'expression et la participation de chacun."]],
+    },
+    catalyseur: {
+      name: "Le Catalyseur",
+      signature: "Je crée les conditions pour que l'apprentissage se produise.",
+      description: "Vous provoquez des déclics. Vous aimez l'expérimentation, les prises de conscience et les apprentissages qui transforment durablement la pratique.",
+      strengths: ["Déclics puissants", "Forte implication des participants", "Transformation durable", "Apprentissage par l'action"],
+      watchouts: ["Sécuriser les participants qui préfèrent un cadre très explicite", "Rendre l'évaluation des acquis visible en fin de séquence"],
+      subs: [["L'Explorateur", "Fait apprendre par l'expérimentation et la découverte."], ["Le Révélateur", "Provoque les prises de conscience et les changements durables."]],
+    },
+  };
+
+  const $ = (selector) => root.querySelector(selector);
+  const screens = root.querySelectorAll(".wt-screen");
+
+  function show(name) {
+    screens.forEach((screen) => screen.classList.toggle("is-active", screen.dataset.screen === name));
+  }
+
+  function highSide(values) {
+    if (!values.length) return 50;
+    return Math.round(values.reduce((sum, value) => sum + value - 1, 0) / (values.length * 4) * 100);
+  }
+
+  function axisScores(answers) {
+    const approach = questions.map((q, i) => q[0] === "approach" ? answers[i] : null).filter(Boolean);
+    const posture = questions.map((q, i) => q[0] === "posture" ? answers[i] : null).filter(Boolean);
+    const experience = highSide(approach);
+    const facilitator = highSide(posture);
+    return { transmission: 100 - experience, experience, expert: 100 - facilitator, facilitator };
+  }
+
+  function calculateResult(answers) {
+    const scores = axisScores(answers);
+    const ranked = [
+      ["maitre", "Le Maître", Math.round((scores.transmission + scores.expert) / 2), scores.transmission * scores.expert],
+      ["architecte", "L'Architecte", Math.round((scores.experience + scores.expert) / 2), scores.experience * scores.expert],
+      ["facilitateur", "Le Facilitateur", Math.round((scores.transmission + scores.facilitator) / 2), scores.transmission * scores.facilitator],
+      ["catalyseur", "Le Catalyseur", Math.round((scores.experience + scores.facilitator) / 2), scores.experience * scores.facilitator],
+    ].sort((a, b) => b[3] - a[3] || b[2] - a[2]);
+    const key = ranked[0][0];
+    const subIndex = {
+      maitre: scores.transmission >= scores.expert,
+      architecte: scores.expert >= scores.experience,
+      facilitateur: scores.transmission >= scores.facilitator,
+      catalyseur: scores.experience >= scores.facilitator,
+    }[key] ? 0 : 1;
+    const profile = profiles[key];
+    const sub = profile.subs[subIndex];
+    const approach = scores.experience >= scores.transmission ? `Expérience ${scores.experience} %` : `Transmission ${scores.transmission} %`;
+    const posture = scores.facilitator >= scores.expert ? `Facilitateur ${scores.facilitator} %` : `Expert ${scores.expert} %`;
+    return {
+      scores, ranked, profile, sub,
+      share: `Je viens de faire le quiz Whotrain : mon profil de formateur est ${profile.name}, avec une nuance ${sub[0]}. Mon style : ${approach} et ${posture}.`,
+    };
+  }
+
+  function bar(label, value) {
+    return `<div class="wt-bar"><span>${label}</span><span class="wt-bar-track" aria-hidden="true"><i style="width:${value}%"></i></span><strong>${value} %</strong></div>`;
+  }
+
+  function renderResult(result) {
+    const secondary = result.ranked[1];
+    $("[data-result-profile]").textContent = `${result.profile.name} (${result.ranked[0][2]} %)`;
+    $("[data-signature]").textContent = result.profile.signature;
+    $("[data-subprofile]").textContent = `Votre nuance : ${result.sub[0]}`;
+    $("[data-secondary]").innerHTML = `Profil secondaire : <b>${secondary[1]}</b> (${secondary[2]} %)`;
+    $("[data-description]").textContent = `${result.profile.description} ${result.sub[1]}`;
+    $("[data-profile-bars]").innerHTML = result.ranked.map((item) => bar(item[1], item[2])).join("");
+    $("[data-axis-bars]").innerHTML = [
+      bar("Transmission", result.scores.transmission),
+      bar("Expérience", result.scores.experience),
+      bar("Expert", result.scores.expert),
+      bar("Facilitateur", result.scores.facilitator),
+    ].join("");
+    $("[data-strengths]").innerHTML = result.profile.strengths.map((item) => `<li>${item}</li>`).join("");
+    $("[data-watchouts]").innerHTML = result.profile.watchouts.map((item) => `<li>${item}</li>`).join("");
+    $("[data-share]").textContent = result.share;
+  }
+
+  function showMessage(title, text) {
+    $("[data-message-title]").textContent = title;
+    $("[data-message-text]").textContent = text;
+    show("message");
+  }
+
+  function toast(message) {
+    const target = $("[data-toast]");
+    target.textContent = message;
+    target.classList.add("is-visible");
+    window.clearTimeout(toast.timer);
+    toast.timer = window.setTimeout(() => target.classList.remove("is-visible"), 2200);
+  }
+
+  let currentResult = null;
+
+  root.addEventListener("click", (event) => {
+    const target = event.target.closest("button");
+    if (!target || !root.contains(target)) return;
+    if (target.matches("[data-share-linkedin]") && currentResult) {
+      const text = `${currentResult.share}\n\n${SHARE_URL}`;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => {});
+      }
+      const composer = `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(text)}`;
+      window.open(composer, "_blank", "noopener");
+      toast("Texte copié. Collez-le dans la publication si LinkedIn ne le pré-remplit pas.");
+    }
+  });
+
+  // ====== Chargement du résultat à partir du lien personnel ======
+  // Lit le jeton depuis plusieurs sources, pour fonctionner aussi bien
+  // si le code tourne directement dans la page que s'il est dans un iframe.
+  function tokenFrom(str) {
+    if (!str) return "";
+    try {
+      let q = str;
+      if (q.indexOf("?") !== -1) q = q.split("?").slice(1).join("?");
+      q = q.replace(/^#/, "");
+      const p = new URLSearchParams(q);
+      return (p.get("id") || p.get("r") || "").trim().toLowerCase();
+    } catch (e) { return ""; }
+  }
+  function getToken() {
+    // 1. URL de ce contexte (search puis hash : ...?id=xxx ou ...#id=xxx)
+    let t = tokenFrom(window.location.search) || tokenFrom(window.location.hash);
+    if (t) return t;
+    // 2. fenêtre parente / supérieure (même origine)
+    try { if (window.top && window.top !== window) { t = tokenFrom(window.top.location.search) || tokenFrom(window.top.location.hash); if (t) return t; } } catch (e) {}
+    try { if (window.parent && window.parent !== window) { t = tokenFrom(window.parent.location.search) || tokenFrom(window.parent.location.hash); if (t) return t; } } catch (e) {}
+    // 3. page référente (fonctionne même en cross-origin : URL de la page hôte)
+    return tokenFrom(document.referrer);
+  }
+
+  const token = getToken();
+  if (!token) {
+    showMessage("Lien incomplet", "Ce lien ne contient pas d'identifiant. Utilisez le lien personnel reçu par email pour retrouver votre résultat.");
+    return;
+  }
+  const answers = WT_DATA[token];
+  if (!answers || answers.length !== 16) {
+    showMessage("Résultat introuvable", "Nous n'avons pas trouvé de résultat correspondant à ce lien. Vérifiez que vous avez copié le lien complet reçu par email.");
+    return;
+  }
+  currentResult = calculateResult(answers);
+  renderResult(currentResult);
+  show("result");
+})();
+</script>

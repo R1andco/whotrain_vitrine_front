@@ -1,0 +1,843 @@
+<style>
+  :root {
+    --white: #ffffff;
+    --bg: #f5f5f7;
+    --text-primary: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --text-tertiary: #86868b;
+    --rose: #FE36AA;
+    --rose-light: rgba(254,54,170,0.08);
+    --rose-mid: rgba(254,54,170,0.12);
+    --orange: #FD7F08;
+    --orange-light: rgba(253,127,8,0.08);
+    --orange-mid: rgba(253,127,8,0.12);
+    --border: rgba(0,0,0,0.08);
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 40px rgba(0,0,0,0.06);
+    --card-hover-shadow: 0 8px 60px rgba(0,0,0,0.1);
+    --radius: 24px;
+    --radius-sm: 14px;
+    --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(245,245,247,0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 52px;
+  }
+  .nav-logo {
+    font-weight: 700; font-size: 1.25rem; color: var(--rose);
+    letter-spacing: -0.02em; display: flex; align-items: center; gap: 6px;
+  }
+  .nav-logo svg { width: 28px; height: 28px; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    font-size: 0.82rem; color: var(--text-secondary); text-decoration: none;
+    font-weight: 500; transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+  .nav-cta {
+    background: var(--rose); color: white; border: none;
+    padding: 8px 20px; border-radius: 980px; font-size: 0.82rem;
+    font-weight: 600; cursor: pointer; transition: all 0.25s;
+    font-family: var(--font); text-decoration: none;
+  }
+  .nav-cta:hover { filter: brightness(0.92); transform: scale(1.03); }
+
+  /* ─── HERO ─── */
+  .hero { padding:70px 24px 20px; text-align: center; }
+  .hero h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 700; letter-spacing: -0.04em; line-height: 1.05;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero p {
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    color: var(--text-secondary); margin-top: 16px;
+    max-width: 560px; margin-left: auto; margin-right: auto;
+    line-height: 1.5;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  /* ─── TABS ─── */
+  .tabs-wrap {
+    display: flex; justify-content: center;
+    margin: 48px auto 0;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .tabs {
+    display: flex; background: rgba(0,0,0,0.04);
+    border-radius: 980px; padding: 4px; position: relative;
+  }
+  .tab-btn {
+    padding: 11px 28px; border-radius: 980px;
+    border: none; background: none;
+    font-family: var(--font); font-size: 0.9rem; font-weight: 500;
+    color: var(--text-secondary); cursor: pointer;
+    transition: color 0.3s; position: relative; z-index: 2;
+    white-space: nowrap;
+  }
+  .tab-btn.active { color: var(--text-primary); font-weight: 600; }
+  .tab-slider {
+    position: absolute; top: 4px; left: 4px;
+    height: calc(100% - 8px);
+    background: var(--white); border-radius: 980px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* ─── PANELS ─── */
+  .panels { max-width: 1100px; margin: 0 auto; padding: 48px 24px 40px; }
+  .panel { display: none; animation: fadeUp 0.45s ease both; }
+  .panel.active { display: block; }
+
+  /* ─── CARD SHARED ─── */
+  .card-row { display: flex; gap: 20px; justify-content: center; align-items: stretch; }
+
+  .price-card {
+    background: var(--card-bg); border-radius: var(--radius);
+    padding: 40px 36px 36px; box-shadow: var(--card-shadow);
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    flex: 1; max-width: 480px; position: relative; overflow: hidden;
+    isolation: isolate;
+  }
+  .price-card:hover { box-shadow: var(--card-hover-shadow); transform: translateY(-4px); }
+
+  .card-eyebrow {
+    font-size: 0.72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .card-eyebrow.rose { color: var(--rose); }
+  .card-eyebrow.orange { color: var(--orange); }
+
+  .card-title { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 8px; }
+  .card-desc { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 28px; }
+
+  /* Price */
+  .price-row { display: flex; align-items: baseline; gap: 5px; margin-bottom: 4px; }
+  .price-big { font-size: 3.2rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
+  .price-big.rose { color: var(--rose); }
+  .price-unit { font-size: 1rem; color: var(--text-secondary); font-weight: 500; }
+  .price-sub { font-size: 0.82rem; color: var(--text-tertiary); margin-bottom: 28px; }
+
+  /* Commission */
+  .commission-big { font-size: 3.8rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1; margin-bottom: 4px; }
+  .commission-big.orange { color: var(--orange); }
+  .commission-sub { font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.4; }
+
+  .card-divider { height: 1px; background: var(--border); margin: 0 0 24px; }
+
+  /* Features */
+  .features { list-style: none; margin-bottom: 32px; }
+  .features li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.9rem; color: var(--text-secondary);
+    padding: 7px 0; line-height: 1.45;
+  }
+  .features .ic {
+    flex-shrink: 0; width: 22px; height: 22px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 0.62rem; font-weight: 700; margin-top: 1px;
+  }
+  .ic.rose { background: var(--rose-light); color: var(--rose); }
+  .ic.orange { background: var(--orange-light); color: var(--orange); }
+
+  /* Feature with subtitle */
+  .features li .feature-text { display: flex; flex-direction: column; gap: 2px; }
+  .features li .feature-text .feature-label {
+    font-weight: 600; color: var(--text-primary); font-size: 0.9rem;
+  }
+  .features li .feature-text .feature-detail {
+    font-size: 0.8rem; color: var(--text-tertiary); font-weight: 400;
+  }
+
+  /* Lock icon for gated features */
+  .ic.locked {
+    background: rgba(0,0,0,0.04);
+    color: var(--text-tertiary);
+    font-size: 0.55rem;
+  }
+  .features li.feature-locked {
+    color: var(--text-tertiary);
+  }
+
+  /* CTA */
+  .card-cta {
+    display: block; width: 100%; padding: 15px 20px;
+    border-radius: 14px; font-family: var(--font);
+    font-size: 0.95rem; font-weight: 600; cursor: pointer;
+    transition: all 0.25s; text-align: center;
+    text-decoration: none; border: none;
+    position: relative; z-index: 10;
+    pointer-events: auto !important;
+  }
+  .cta-rose { background: var(--rose); color: var(--white); }
+  .cta-rose:hover { filter: brightness(0.92); transform: scale(1.015); }
+  .cta-orange { background: var(--orange); color: var(--white); }
+  .cta-orange:hover { filter: brightness(0.92); transform: scale(1.015); }
+  .cta-outline { background: none; color: var(--text-primary); border: 1.5px solid rgba(0,0,0,0.15); }
+  .cta-outline:hover { border-color: rgba(0,0,0,0.3); background: rgba(0,0,0,0.02); }
+  .card-cta::before, .card-cta::after,
+  .deal-cta::before, .deal-cta::after,
+  .footer-cta-btn::before, .footer-cta-btn::after { pointer-events: none !important; }
+
+  /* ─── POPULAR BADGE ─── */
+  .popular-badge {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--rose), var(--orange));
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  .free-pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--rose-light); color: var(--rose);
+    font-size: 0.78rem; font-weight: 600;
+    padding: 5px 14px; border-radius: 980px; margin-bottom: 20px;
+  }
+
+  /* ─── PRO CARD (dark) ─── */
+  .pro-card {
+    background: var(--text-primary); border-radius: var(--radius);
+    padding: 40px 36px 36px; color: var(--white);
+    flex: 1; max-width: 480px; position: relative; overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+    isolation: isolate;
+  }
+  .pro-card:hover { transform: translateY(-4px); box-shadow: 0 12px 60px rgba(0,0,0,0.28); }
+  .pro-glow {
+    position: absolute; top: -80px; right: -80px;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, rgba(254,54,170,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .pro-glow-2 {
+    position: absolute; bottom: -60px; left: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(253,127,8,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .pro-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    color: rgba(255,255,255,0.9);
+    font-size: 0.72rem; font-weight: 600;
+    padding: 6px 14px; border-radius: 980px;
+    margin-bottom: 16px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    position: relative; z-index: 2;
+  }
+  .pro-card .card-title { color: var(--white); position: relative; z-index: 2; }
+  .pro-card .card-desc { color: rgba(255,255,255,0.6); position: relative; z-index: 2; }
+  .pro-card .price-row { position: relative; z-index: 2; }
+  .pro-card .price-big {
+    background: linear-gradient(135deg, #fff 20%, var(--rose));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .pro-card .price-unit { color: rgba(255,255,255,0.5); }
+  .pro-card .price-sub { color: rgba(255,255,255,0.4); position: relative; z-index: 2; }
+  .pro-card .card-divider { background: rgba(255,255,255,0.1); position: relative; z-index: 2; }
+  .pro-card .features { position: relative; z-index: 2; }
+  .pro-card .features li { color: rgba(255,255,255,0.75); }
+  .pro-card .features .ic {
+    background: rgba(254,54,170,0.15); color: var(--rose);
+  }
+  .pro-card .features li .feature-text .feature-label { color: var(--white); }
+  .pro-card .features li .feature-text .feature-detail { color: rgba(255,255,255,0.4); }
+  .pro-card .card-cta {
+    background: var(--white); color: var(--text-primary);
+    position: relative; z-index: 10;
+  }
+  .pro-card .card-cta:hover { background: #f0f0f0; transform: scale(1.015); }
+
+  /* ─── BILLING TOGGLE ─── */
+  .billing-toggle {
+    display: flex; background: rgba(255,255,255,0.08); border-radius: 980px;
+    padding: 3px; margin-bottom: 28px; width: fit-content;
+    position: relative; z-index: 2;
+  }
+  .pro-card .billing-toggle { background: rgba(255,255,255,0.08); }
+  .billing-btn {
+    padding: 8px 20px; border-radius: 980px;
+    border: none; background: none;
+    font-family: var(--font); font-size: 0.82rem; font-weight: 500;
+    color: var(--text-tertiary); cursor: pointer; transition: all 0.25s;
+  }
+  .billing-btn.active {
+    background: var(--white); color: var(--text-primary); font-weight: 600;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .pro-card .billing-btn { color: rgba(255,255,255,0.4); }
+  .pro-card .billing-btn.active {
+    background: rgba(255,255,255,0.15); color: var(--white);
+    box-shadow: none;
+  }
+  .save-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--rose), #e0208e);
+    color: white; font-size: 0.65rem; font-weight: 700;
+    padding: 2px 7px; border-radius: 980px;
+    margin-left: 5px; vertical-align: middle;
+  }
+
+  /* ─── DEAL CARD (dark Apple) ─── */
+  .deal-card {
+    background: var(--text-primary); border-radius: var(--radius);
+    padding: 40px 36px 36px; color: var(--white);
+    flex: 1; max-width: 480px; position: relative; overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+    isolation: isolate;
+  }
+  .deal-card:hover { transform: translateY(-4px); box-shadow: 0 12px 60px rgba(0,0,0,0.28); }
+  .deal-glow {
+    position: absolute; top: -80px; right: -80px;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, rgba(253,127,8,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .deal-glow-2 {
+    position: absolute; bottom: -60px; left: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(254,54,170,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .deal-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    color: rgba(255,255,255,0.9);
+    font-size: 0.72rem; font-weight: 600;
+    padding: 6px 14px; border-radius: 980px;
+    margin-bottom: 20px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    position: relative; z-index: 2;
+  }
+  .deal-title {
+    font-size: 1.4rem; font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 16px; position: relative; z-index: 2; line-height: 1.4;
+  }
+  .deal-percent {
+    font-size: 5rem; font-weight: 700;
+    letter-spacing: -0.05em; line-height: 1;
+    position: relative; z-index: 2;
+    background: linear-gradient(135deg, #fff 20%, var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .deal-highlight {
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--white); margin-bottom: 6px;
+    position: relative; z-index: 2;
+  }
+  .deal-first-mission {
+    display: inline-flex; align-items: center;
+    background: rgba(253,127,8,0.16);
+    color: var(--white);
+    border: 1px solid rgba(253,127,8,0.34);
+    font-size: 0.84rem; font-weight: 700;
+    padding: 7px 12px; border-radius: 980px;
+    margin-bottom: 14px;
+    position: relative; z-index: 2;
+  }
+  .deal-subtext {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.5);
+    position: relative; z-index: 2;
+    line-height: 1.5; margin-bottom: 32px;
+  }
+  .deal-cta {
+    display: block; width: 100%; padding: 15px 20px;
+    border-radius: 14px; font-family: var(--font);
+    font-size: 0.95rem; font-weight: 600; cursor: pointer;
+    text-align: center; text-decoration: none; border: none;
+    background: var(--white); color: var(--text-primary);
+    transition: all 0.25s; position: relative; z-index: 10;
+    pointer-events: auto !important;
+  }
+  .deal-cta:hover { background: #f0f0f0; transform: scale(1.015); }
+
+  /* ─── SINGLE CENTER ─── */
+  .single-center { display: flex; justify-content: center; }
+  .single-center .price-card { max-width: 520px; }
+
+  /* ─── HOW IT WORKS ─── */
+  .how-section {
+    max-width: 800px; margin: 0 auto;
+    padding: 20px 24px 60px; text-align: center;
+  }
+  .how-section h2 {
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 700; letter-spacing: -0.03em;
+    margin-bottom: 40px;
+  }
+  .how-steps { display: flex; gap: 16px; position: relative; }
+  .how-steps::before {
+    content: ''; position: absolute;
+    top: 24px; left: 60px; right: 60px;
+    height: 2px; background: var(--border); z-index: 0;
+  }
+  .how-step {
+    flex: 1; text-align: center; position: relative; z-index: 1;
+  }
+  .how-step-num {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--rose); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; font-weight: 700;
+    margin: 0 auto 12px;
+    box-shadow: 0 4px 16px rgba(254,54,170,0.25);
+  }
+  .how-step-title {
+    font-size: 0.88rem; font-weight: 600;
+    color: var(--text-primary); margin-bottom: 4px;
+  }
+  .how-step-desc {
+    font-size: 0.78rem; color: var(--text-tertiary);
+    line-height: 1.45; max-width: 160px; margin: 0 auto;
+  }
+
+  /* ─── FAQ ─── */
+  .faq-section { max-width: 680px; margin: 0 auto; padding: 60px 24px 120px; }
+  .faq-header { text-align: center; margin-bottom: 40px; }
+  .faq-header h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; cursor: pointer; }
+  .faq-q { display: flex; align-items: center; justify-content: space-between; font-weight: 600; font-size: 1rem; }
+  .faq-q .arrow {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--bg); display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; color: var(--text-tertiary);
+    transition: transform 0.3s, background 0.3s;
+    flex-shrink: 0; margin-left: 12px;
+  }
+  .faq-item.open .arrow { transform: rotate(180deg); background: var(--rose-light); color: var(--rose); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+  .faq-item.open .faq-a { max-height: 200px; padding-top: 14px; }
+  .faq-a p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+  /* ─── FOOTER CTA ─── */
+  .footer-cta { text-align: center; padding: 80px 24px; background: var(--white); }
+  .footer-cta h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 12px; }
+  .footer-cta p { color: var(--text-secondary); margin-bottom: 28px; }
+  .footer-cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--text-primary); color: var(--white);
+    padding: 16px 36px; border-radius: 980px;
+    font-family: var(--font); font-size: 1rem; font-weight: 600;
+    text-decoration: none; transition: all 0.25s;
+    position: relative; z-index: 10;
+    pointer-events: auto !important;
+  }
+  .footer-cta-btn:hover { background: #333; transform: scale(1.03); }
+
+  /* ─── QUALIOPI BANNER ─── */
+  .qualiopi-banner {
+    max-width: 800px; margin: 0 auto;
+    padding: 0 24px 40px; text-align: center;
+  }
+  .qualiopi-box {
+    background: var(--white); border-radius: var(--radius);
+    padding: 32px 36px;
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+  }
+  .qualiopi-box h3 {
+    font-size: 1.05rem; font-weight: 700;
+    color: var(--text-primary); margin-bottom: 6px;
+  }
+  .qualiopi-box p {
+    font-size: 0.88rem; color: var(--text-secondary);
+    line-height: 1.55; max-width: 520px; margin: 0 auto;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 860px) {
+    .card-row { flex-direction: column; align-items: center; }
+    .price-card, .deal-card, .pro-card { max-width: 100%; width: 100%; }
+    .nav-links { display: none; }
+    .how-steps { flex-direction: column; gap: 24px; }
+    .how-steps::before { display: none; }
+  }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2.4rem; }
+    .price-card, .deal-card, .pro-card { padding: 32px 24px 28px; }
+    .deal-percent { font-size: 3.8rem; }
+    .tabs { flex-direction: column; border-radius: 20px; }
+    .tab-btn { text-align: center; }
+  }
+</style>
+
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Tarifs adaptés<br>à votre profil.</h1>
+  <p>Vous êtes une entreprise, un formateur ou un coach ? Sélectionnez votre profil et découvrez votre tarification.</p>
+  <div class="tabs-wrap">
+    <div class="tabs" id="tabsContainer">
+      <div class="tab-slider" id="tabSlider"></div>
+      <button class="tab-btn active" data-tab="entreprise">Entreprise</button>
+      <button class="tab-btn" data-tab="formateur">Formateur</button>
+      <button class="tab-btn" data-tab="coach">Coach / Conférencier</button>
+    </div>
+  </div>
+</section>
+
+<div class="panels">
+
+  <!-- ══ ENTREPRISE ══ -->
+  <div class="panel active" id="panel-entreprise">
+    <div class="card-row">
+
+      <!-- FREE CARD -->
+      <div class="price-card">
+        <div class="free-pill">✦ Gratuit — sans limite de durée</div>
+        <div class="card-title">Découverte</div>
+        <div class="card-desc">Inscrivez-vous gratuitement et testez Whotrain à votre rythme avec votre premier formateur.</div>
+
+        <div class="price-row">
+          <span class="price-big rose">0€</span>
+        </div>
+        <div class="price-sub">pour toujours</div>
+
+        <div class="card-divider"></div>
+
+        <ul class="features">
+          <li><span class="ic rose">✓</span> <span class="feature-text"><span class="feature-label">Accès complet au catalogue</span><span class="feature-detail">Parcourez tous les profils formateurs</span></span></li>
+          <li><span class="ic rose">✓</span> <span class="feature-text"><span class="feature-label">1 formateur inclus</span><span class="feature-detail">Travaillez sans limite avec votre premier formateur</span></span></li>
+          <li><span class="ic rose">✓</span> Gestion admin complète : convention, convocation, émargement, attestation</li>
+          <li><span class="ic rose">✓</span> Évaluations via l'Evolution Center</li>
+          <li><span class="ic rose">✓</span> Cadre Qualiopi via MC Consulting</li>
+          <li class="feature-locked"><span class="ic locked">🔒</span> Accès aux autres formateurs → Plan Pro</li>
+        </ul>
+
+        <a href="https://app.whotrain.com/register" target="_blank" rel="noopener" class="card-cta cta-outline">S'inscrire gratuitement</a>
+      </div>
+
+      <!-- PRO CARD (dark) -->
+      <div class="pro-card">
+        <div class="pro-glow"></div>
+        <div class="pro-glow-2"></div>
+        <div class="pro-badge">✦ Recommandé</div>
+        <div class="card-title">Pro</div>
+        <div class="card-desc">Accédez à tout le catalogue et multipliez vos formateurs sans limite.</div>
+
+        <div class="billing-toggle">
+          <button class="billing-btn active" data-billing="monthly">Mensuel</button>
+          <button class="billing-btn" data-billing="annual">Annuel <span class="save-badge">−17%</span></button>
+        </div>
+
+        <div class="price-row">
+          <span class="price-big" id="priceEntreprise">59€</span>
+          <span class="price-unit">HT / mois</span>
+        </div>
+        <div class="price-sub" id="priceDetail">Sans engagement</div>
+
+        <div class="card-divider"></div>
+
+        <ul class="features">
+          <li><span class="ic">✓</span> <strong>Tout le plan Gratuit</strong></li>
+          <li><span class="ic">✓</span> <span class="feature-text"><span class="feature-label">Formateurs illimités</span><span class="feature-detail">Contactez et travaillez avec tous les intervenants</span></span></li>
+          <li><span class="ic">✓</span> Tableau de bord avancé avec évaluations consolidées</li>
+          <li><span class="ic">✓</span> Support prioritaire</li>
+        </ul>
+
+        <a href="https://app.whotrain.com/register" target="_blank" rel="noopener" class="card-cta">Commencer avec Pro</a>
+      </div>
+
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" style="margin-top:48px;">
+      <h2>Comment ça fonctionne</h2>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <div class="how-step-title">Inscrivez-vous</div>
+          <div class="how-step-desc">Créez votre compte gratuitement en 2 minutes</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <div class="how-step-title">Trouvez votre formateur</div>
+          <div class="how-step-desc">Parcourez le catalogue et choisissez votre premier formateur</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <div class="how-step-title">Formez vos équipes</div>
+          <div class="how-step-desc">Whotrain gère toute l'administration pour vous</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">4</div>
+          <div class="how-step-title">Grandissez</div>
+          <div class="how-step-desc">Besoin d'autres formateurs ? Passez au plan Pro</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ══ FORMATEUR ══ -->
+  <div class="panel" id="panel-formateur">
+    <div class="card-row">
+      <div class="price-card">
+        <div class="card-eyebrow orange">Commission</div>
+        <div class="card-title">Formateurs</div>
+        <div class="card-desc">Rejoignez la plateforme, consultez les annonces et décrochez des missions. Aucun abonnement — vous ne payez qu'à la mission.</div>
+
+        <div class="commission-big orange">20%</div>
+        <div class="commission-sub">de commission par mission réalisée</div>
+
+        <div class="card-divider"></div>
+
+        <ul class="features">
+          <li><span class="ic orange">✓</span> Consultation de toutes les annonces</li>
+          <li><span class="ic orange">✓</span> Envoi de propositions</li>
+          <li><span class="ic orange">✓</span> Génération des documents : CF, FP, AIF, Évaluations…</li>
+          <li><span class="ic orange">✓</span> Catalogue de prestations en ligne</li>
+        </ul>
+
+        <a href="https://app.whotrain.com/register" target="_blank" rel="noopener" class="card-cta cta-orange">Rejoindre Whotrain</a>
+      </div>
+
+      <!-- DEAL CARD -->
+      <div class="deal-card">
+        <div class="deal-glow"></div>
+        <div class="deal-glow-2"></div>
+        <div class="deal-badge">✦ Offre spéciale</div>
+        <div class="deal-title">Invitez votre entreprise<br>cliente sur Whotrain</div>
+        <div class="deal-percent">10%</div>
+        <div class="deal-highlight">au lieu de 20% de commission</div>
+        <div class="deal-first-mission">0% pour la première mission avec votre client</div>
+        <div class="deal-subtext">Sans limite de durée pour l'entreprise.<br>Un avantage gagnant-gagnant pour vous et votre client.</div>
+        <a href="https://app.whotrain.com/register" target="_blank" rel="noopener" class="deal-cta">Inviter un client →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COACH ══ -->
+  <div class="panel" id="panel-coach">
+    <div class="single-center">
+      <div class="price-card" style="max-width:520px;">
+        <div class="card-eyebrow orange">Commission</div>
+        <div class="card-title">Coach &#x26; Conférencier</div>
+        <div class="card-desc">Un tarif unique et transparent. Pas d'abonnement, pas de frais cachés — une seule commission claire.</div>
+
+        <div class="commission-big orange">10%</div>
+        <div class="commission-sub">de commission — tarif unique</div>
+
+        <div class="card-divider"></div>
+
+        <ul class="features">
+          <li><span class="ic orange">✓</span> Consultation de toutes les annonces</li>
+          <li><span class="ic orange">✓</span> Envoi de propositions</li>
+          <li><span class="ic orange">✓</span> Génération des documents : CF, FP, AIF, Évaluations…</li>
+          <li><span class="ic orange">✓</span> Catalogue de prestations en ligne</li>
+        </ul>
+
+        <a href="https://app.whotrain.com/register" target="_blank" rel="noopener" class="card-cta cta-outline">Commencer</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- QUALIOPI BANNER -->
+<section class="qualiopi-banner">
+  <div class="qualiopi-box">
+    <h3>✦ Cadre Qualiopi certifié</h3>
+    <p>Les conventions de formation sont signées avec MC Consulting, organisme certifié Qualiopi. Vos formations sont éligibles aux financements OPCO, sans démarche supplémentaire.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-header"><h2>Questions fréquentes</h2></div>
+
+  <div class="faq-item">
+    <div class="faq-q">Comment fonctionne le plan Gratuit pour les entreprises ?<span class="arrow">▼</span></div>
+    <div class="faq-a"><p>Vous vous inscrivez gratuitement et pouvez parcourir tout le catalogue de formateurs. Dès votre première transaction, le formateur choisi devient votre formateur attitré : vous pouvez travailler avec lui sans limite de durée ni de missions, gratuitement.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Comment est déterminé mon formateur gratuit ?<span class="arrow">▼</span></div>
+    <div class="faq-a"><p>C'est le premier formateur avec lequel vous réalisez une transaction sur Whotrain. Ce choix est définitif sur le plan Gratuit.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Puis-je changer de formateur gratuit ?<span class="arrow">▼</span></div>
+    <div class="faq-a"><p>Non, le formateur attitré est définitif. Si vous souhaitez travailler avec d'autres formateurs du catalogue, il vous suffit de passer au plan Pro à partir de 49 €/mois (annuel) ou 59 €/mois sans engagement.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Un formateur m'a invité sur Whotrain. Que se passe-t-il ?<span class="arrow">▼</span></div>
+    <div class="faq-a"><p>Votre inscription est gratuite et vous pouvez travailler avec le formateur qui vous a invité sans aucune limite. Si vous souhaitez accéder à d'autres formateurs, le plan Pro est disponible à tout moment.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Comment fonctionne la commission pour les formateurs ?<span class="arrow">▼</span></div>
+    <div class="faq-a"><p>La commission est de 20% sur chaque mission réalisée via Whotrain. Si vous invitez votre propre client sur la plateforme, la première mission est à 0% de commission, puis cette commission passe à 10%, sans limite de durée.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Les formations sont-elles éligibles aux financements OPCO ?<span class="arrow">▼</span></div>
+    <div class="faq-a"><p>Oui. Les conventions de formation sont signées avec MC Consulting, organisme certifié Qualiopi. Vos formations sont donc éligibles à la prise en charge par votre OPCO.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Quels documents administratifs sont générés ?<span class="arrow">▼</span></div>
+    <div class="faq-a"><p>Convention de formation, convocations, feuilles de présence électroniques, attestations individuelles de formation, ainsi que l'ensemble des questionnaires d'évaluation via l'Evolution Center.</p></div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta">
+  <h2>Prêt à simplifier vos formations ?</h2>
+  <p>Rejoignez les professionnels qui font confiance à Whotrain.</p>
+  <a href="https://app.whotrain.com/register" target="_blank" rel="noopener" class="footer-cta-btn">Commencer gratuitement →</a>
+</section>
+
+<script>
+(function () {
+  function qs(sel, root=document){ return root.querySelector(sel); }
+  function qsa(sel, root=document){ return Array.from(root.querySelectorAll(sel)); }
+
+  function switchTab(tab) {
+    qsa('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+    qsa('.panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + tab));
+    moveSlider();
+  }
+
+  function moveSlider() {
+    const active = qs('.tab-btn.active');
+    const slider = qs('#tabSlider');
+    const container = qs('#tabsContainer');
+    if (!active || !slider || !container) return;
+
+    const isColumn = getComputedStyle(container).flexDirection === 'column';
+    slider.style.width = active.offsetWidth + 'px';
+    slider.style.left  = active.offsetLeft + 'px';
+
+    if (isColumn) {
+      slider.style.top = active.offsetTop + 'px';
+      slider.style.height = active.offsetHeight + 'px';
+    } else {
+      slider.style.top = '';
+      slider.style.height = '';
+    }
+  }
+
+  function switchBilling(plan) {
+    qsa('.billing-btn').forEach(b => b.classList.toggle('active', b.dataset.billing === plan));
+    const priceEl = qs('#priceEntreprise');
+    const detailEl = qs('#priceDetail');
+    if (!priceEl || !detailEl) return;
+
+    if (plan === 'annual') {
+      priceEl.textContent = '49€';
+      detailEl.textContent = "Facturé 588 € / an — soit 17% d'économie";
+    } else {
+      priceEl.textContent = '59€';
+      detailEl.textContent = 'Sans engagement';
+    }
+  }
+
+  function setupFaq() {
+    qsa('.faq-item').forEach(item => {
+      item.addEventListener('click', () => item.classList.toggle('open'));
+    });
+  }
+
+  function setupTabs() {
+    qsa('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    });
+  }
+
+  function setupBilling() {
+    qsa('.billing-btn').forEach(btn => {
+      btn.addEventListener('click', () => switchBilling(btn.dataset.billing));
+    });
+  }
+
+  function openExternalWhotrain(url) {
+    try {
+      const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+      if (newWindow) return true;
+    } catch (e) {}
+
+    try {
+      if (window.top && window.top !== window) {
+        window.top.location.href = url;
+        return true;
+      }
+    } catch (e) {}
+
+    return false;
+  }
+
+  function setupWhotrainLinks() {
+    qsa('a[href^="https://app.whotrain.com"]').forEach(link => {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    });
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const link = target.closest('a[href^="https://app.whotrain.com"]');
+      if (!link) return;
+      if (event.defaultPrevented) return;
+      if (event.button !== 0) return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const opened = openExternalWhotrain(link.href);
+      if (!opened) {
+        console.warn('Navigation bloquée par l\'iframe/sandbox Hostinger:', link.href);
+      }
+    }, true);
+  }
+
+  function init() {
+    setupTabs();
+    setupBilling();
+    setupFaq();
+    setupWhotrainLinks();
+    moveSlider();
+    window.addEventListener('resize', moveSlider);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>

@@ -1,0 +1,1155 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide financement OPCO 2026 — Whotrain</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&#x26;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --pink: #E91E8C;
+    --orange: #F47C20;
+    --coral: #F0563A;
+    --dark: #1A1A2E;
+    --gray: #555566;
+    --light-pink: #FDE8F4;
+    --light-orange: #FEF3E8;
+    --border: #F0B8D8;
+    --white: #ffffff;
+    --text: #1A1A2E;
+    --text-muted: #6B6B80;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--pink) 0%, var(--coral) 50%, var(--orange) 100%);
+    padding: 64px 24px 56px;
+    text-align: center;
+    color: white;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: clamp(15px, 2.5vw, 18px);
+    opacity: 0.88;
+    max-width: 620px;
+    margin: 0 auto 32px;
+  }
+  .hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .hero-badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── INTRO CARDS ── */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 40px 0;
+  }
+  @media (max-width: 600px) { .intro-grid { grid-template-columns: 1fr; } }
+
+  .intro-card {
+    padding: 22px 24px;
+    border-radius: 12px;
+    border-left: 4px solid;
+  }
+  .intro-card.pink { background: var(--light-pink); border-color: var(--pink); }
+  .intro-card.orange { background: var(--light-orange); border-color: var(--orange); }
+  .intro-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .intro-card.pink h3 { color: var(--pink); }
+  .intro-card.orange h3 { color: var(--orange); }
+  .intro-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+  .intro-card strong { color: var(--dark); }
+
+  /* ── NAV TABLE ── */
+  .nav-section {
+    margin: 40px 0;
+  }
+  .nav-section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+  .nav-section h2 span { color: var(--pink); }
+
+  .opco-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .opco-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 500;
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  }
+  .opco-nav-item:hover {
+    border-color: var(--pink);
+    background: var(--light-pink);
+    transform: translateY(-2px);
+  }
+  .opco-nav-item .nav-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 48px 0;
+  }
+
+  /* ── OPCO CARD ── */
+  .opco-section { margin-bottom: 64px; scroll-margin-top: 24px; }
+
+  .opco-header {
+    background: linear-gradient(135deg, var(--pink) 0%, var(--coral) 60%, var(--orange) 100%);
+    border-radius: 14px 14px 0 0;
+    padding: 28px 32px 24px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .opco-header-left h2 {
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .opco-header-left .secteurs {
+    font-size: 13px;
+    opacity: 0.88;
+    line-height: 1.5;
+    max-width: 480px;
+  }
+  .opco-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  .opco-site-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .opco-site-btn:hover { background: rgba(255,255,255,0.32); }
+  .opco-site-btn svg { width: 13px; height: 13px; fill: white; }
+  .delai-badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .opco-body {
+    border: 1.5px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    overflow: hidden;
+  }
+
+  /* Info row */
+  .info-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-label {
+    padding: 12px 16px;
+    background: var(--light-pink);
+    color: var(--pink);
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+  }
+  .info-value {
+    padding: 12px 16px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+  }
+  .info-value a { color: var(--pink); font-weight: 500; }
+
+  /* Two col section */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--border);
+  }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+
+  .two-col-block { padding: 20px 22px; }
+  .two-col-block:first-child { border-right: 1px solid var(--border); }
+  @media (max-width: 600px) { .two-col-block:first-child { border-right: none; border-bottom: 1px solid var(--border); } }
+  .two-col-block h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .two-col-block.pink h4 { color: var(--pink); }
+  .two-col-block.orange h4 { color: var(--orange); }
+  .two-col-block p { font-size: 13.5px; color: var(--gray); line-height: 1.6; }
+
+  /* Branches */
+  .branches-block {
+    padding: 18px 22px;
+    background: var(--light-pink);
+    border-top: 1px solid var(--border);
+  }
+  .branches-block h4 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--pink);
+    margin-bottom: 8px;
+  }
+  .branches-block p { font-size: 13.5px; color: var(--dark); line-height: 1.6; }
+
+  /* Steps */
+  .steps-block {
+    padding: 20px 22px;
+    border-top: 1px solid var(--border);
+  }
+  .steps-block h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--dark);
+    margin-bottom: 14px;
+  }
+  .steps-list { display: flex; flex-direction: column; gap: 8px; }
+  .step-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-item p { font-size: 13.5px; color: var(--gray); line-height: 1.55; }
+
+  /* Bottom 2 col: docs + astuce */
+  .bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--border);
+  }
+  @media (max-width: 640px) { .bottom-row { grid-template-columns: 1fr; } }
+
+  .docs-block {
+    padding: 20px 22px;
+    border-right: 1px solid var(--border);
+    background: var(--light-pink);
+  }
+  @media (max-width: 640px) { .docs-block { border-right: none; border-bottom: 1px solid var(--border); } }
+  .docs-block h4 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--pink);
+    margin-bottom: 12px;
+  }
+  .docs-list { display: flex; flex-direction: column; gap: 6px; }
+  .doc-item {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: var(--dark);
+    line-height: 1.5;
+  }
+  .doc-check {
+    color: var(--pink);
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .astuce-block {
+    padding: 20px 22px;
+    background: var(--light-orange);
+    border-left: 4px solid var(--orange);
+  }
+  .astuce-block h4 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--orange);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .astuce-block p { font-size: 13.5px; color: var(--gray); line-height: 1.6; }
+  .astuce-whotrain {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--pink);
+    font-weight: 600;
+  }
+
+  /* ── BACK TO TOP ── */
+  .back-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--pink);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 48px;
+    padding: 8px 0;
+  }
+  .back-top:hover { opacity: 0.75; }
+
+  /* ── FOOTER BANNER ── */
+  .footer-banner {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 48px 24px;
+    margin-top: 48px;
+  }
+  .footer-banner h2 {
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .footer-banner p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 24px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .docs-grid-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .doc-pill {
+    background: rgba(233,30,140,0.2);
+    border: 1px solid rgba(233,30,140,0.4);
+    color: #F9AACC;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 48px 0 24px;
+  }
+  .section-title span { color: var(--pink); }
+</style>
+
+
+
+<!-- HERO -->
+<div id="top" class="hero">
+  <div class="hero-tag">Guide 2026</div>
+  <h1>Faire financer vos formations par votre OPCO</h1>
+  <p>Procédures, documents et astuces pour les 11 opérateurs de compétences. Toutes les formations passant par Whotrain sont éligibles grâce à la certification Qualiopi de MC Consulting.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">11 OPCO détaillés</span>
+    <span class="hero-badge">Documents générés automatiquement</span>
+    <span class="hero-badge">Certifié Qualiopi</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="intro-grid">
+    <div class="intro-card pink">
+      <h3>Comment utiliser ce guide ?</h3>
+      <p>Identifiez l'OPCO de votre client grâce au tableau ci-dessous, puis cliquez pour accéder à sa fiche complète : branches couvertes, priorités 2026, procédure et documents requis.</p>
+    </div>
+    <div class="intro-card orange">
+      <h3>Rappel Qualiopi</h3>
+      <p>Depuis 2022, la certification Qualiopi est <strong>obligatoire</strong> pour tout financement OPCO. Les formations via Whotrain sont portées par <strong>MC Consulting, certifié Qualiopi</strong> — toutes vos missions sont éligibles.</p>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-section" id="nav-opco">
+    <h2>Les 11 OPCO en un coup d'œil — <span>cliquez pour accéder à la fiche</span></h2>
+    <div class="opco-nav-grid">
+      <a href="#atlas" class="opco-nav-item"><span class="nav-num">1</span>Atlas</a>
+      <a href="#afdas" class="opco-nav-item"><span class="nav-num">2</span>AFDAS</a>
+      <a href="#akto" class="opco-nav-item"><span class="nav-num">3</span>AKTO</a>
+      <a href="#constructys" class="opco-nav-item"><span class="nav-num">4</span>Constructys</a>
+      <a href="#ocapiat" class="opco-nav-item"><span class="nav-num">5</span>OCAPIAT</a>
+      <a href="#opco2i" class="opco-nav-item"><span class="nav-num">6</span>OPCO 2i</a>
+      <a href="#opcommerce" class="opco-nav-item"><span class="nav-num">7</span>OPCOmmerce</a>
+      <a href="#opcoep" class="opco-nav-item"><span class="nav-num">8</span>OPCO EP</a>
+      <a href="#opcomobilites" class="opco-nav-item"><span class="nav-num">9</span>OPCO Mobilités</a>
+      <a href="#opcosante" class="opco-nav-item"><span class="nav-num">10</span>OPCO Santé</a>
+      <a href="#uniformation" class="opco-nav-item"><span class="nav-num">11</span>Uniformation</a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="section-title">Les fiches <span>OPCO</span></p>
+
+  <!-- ════════════ ATLAS ════════════ -->
+  <div class="opco-section" id="atlas">
+    <div class="opco-header">
+      <div class="opco-header-left">
+        <h2>1. Atlas</h2>
+        <div class="secteurs">Assurance · Banque · Finance · Conseil · Expertise comptable · Numérique · Ingénierie</div>
+      </div>
+      <div class="opco-header-right">
+        <a href="https://www.opco-atlas.fr" target="_blank" rel="noopener" class="opco-site-btn">
+          <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"></path><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"></path></svg>
+          opco-atlas.fr
+        </a>
+        <span class="delai-badge">Délai : 3 à 4 semaines</span>
+      </div>
+    </div>
+    <div class="opco-body">
+      <div class="info-row"><span class="info-label">Portail dépôt</span><span class="info-value">MyAtlas — <a href="https://www.opco-atlas.fr" target="_blank">opco-atlas.fr</a> › Mon compte</span></div>
+      <div class="info-row"><span class="info-label">Contact</span><span class="info-value">01 43 46 01 10 · 148 boulevard Haussmann, 75008 Paris</span></div>
+      <div class="branches-block">
+        <h4>Branches couvertes</h4>
+        <p>Banques et établissements financiers, assurances et mutuelles, cabinets de conseil, bureaux d'études techniques (Syntec), expertise comptable, commissariat aux comptes, activités du numérique et de l'ingénierie.</p>
+      </div>
+      <div class="two-col">
+        <div class="two-col-block pink">
+          <h4>Priorités 2026</h4>
+          <p>Intelligence artificielle, cloud computing, cybersécurité, management hybride — barèmes majorés sur ces 4 thématiques.</p>
+        </div>
+        <div class="two-col-block orange">
+          <h4>Plafonds &#x26; barèmes</h4>
+          <p>25 à 50 €/h pour le plan de développement des compétences. Jusqu'à 2 500 € de cofinancement CPF pour formations certifiantes. TPE/PME &#x3C; 50 salariés : taux majorés.</p>
+        </div>
+      </div>
+      <div class="steps-block">
+        <h4>Procédure de dépôt</h4>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><p>Créer un compte entreprise sur opco-atlas.fr avec le SIRET et les coordonnées du représentant légal.</p></div>
+          <div class="step-item"><span class="step-num">2</span><p>Vérifier l'éligibilité de la formation aux priorités de la branche (rubrique Entreprises › critères par branche / code IDCC).</p></div>
+          <div class="step-item"><span class="step-num">3</span><p>Déposer la demande <strong>avant</strong> le début de la formation via MyAtlas (devis + programme + convention).</p></div>
+          <div class="step-item"><span class="step-num">4</span><p>Attendre la validation (3-4 semaines) — l'OPCO confirme la prise en charge par écrit.</p></div>
+          <div class="step-item"><span class="step-num">5</span><p>Après la formation : transmettre l'attestation de présence et la facture pour déclencher le règlement.</p></div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="docs-block">
+          <h4>Documents à fournir</h4>
+          <div class="docs-list">
+            <div class="doc-item"><span class="doc-check">✓</span><span>Convention de formation signée</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Programme détaillé (objectifs, contenu, durée)</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Devis de MC Consulting / Whotrain</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Feuilles d'émargement</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Attestation de fin de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Facture (intitulé, heures, tarif, participants)</span></div>
+          </div>
+        </div>
+        <div class="astuce-block">
+          <h4>💡 Astuce Whotrain</h4>
+          <p>Atlas finance en priorité les formations certifiantes (RNCP, Répertoire Spécifique). Mentionner les enjeux numériques dans le programme maximise les chances. Pour les entreprises &#x3C; 50 salariés, le conseiller régional peut débloquer des enveloppes TPE/PME souvent sous-utilisées.</p>
+          <p class="astuce-whotrain">Tous les documents sont générés automatiquement par Whotrain.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#nav-opco" class="back-top">↑ Retour au sommaire</a>
+  </div>
+
+  <!-- ════════════ AFDAS ════════════ -->
+  <div class="opco-section" id="afdas">
+    <div class="opco-header">
+      <div class="opco-header-left">
+        <h2>2. AFDAS</h2>
+        <div class="secteurs">Culture · Industries créatives · Médias · Communication · Sport · Tourisme · Loisirs</div>
+      </div>
+      <div class="opco-header-right">
+        <a href="https://www.afdas.com" target="_blank" rel="noopener" class="opco-site-btn">
+          <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"></path><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"></path></svg>
+          afdas.com
+        </a>
+        <span class="delai-badge">Délai : 2 à 4 semaines</span>
+      </div>
+    </div>
+    <div class="opco-body">
+      <div class="info-row"><span class="info-label">Portail dépôt</span><span class="info-value">Espace en ligne — <a href="https://www.afdas.com" target="_blank">afdas.com</a> › compte entreprise</span></div>
+      <div class="info-row"><span class="info-label">Contact</span><span class="info-value">01 44 78 39 39 · 66 rue Stendhal CS 32016, 75990 Paris Cedex 20</span></div>
+      <div class="branches-block">
+        <h4>Branches couvertes</h4>
+        <p>Cinéma, audiovisuel, presse, édition, publicité, spectacle vivant, intermittents du spectacle, artistes-auteurs, sport professionnel, tourisme, radio, télécommunications.</p>
+      </div>
+      <div class="two-col">
+        <div class="two-col-block pink">
+          <h4>Priorités 2026</h4>
+          <p>Compétences numériques pour les métiers créatifs, transitions écologiques dans la culture, management des équipes créatives, droit et propriété intellectuelle.</p>
+        </div>
+        <div class="two-col-block orange">
+          <h4>Plafonds &#x26; barèmes</h4>
+          <p>Variables selon les branches. Enveloppe spécifique pour les intermittents du spectacle. Certains dispositifs prévoient 100 % de prise en charge pour les TPE.</p>
+        </div>
+      </div>
+      <div class="steps-block">
+        <h4>Procédure de dépôt</h4>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><p>Identifier la branche professionnelle exacte (production audiovisuelle, presse, sport professionnel…).</p></div>
+          <div class="step-item"><span class="step-num">2</span><p>Créer un compte entreprise sur afdas.com.</p></div>
+          <div class="step-item"><span class="step-num">3</span><p>Vérifier les critères et barèmes spécifiques à la branche.</p></div>
+          <div class="step-item"><span class="step-num">4</span><p>Déposer la demande <strong>avant</strong> le début de la formation avec tous les justificatifs.</p></div>
+          <div class="step-item"><span class="step-num">5</span><p>Après la formation : envoyer attestations de présence et facture.</p></div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="docs-block">
+          <h4>Documents à fournir</h4>
+          <div class="docs-list">
+            <div class="doc-item"><span class="doc-check">✓</span><span>Convention de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Programme détaillé</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Devis</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Feuilles d'émargement</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Attestation de fin de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Facture</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Pour les intermittents : contrats de travail et bulletins de paie récents</span></div>
+          </div>
+        </div>
+        <div class="astuce-block">
+          <h4>💡 Astuce Whotrain</h4>
+          <p>L'AFDAS est particulièrement attentif aux formations ancrées dans les spécificités du secteur (droit de l'image, techniques audiovisuelles, management créatif). Éviter les intitulés trop génériques — adapter le programme aux enjeux culturels augmente significativement les chances d'acceptation.</p>
+          <p class="astuce-whotrain">Tous les documents sont générés automatiquement par Whotrain.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#nav-opco" class="back-top">↑ Retour au sommaire</a>
+  </div>
+
+  <!-- ════════════ AKTO ════════════ -->
+  <div class="opco-section" id="akto">
+    <div class="opco-header">
+      <div class="opco-header-left">
+        <h2>3. AKTO</h2>
+        <div class="secteurs">Restauration · Hôtellerie · Propreté · Sécurité · Travail temporaire · Commerce de gros</div>
+      </div>
+      <div class="opco-header-right">
+        <a href="https://www.akto.fr" target="_blank" rel="noopener" class="opco-site-btn">
+          <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"></path><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"></path></svg>
+          akto.fr
+        </a>
+        <span class="delai-badge">Délai : 2 à 3 semaines</span>
+      </div>
+    </div>
+    <div class="opco-body">
+      <div class="info-row"><span class="info-label">Portail dépôt</span><span class="info-value">Mon espace entreprise — <a href="https://www.akto.fr" target="_blank">akto.fr</a></span></div>
+      <div class="info-row"><span class="info-label">Contact</span><span class="info-value">14 rue Riquet, 75019 Paris</span></div>
+      <div class="branches-block">
+        <h4>Branches couvertes</h4>
+        <p>Restauration rapide, chaînes de restaurants, hôtellerie, propreté et nettoyage, sécurité privée, travail temporaire, commerce de gros, portage salarial, enseignement privé hors contrat.</p>
+      </div>
+      <div class="two-col">
+        <div class="two-col-block pink"><h4>Priorités 2026</h4><p>Compétences managériales pour encadrants, hygiène et sécurité alimentaire, montée en compétences des équipes opérationnelles, outils numériques de gestion.</p></div>
+        <div class="two-col-block orange"><h4>Plafonds &#x26; barèmes</h4><p>Barèmes horaires selon les branches. Priorité aux formations courtes et opérationnelles. TPE &#x3C; 11 salariés : accompagnement renforcé.</p></div>
+      </div>
+      <div class="steps-block">
+        <h4>Procédure de dépôt</h4>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><p>Vérifier l'appartenance au champ AKTO via la convention collective (CHR, propreté, sécurité…).</p></div>
+          <div class="step-item"><span class="step-num">2</span><p>Se connecter à l'espace entreprise sur akto.fr.</p></div>
+          <div class="step-item"><span class="step-num">3</span><p>Consulter les priorités de formation de la branche concernée.</p></div>
+          <div class="step-item"><span class="step-num">4</span><p>Déposer la demande <strong>avant</strong> la formation (programme + devis + convention).</p></div>
+          <div class="step-item"><span class="step-num">5</span><p>Après la formation : transmettre attestations de présence et facture.</p></div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="docs-block">
+          <h4>Documents à fournir</h4>
+          <div class="docs-list">
+            <div class="doc-item"><span class="doc-check">✓</span><span>Convention de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Programme adapté au secteur opérationnel</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Devis</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Feuilles d'émargement</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Attestation de fin de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Facture</span></div>
+          </div>
+        </div>
+        <div class="astuce-block">
+          <h4>💡 Astuce Whotrain</h4>
+          <p>AKTO accompagne de très nombreuses TPE avec peu de ressources RH internes. Les formations terrain (management de proximité, sécurité, techniques métier) sont plus facilement finançables que les formations généralistes. Le conseiller AKTO local aide à calibrer l'intitulé du programme.</p>
+          <p class="astuce-whotrain">Tous les documents sont générés automatiquement par Whotrain.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#nav-opco" class="back-top">↑ Retour au sommaire</a>
+  </div>
+
+  <!-- ════════════ CONSTRUCTYS ════════════ -->
+  <div class="opco-section" id="constructys">
+    <div class="opco-header">
+      <div class="opco-header-left">
+        <h2>4. Constructys</h2>
+        <div class="secteurs">Bâtiment · Travaux publics · Négoce de matériaux · Architecture</div>
+      </div>
+      <div class="opco-header-right">
+        <a href="https://www.constructys.fr" target="_blank" rel="noopener" class="opco-site-btn">
+          <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"></path><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"></path></svg>
+          constructys.fr
+        </a>
+        <span class="delai-badge">Délai : 2 à 4 semaines</span>
+      </div>
+    </div>
+    <div class="opco-body">
+      <div class="info-row"><span class="info-label">Portail dépôt</span><span class="info-value">Espace entreprise — <a href="https://www.constructys.fr" target="_blank">constructys.fr</a></span></div>
+      <div class="info-row"><span class="info-label">Contact</span><span class="info-value">32 rue René-Boulanger, 75010 Paris</span></div>
+      <div class="branches-block"><h4>Branches couvertes</h4><p>Gros œuvre, second œuvre, travaux publics, génie civil, promotion immobilière, architecture, négoce de matériaux de construction, négoce de bois, carrières et matériaux.</p></div>
+      <div class="two-col">
+        <div class="two-col-block pink"><h4>Priorités 2026</h4><p>Transition énergétique (rénovation thermique, matériaux biosourcés), sécurité sur chantiers, BIM et outils numériques, management en chantier, éco-construction.</p></div>
+        <div class="two-col-block orange"><h4>Plafonds &#x26; barèmes</h4><p>Barèmes selon conventions de branche. Enveloppes spécifiques pour la formation en situation de travail (AFEST). Forte mobilisation pour la rénovation énergétique.</p></div>
+      </div>
+      <div class="steps-block">
+        <h4>Procédure de dépôt</h4>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><p>Identifier la convention collective BTP applicable (ouvriers, ETAM, cadres BTP…).</p></div>
+          <div class="step-item"><span class="step-num">2</span><p>Créer un compte sur constructys.fr.</p></div>
+          <div class="step-item"><span class="step-num">3</span><p>Vérifier les barèmes et priorités (sécurité et transition énergétique en tête).</p></div>
+          <div class="step-item"><span class="step-num">4</span><p>Déposer la demande <strong>avant</strong> la formation (programme + devis + convention).</p></div>
+          <div class="step-item"><span class="step-num">5</span><p>Après la formation : transmettre attestations et facture.</p></div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="docs-block">
+          <h4>Documents à fournir</h4>
+          <div class="docs-list">
+            <div class="doc-item"><span class="doc-check">✓</span><span>Convention de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Programme (avec mention des objectifs sécurité / techniques)</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Devis</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Feuilles d'émargement</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Attestation de fin de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Facture</span></div>
+          </div>
+        </div>
+        <div class="astuce-block">
+          <h4>💡 Astuce Whotrain</h4>
+          <p>Le BTP est l'un des secteurs avec le plus de financements disponibles mais aussi un fort taux de non-recours. Les formations liées à la rénovation énergétique bénéficient d'enveloppes dédiées en 2026. Mentionner explicitement sécurité et transition énergétique dans le programme est décisif.</p>
+          <p class="astuce-whotrain">Tous les documents sont générés automatiquement par Whotrain.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#nav-opco" class="back-top">↑ Retour au sommaire</a>
+  </div>
+
+  <!-- ════════════ OCAPIAT ════════════ -->
+  <div class="opco-section" id="ocapiat">
+    <div class="opco-header">
+      <div class="opco-header-left">
+        <h2>5. OCAPIAT</h2>
+        <div class="secteurs">Agriculture · Pêche · Industrie agroalimentaire · Coopération agricole · Territoires</div>
+      </div>
+      <div class="opco-header-right">
+        <a href="https://www.ocapiat.fr" target="_blank" rel="noopener" class="opco-site-btn">
+          <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"></path><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"></path></svg>
+          ocapiat.fr
+        </a>
+        <span class="delai-badge">Délai : 3 à 5 semaines</span>
+      </div>
+    </div>
+    <div class="opco-body">
+      <div class="info-row"><span class="info-label">Portail dépôt</span><span class="info-value">Espace en ligne — <a href="https://www.ocapiat.fr" target="_blank">ocapiat.fr</a></span></div>
+      <div class="info-row"><span class="info-label">Contact</span><span class="info-value">128 rue de la Boétie, Lotissement 41, 75008 Paris</span></div>
+      <div class="branches-block"><h4>Branches couvertes</h4><p>Exploitations agricoles (grandes cultures, élevage, viticulture, maraîchage…), pêche maritime, aquaculture, industries alimentaires, coopératives agricoles, paysagistes, forêt.</p></div>
+      <div class="two-col">
+        <div class="two-col-block pink"><h4>Priorités 2026</h4><p>Agroécologie, agriculture numérique (agritech), gestion des risques climatiques, management agricole, sécurité en exploitation, transformation agroalimentaire.</p></div>
+        <div class="two-col-block orange"><h4>Plafonds &#x26; barèmes</h4><p>Barèmes variables selon les filières. Enveloppes spécifiques pour les chefs d'exploitation. Priorité aux formations certifiantes pour les TPE agricoles.</p></div>
+      </div>
+      <div class="steps-block">
+        <h4>Procédure de dépôt</h4>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><p>Identifier la branche OCAPIAT (production agricole, industries alimentaires, coopératives…).</p></div>
+          <div class="step-item"><span class="step-num">2</span><p>Créer un espace sur ocapiat.fr.</p></div>
+          <div class="step-item"><span class="step-num">3</span><p>Consulter les priorités de formation par filière.</p></div>
+          <div class="step-item"><span class="step-num">4</span><p>Déposer la demande <strong>avant</strong> la formation avec les pièces requises.</p></div>
+          <div class="step-item"><span class="step-num">5</span><p>Envoyer les justificatifs après la formation.</p></div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="docs-block">
+          <h4>Documents à fournir</h4>
+          <div class="docs-list">
+            <div class="doc-item"><span class="doc-check">✓</span><span>Convention de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Programme adapté au monde agricole</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Devis</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Feuilles d'émargement</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Attestation de fin de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Facture</span></div>
+          </div>
+        </div>
+        <div class="astuce-block">
+          <h4>💡 Astuce Whotrain</h4>
+          <p>OCAPIAT couvre un secteur où le recours aux OPCO reste sous-développé. Les formations en gestion, management d'exploitation ou transition agroécologique sont bien financées. Le conseiller régional OCAPIAT est un interlocuteur précieux pour les entreprises peu habituées aux démarches.</p>
+          <p class="astuce-whotrain">Tous les documents sont générés automatiquement par Whotrain.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#nav-opco" class="back-top">↑ Retour au sommaire</a>
+  </div>
+
+  <!-- ════════════ OPCO 2i ════════════ -->
+  <div class="opco-section" id="opco2i">
+    <div class="opco-header">
+      <div class="opco-header-left">
+        <h2>6. OPCO 2i</h2>
+        <div class="secteurs">Industrie : chimie · pharmacie · métallurgie · papier-carton · ameublement · caoutchouc</div>
+      </div>
+      <div class="opco-header-right">
+        <a href="https://www.opco2i.fr" target="_blank" rel="noopener" class="opco-site-btn">
+          <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"></path><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"></path></svg>
+          opco2i.fr
+        </a>
+        <span class="delai-badge">Délai : 3 à 4 semaines</span>
+      </div>
+    </div>
+    <div class="opco-body">
+      <div class="info-row"><span class="info-label">Portail dépôt</span><span class="info-value">Espace entreprise — <a href="https://www.opco2i.fr" target="_blank">opco2i.fr</a></span></div>
+      <div class="info-row"><span class="info-label">Contact</span><span class="info-value">55 rue de Châteaudun, 75009 Paris</span></div>
+      <div class="branches-block"><h4>Branches couvertes</h4><p>Chimie, industrie pharmaceutique, métallurgie, papier-carton, ameublement et bois, caoutchouc, plasturgie et industries diverses (32 branches, 11 sections paritaires).</p></div>
+      <div class="two-col">
+        <div class="two-col-block pink"><h4>Priorités 2026</h4><p>Industrie du futur, transition numérique industrielle (cobotique, automatisation), transition écologique, soudage et usinage de précision, management industriel.</p></div>
+        <div class="two-col-block orange"><h4>Plafonds &#x26; barèmes</h4><p>Barèmes horaires par branche. Soutien fort aux Campus des métiers industriels. Enveloppes spécifiques pour l'alternance et la reconversion.</p></div>
+      </div>
+      <div class="steps-block">
+        <h4>Procédure de dépôt</h4>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><p>Identifier la Section Paritaire Professionnelle (SPP) de la branche industrielle.</p></div>
+          <div class="step-item"><span class="step-num">2</span><p>Créer un compte sur opco2i.fr.</p></div>
+          <div class="step-item"><span class="step-num">3</span><p>Vérifier les priorités et barèmes de la SPP concernée.</p></div>
+          <div class="step-item"><span class="step-num">4</span><p>Déposer la demande <strong>avant</strong> la formation.</p></div>
+          <div class="step-item"><span class="step-num">5</span><p>Après la formation : transmettre les justificatifs de réalisation.</p></div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="docs-block">
+          <h4>Documents à fournir</h4>
+          <div class="docs-list">
+            <div class="doc-item"><span class="doc-check">✓</span><span>Convention de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Programme (compétences techniques ciblées)</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Devis</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Feuilles d'émargement</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Attestation de fin de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Facture</span></div>
+          </div>
+        </div>
+        <div class="astuce-block">
+          <h4>💡 Astuce Whotrain</h4>
+          <p>OPCO 2i valorise les formations s'inscrivant dans une montée en compétences techniques durables (CQPM, certifications métier…). Relier la formation aux enjeux de l'industrie du futur ou de la transition énergétique dans la description du programme maximise la prise en charge.</p>
+          <p class="astuce-whotrain">Tous les documents sont générés automatiquement par Whotrain.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#nav-opco" class="back-top">↑ Retour au sommaire</a>
+  </div>
+
+  <!-- ════════════ OPCOMMERCE ════════════ -->
+  <div class="opco-section" id="opcommerce">
+    <div class="opco-header">
+      <div class="opco-header-left">
+        <h2>7. OPCOmmerce</h2>
+        <div class="secteurs">Commerce alimentaire · Non-alimentaire · Habillement · Bricolage · Vente à distance</div>
+      </div>
+      <div class="opco-header-right">
+        <a href="https://www.opcommerce.fr" target="_blank" rel="noopener" class="opco-site-btn">
+          <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"></path><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"></path></svg>
+          opcommerce.fr
+        </a>
+        <span class="delai-badge">Délai : 2 à 4 semaines</span>
+      </div>
+    </div>
+    <div class="opco-body">
+      <div class="info-row"><span class="info-label">Portail dépôt</span><span class="info-value">Espace entreprise — <a href="https://www.opcommerce.fr" target="_blank">opcommerce.fr</a></span></div>
+      <div class="info-row"><span class="info-label">Périmètre</span><span class="info-value">90 000 entreprises — 19 branches professionnelles</span></div>
+      <div class="branches-block"><h4>Branches couvertes</h4><p>Commerce alimentaire de détail, grandes surfaces, habillement, chaussure, bricolage, électroménager, jouets, vente à distance, commerce de gros alimentaire et non-alimentaire.</p></div>
+      <div class="two-col">
+        <div class="two-col-block pink"><h4>Priorités 2026</h4><p>Digitalisation du commerce (omnicanalité, e-commerce), relation client et expérience d'achat, management des équipes en surface de vente, développement durable et RSE.</p></div>
+        <div class="two-col-block orange"><h4>Plafonds &#x26; barèmes</h4><p>Barèmes selon branches et taille d'entreprise. Priorité aux formations opérationnelles pour vendeurs et managers de proximité.</p></div>
+      </div>
+      <div class="steps-block">
+        <h4>Procédure de dépôt</h4>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><p>Identifier la convention collective commerce applicable.</p></div>
+          <div class="step-item"><span class="step-num">2</span><p>Se connecter à l'espace entreprise sur opcommerce.fr.</p></div>
+          <div class="step-item"><span class="step-num">3</span><p>Vérifier les formations prioritaires pour la branche.</p></div>
+          <div class="step-item"><span class="step-num">4</span><p>Déposer la demande de prise en charge <strong>avant</strong> la formation.</p></div>
+          <div class="step-item"><span class="step-num">5</span><p>Envoyer les justificatifs après réalisation.</p></div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="docs-block">
+          <h4>Documents à fournir</h4>
+          <div class="docs-list">
+            <div class="doc-item"><span class="doc-check">✓</span><span>Convention de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Programme de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Devis</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Feuilles d'émargement</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Attestation de fin de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Facture</span></div>
+          </div>
+        </div>
+        <div class="astuce-block">
+          <h4>💡 Astuce Whotrain</h4>
+          <p>OPCOmmerce finance bien les formations en management de point de vente et en digitalisation. Les formations orientées « expérience client » et « vente omnicanale » sont dans les priorités 2026. Pour les enseignes multi-sites, regrouper les participants peut augmenter les montants de prise en charge.</p>
+          <p class="astuce-whotrain">Tous les documents sont générés automatiquement par Whotrain.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#nav-opco" class="back-top">↑ Retour au sommaire</a>
+  </div>
+
+  <!-- ════════════ OPCO EP ════════════ -->
+  <div class="opco-section" id="opcoep">
+    <div class="opco-header">
+      <div class="opco-header-left">
+        <h2>8. OPCO EP</h2>
+        <div class="secteurs">Artisanat · Professions libérales de santé · Coiffure · Immobilier · Taxis · Librairies</div>
+      </div>
+      <div class="opco-header-right">
+        <a href="https://www.opcoep.fr" target="_blank" rel="noopener" class="opco-site-btn">
+          <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"></path><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"></path></svg>
+          opcoep.fr
+        </a>
+        <span class="delai-badge">Délai : 2 à 3 semaines</span>
+      </div>
+    </div>
+    <div class="opco-body">
+      <div class="info-row"><span class="info-label">Portail dépôt</span><span class="info-value">Mon espace — <a href="https://www.opcoep.fr" target="_blank">opcoep.fr</a></span></div>
+      <div class="info-row"><span class="info-label">Contact</span><span class="info-value">53 rue Ampère, 75017 Paris</span></div>
+      <div class="branches-block"><h4>Branches couvertes</h4><p>Coiffure, esthétique, boulangeries, pâtisseries, boucheries, fleuristes, pharmacies, laboratoires, cabinets dentaires, agences immobilières, taxis, librairies, confiseries, auto-écoles — 54 branches.</p></div>
+      <div class="two-col">
+        <div class="two-col-block pink"><h4>Priorités 2026</h4><p>Numérique pour les TPE (outils de gestion, réseaux sociaux, e-commerce), développement commercial, management de proximité, transitions écologiques dans l'artisanat.</p></div>
+        <div class="two-col-block orange"><h4>Plafonds &#x26; barèmes</h4><p>54 % des entreprises adhérentes ont moins de 11 salariés — accompagnement renforcé TPE. Barèmes adaptés aux très petites structures artisanales.</p></div>
+      </div>
+      <div class="steps-block">
+        <h4>Procédure de dépôt</h4>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><p>Vérifier l'appartenance à l'une des 54 branches via la convention collective.</p></div>
+          <div class="step-item"><span class="step-num">2</span><p>Créer un compte sur opcoep.fr.</p></div>
+          <div class="step-item"><span class="step-num">3</span><p>Identifier les thématiques prioritaires pour la branche artisanale concernée.</p></div>
+          <div class="step-item"><span class="step-num">4</span><p>Déposer la demande <strong>avant</strong> le début de la formation.</p></div>
+          <div class="step-item"><span class="step-num">5</span><p>Transmettre les justificatifs après la formation.</p></div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="docs-block">
+          <h4>Documents à fournir</h4>
+          <div class="docs-list">
+            <div class="doc-item"><span class="doc-check">✓</span><span>Convention de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Programme de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Devis</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Feuilles d'émargement</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Attestation de fin de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Facture</span></div>
+          </div>
+        </div>
+        <div class="astuce-block">
+          <h4>💡 Astuce Whotrain</h4>
+          <p>OPCO EP est l'OPCO des artisans souvent peu familiarisés avec les financements formation. Beaucoup ne savent pas qu'ils ont des droits — c'est un fort argument commercial pour Whotrain. Gestion, communication digitale et management : bien pris en charge.</p>
+          <p class="astuce-whotrain">Tous les documents sont générés automatiquement par Whotrain.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#nav-opco" class="back-top">↑ Retour au sommaire</a>
+  </div>
+
+  <!-- ════════════ OPCO MOBILITES ════════════ -->
+  <div class="opco-section" id="opcomobilites">
+    <div class="opco-header">
+      <div class="opco-header-left">
+        <h2>9. OPCO Mobilités</h2>
+        <div class="secteurs">Transport routier · Ferroviaire · Aérien · Maritime · Logistique · Services auto</div>
+      </div>
+      <div class="opco-header-right">
+        <a href="https://www.opcomobilites.fr" target="_blank" rel="noopener" class="opco-site-btn">
+          <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"></path><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"></path></svg>
+          opcomobilites.fr
+        </a>
+        <span class="delai-badge">Délai : 2 à 4 semaines</span>
+      </div>
+    </div>
+    <div class="opco-body">
+      <div class="info-row"><span class="info-label">Portail dépôt</span><span class="info-value">Espace entreprise — <a href="https://www.opcomobilites.fr" target="_blank">opcomobilites.fr</a></span></div>
+      <div class="info-row"><span class="info-label">Contact</span><span class="info-value">01 53 91 34 34 · 204 Rond-Point du Pont de Sèvres, 92100 Boulogne-Billancourt</span></div>
+      <div class="branches-block"><h4>Branches couvertes</h4><p>Transport routier de marchandises et de voyageurs, ferroviaire, maritime, aérien, fluvial, logistique, agences de voyage, services de l'automobile (garages, concessions, contrôle technique), location de véhicules.</p></div>
+      <div class="two-col">
+        <div class="two-col-block pink"><h4>Priorités 2026</h4><p>Transition vers l'électrique et nouvelles motorisations, conduite économique, sécurité routière, prévention des risques, digitalisation de la logistique, management transport.</p></div>
+        <div class="two-col-block orange"><h4>Plafonds &#x26; barèmes</h4><p>1 030 M€ de budget géré (2023). Enveloppes spécifiques pour les formations liées à la transition écologique (véhicules électriques, hydrogène). Barèmes par convention de branche.</p></div>
+      </div>
+      <div class="steps-block">
+        <h4>Procédure de dépôt</h4>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><p>Identifier la convention collective transport ou automobile applicable.</p></div>
+          <div class="step-item"><span class="step-num">2</span><p>Créer un compte sur opcomobilites.fr.</p></div>
+          <div class="step-item"><span class="step-num">3</span><p>Vérifier les priorités de formation (électrique, sécurité en tête en 2026).</p></div>
+          <div class="step-item"><span class="step-num">4</span><p>Déposer la demande <strong>avant</strong> la formation.</p></div>
+          <div class="step-item"><span class="step-num">5</span><p>Transmettre les justificatifs de réalisation.</p></div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="docs-block">
+          <h4>Documents à fournir</h4>
+          <div class="docs-list">
+            <div class="doc-item"><span class="doc-check">✓</span><span>Convention de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Programme de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Devis</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Feuilles d'émargement</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Attestation de fin de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Facture</span></div>
+          </div>
+        </div>
+        <div class="astuce-block">
+          <h4>💡 Astuce Whotrain</h4>
+          <p>OPCO Mobilités gère l'un des plus importants budgets (1,03 Md€). Les formations liées aux véhicules électriques et à la sécurité bénéficient de financements prioritaires en 2026. Même pour des formations en soft skills, relier le contenu aux enjeux du secteur accélère la validation.</p>
+          <p class="astuce-whotrain">Tous les documents sont générés automatiquement par Whotrain.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#nav-opco" class="back-top">↑ Retour au sommaire</a>
+  </div>
+
+  <!-- ════════════ OPCO SANTE ════════════ -->
+  <div class="opco-section" id="opcosante">
+    <div class="opco-header">
+      <div class="opco-header-left">
+        <h2>10. OPCO Santé</h2>
+        <div class="secteurs">Santé privée · Médico-social · Établissements de soins</div>
+      </div>
+      <div class="opco-header-right">
+        <a href="https://www.opco-sante.fr" target="_blank" rel="noopener" class="opco-site-btn">
+          <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"></path><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"></path></svg>
+          opco-sante.fr
+        </a>
+        <span class="delai-badge">Délai : 3 à 5 semaines</span>
+      </div>
+    </div>
+    <div class="opco-body">
+      <div class="info-row"><span class="info-label">Portail dépôt</span><span class="info-value">Espace entreprise — <a href="https://www.opco-sante.fr" target="_blank">opco-sante.fr</a></span></div>
+      <div class="info-row"><span class="info-label">Contact</span><span class="info-value">31 rue Anatole-France, 92309 Levallois-Perret</span></div>
+      <div class="branches-block"><h4>Branches couvertes</h4><p>Cliniques privées, établissements de soins de suite et réadaptation, hospitalisation à domicile, cabinets paramédicaux, EHPAD privés, structures médico-sociales privées.</p></div>
+      <div class="two-col">
+        <div class="two-col-block pink"><h4>Priorités 2026</h4><p>E-santé et outils numériques de coordination des soins, management des équipes soignantes, gestion des risques et qualité, prévention des RPS, droit des patients.</p></div>
+        <div class="two-col-block orange"><h4>Plafonds &#x26; barèmes</h4><p>1 million de salariés, 27 000 établissements. Priorité aux formations en lien avec la qualité des soins et la prévention des risques professionnels.</p></div>
+      </div>
+      <div class="steps-block">
+        <h4>Procédure de dépôt</h4>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><p>Vérifier l'appartenance au secteur santé privé (le public relève d'autres dispositifs).</p></div>
+          <div class="step-item"><span class="step-num">2</span><p>Créer un compte sur opco-sante.fr.</p></div>
+          <div class="step-item"><span class="step-num">3</span><p>Identifier les priorités de formation pour le type d'établissement.</p></div>
+          <div class="step-item"><span class="step-num">4</span><p>Déposer la demande <strong>avant</strong> la formation.</p></div>
+          <div class="step-item"><span class="step-num">5</span><p>Transmettre les justificatifs après réalisation.</p></div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="docs-block">
+          <h4>Documents à fournir</h4>
+          <div class="docs-list">
+            <div class="doc-item"><span class="doc-check">✓</span><span>Convention de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Programme (mentionner le public : soignant ou non)</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Devis</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Feuilles d'émargement</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Attestation de fin de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Facture</span></div>
+          </div>
+        </div>
+        <div class="astuce-block">
+          <h4>💡 Astuce Whotrain</h4>
+          <p>Dans le secteur santé, la rigueur documentaire est primordiale. Mettre en avant la certification Qualiopi de MC Consulting est un argument décisif auprès des EHPAD et cliniques habitués aux audits. Management des équipes soignantes et prévention des RPS : particulièrement bien financés.</p>
+          <p class="astuce-whotrain">Tous les documents sont générés automatiquement par Whotrain.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#nav-opco" class="back-top">↑ Retour au sommaire</a>
+  </div>
+
+  <!-- ════════════ UNIFORMATION ════════════ -->
+  <div class="opco-section" id="uniformation">
+    <div class="opco-header">
+      <div class="opco-header-left">
+        <h2>11. Uniformation</h2>
+        <div class="secteurs">Cohésion sociale · Économie sociale · Logement social · Associations · Sport · Insertion</div>
+      </div>
+      <div class="opco-header-right">
+        <a href="https://www.uniformation.fr" target="_blank" rel="noopener" class="opco-site-btn">
+          <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"></path><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"></path></svg>
+          uniformation.fr
+        </a>
+        <span class="delai-badge">Délai : 3 à 5 semaines</span>
+      </div>
+    </div>
+    <div class="opco-body">
+      <div class="info-row"><span class="info-label">Portail dépôt</span><span class="info-value">Espace entreprise — <a href="https://www.uniformation.fr" target="_blank">uniformation.fr</a></span></div>
+      <div class="info-row"><span class="info-label">Contact</span><span class="info-value">43 boulevard Diderot, 75012 Paris</span></div>
+      <div class="branches-block"><h4>Branches couvertes</h4><p>Centres socio-culturels, associations d'aide à domicile, insertion par l'activité économique, fondations, mutuelles, associations sportives, organismes HLM, France Travail.</p></div>
+      <div class="two-col">
+        <div class="two-col-block pink"><h4>Priorités 2026</h4><p>Inclusion numérique, management associatif, financement et gouvernance des associations, développement des compétences, insertion et lutte contre les discriminations.</p></div>
+        <div class="two-col-block orange"><h4>Plafonds &#x26; barèmes</h4><p>Barèmes adaptés aux structures associatives. Dispositifs spécifiques pour l'ESS. Enveloppes pour la formation des travailleurs sociaux.</p></div>
+      </div>
+      <div class="steps-block">
+        <h4>Procédure de dépôt</h4>
+        <div class="steps-list">
+          <div class="step-item"><span class="step-num">1</span><p>Vérifier l'appartenance à la cohésion sociale ou à l'ESS (CC 66, 51, animation…).</p></div>
+          <div class="step-item"><span class="step-num">2</span><p>Créer un compte sur uniformation.fr.</p></div>
+          <div class="step-item"><span class="step-num">3</span><p>Consulter les dispositifs spécifiques au secteur associatif.</p></div>
+          <div class="step-item"><span class="step-num">4</span><p>Déposer la demande <strong>avant</strong> la formation.</p></div>
+          <div class="step-item"><span class="step-num">5</span><p>Envoyer les justificatifs après réalisation.</p></div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="docs-block">
+          <h4>Documents à fournir</h4>
+          <div class="docs-list">
+            <div class="doc-item"><span class="doc-check">✓</span><span>Convention de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Programme de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Devis</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Feuilles d'émargement</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Attestation de fin de formation</span></div>
+            <div class="doc-item"><span class="doc-check">✓</span><span>Facture</span></div>
+          </div>
+        </div>
+        <div class="astuce-block">
+          <h4>💡 Astuce Whotrain</h4>
+          <p>Le secteur associatif est souvent démuni face aux démarches de financement formation. Proposer un accompagnement clé en main dans le montage des dossiers Uniformation est un argument commercial puissant. Management associatif, communication et collecte de fonds : bien pris en charge.</p>
+          <p class="astuce-whotrain">Tous les documents sont générés automatiquement par Whotrain.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#nav-opco" class="back-top">↑ Retour au sommaire</a>
+  </div>
+
+</div><!-- /container -->
+
+<!-- FOOTER BANNER -->
+<div class="footer-banner">
+  <h2>Documents générés automatiquement par Whotrain</h2>
+  <p>Concentrez-vous sur la formation. On s'occupe du reste.</p>
+  <div class="docs-grid-footer">
+    <span class="doc-pill">Convention de formation</span>
+    <span class="doc-pill">Feuilles d'émargement</span>
+    <span class="doc-pill">Programme de formation</span>
+    <span class="doc-pill">Attestation de fin de formation</span>
+    <span class="doc-pill">Convocation stagiaires</span>
+    <span class="doc-pill">Évaluations &#x26; bilans pédagogiques</span>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>

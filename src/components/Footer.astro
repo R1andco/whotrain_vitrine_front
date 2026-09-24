@@ -1,0 +1,38 @@
+---
+import site from '../config/site.json';
+const year = new Date().getFullYear();
+---
+
+<footer class="wt-footer">
+  <div class="wt-footer-inner">
+    <div class="wt-footer-grid">
+      <div>
+        <h2>Whotrain</h2>
+        <p>{site.description}</p>
+        <div class="wt-social">
+          {site.social.map((item) => <a href={item.href} rel="noopener noreferrer">{item.label}</a>)}
+        </div>
+      </div>
+      <div>
+        <h2>Site</h2>
+        <ul>
+          {site.footerNav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </div>
+      <div>
+        <h2>Informations</h2>
+        <ul>
+          {site.legalNav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
+    <div class="wt-logos">
+      <img src={site.logos.qualiopi} alt="Certification Qualiopi, actions de formation" />
+      <a href={site.logos.edtechHref}><img src={site.logos.edtech} alt="EdTech France" /></a>
+      <a href={site.partner.url}><img src={site.partner.logo} alt={site.partner.name} /></a>
+      <img src={site.logos.franceTravail} alt="France Travail Poitou-Charentes" />
+    </div>
+    <p class="wt-qualiopi">La certification qualité a été délivrée au titre de la catégorie d'action suivante : {site.partner.qualiopi}. Organisme de formation partenaire : {site.partner.name}.</p>
+    <p class="wt-copy">© {site.name} {year}</p>
+  </div>
+</footer>

@@ -1,0 +1,22 @@
+---
+import Base from './Base.astro';
+import { loadEmbed } from '../lib/embed';
+
+interface Props {
+  file: string;
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+
+const { file, title, description, noindex = false } = Astro.props;
+const embed = loadEmbed(file);
+---
+
+<Base title={title} description={description} noindex={noindex}>
+  <Fragment slot="head" set:html={`${embed.links}\n${embed.styles}`} />
+  <Fragment set:html={embed.body} />
+  <Fragment slot="scripts">
+    {embed.scripts.map((code) => <script is:inline set:html={code} />)}
+  </Fragment>
+</Base>

@@ -1,0 +1,15 @@
+---
+description: Règles de maintien du site vitrine Whotrain par un agent
+alwaysApply: true
+---
+
+# Vitrine Whotrain
+
+Lis `AGENTS.md` avant de modifier ce projet.
+
+- Article : `src/content/blog/<slug>.md`, calqué sur `templates/article.md`. Ne change pas le composant des cartes du blog.
+- Vidéo : `src/content/videos/<slug>.md`, avec `youtubeId` seul.
+- CGU, CGV et pages légales : `src/content/legal/`, et mets à jour `updated`.
+- Bannière : `src/config/banner.json`.
+- Ne réécris pas `embeds/` sans demande explicite.
+- Après un changement de contenu, lance `npm run build`.

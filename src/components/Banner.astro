@@ -1,0 +1,13 @@
+---
+import banner from '../config/banner.json';
+
+const today = new Date().toISOString().slice(0, 10);
+const withinDate = !banner.until || banner.until >= today;
+const visible = banner.enabled && banner.text.trim().length > 0 && withinDate;
+---
+
+{visible && (
+  <div class="wt-banner">
+    {banner.href ? <a href={banner.href}>{banner.text}</a> : banner.text}
+  </div>
+)}

@@ -1,0 +1,865 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
+
+  #whotrain-portage {
+    --white: #ffffff;
+    --bg: #f5f5f7;
+    --text: #1d1d1f;
+    --text-2: #6e6e73;
+    --text-3: #86868b;
+    --rose: #FE36AA;
+    --rose-mid: rgba(254,54,170,0.12);
+    --orange: #FD7F08;
+    --orange-soft: rgba(253,127,8,0.06);
+    --orange-mid: rgba(253,127,8,0.12);
+    --green: #34c759;
+    --purple: #5856d6;
+    --purple-mid: rgba(88,86,214,0.12);
+    --divider: rgba(0,0,0,0.06);
+    --font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--white);
+    color: var(--text);
+    font-family: var(--font);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #whotrain-portage,
+  #whotrain-portage * {
+    box-sizing: border-box;
+  }
+
+  #whotrain-portage h1,
+  #whotrain-portage h2,
+  #whotrain-portage h3,
+  #whotrain-portage h4,
+  #whotrain-portage p {
+    margin: 0;
+  }
+
+  #whotrain-portage a {
+    color: inherit;
+  }
+
+  #whotrain-portage .wt-section {
+    background: var(--white);
+    padding: 80px 24px;
+    position: relative;
+  }
+
+  #whotrain-portage .wt-section + .wt-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100% - 48px, 1000px);
+    height: 1px;
+    background: var(--divider);
+  }
+
+  #whotrain-portage .wt-section-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  #whotrain-portage .wt-section-header {
+    margin-bottom: 56px;
+    text-align: center;
+  }
+
+  #whotrain-portage .wt-section-header h2 {
+    margin-bottom: 12px;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+  }
+
+  #whotrain-portage .wt-section-header p {
+    max-width: 580px;
+    margin: 0 auto;
+    color: var(--text-2);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  #whotrain-portage .wt-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 32px;
+    border: 0;
+    border-radius: 980px;
+    background: var(--orange);
+    color: var(--white);
+    cursor: pointer;
+    font-family: var(--font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: filter 0.25s, transform 0.25s;
+    white-space: nowrap;
+  }
+
+  #whotrain-portage .wt-btn:hover {
+    filter: brightness(0.92);
+    transform: scale(1.03);
+  }
+
+  #whotrain-portage .wt-hero {
+    padding: 40px 24px 80px;
+    background: var(--bg);
+    text-align: center;
+  }
+
+  #whotrain-portage .wt-hero-inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  #whotrain-portage .wt-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 20px;
+    padding: 6px 16px;
+    border-radius: 980px;
+    background: var(--orange-soft);
+    color: var(--orange);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  #whotrain-portage .wt-hero h1 {
+    margin-bottom: 16px;
+    color: var(--text);
+    font-size: clamp(2.35rem, 5.5vw, 3.8rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1.08;
+  }
+
+  #whotrain-portage .wt-gradient {
+    background: linear-gradient(135deg, var(--orange), var(--rose));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #whotrain-portage .wt-hero-sub {
+    max-width: 650px;
+    margin: 0 auto 36px;
+    color: var(--text-2);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.55;
+  }
+
+  #whotrain-portage .wt-hero-proof {
+    margin-top: 32px;
+    color: var(--text-3);
+    font-size: 0.82rem;
+  }
+
+  #whotrain-portage .wt-card-grid-3,
+  #whotrain-portage .wt-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  #whotrain-portage .wt-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  #whotrain-portage .wt-card,
+  #whotrain-portage .wt-change-card,
+  #whotrain-portage .wt-pricing-card {
+    border: 1px solid var(--divider);
+    border-radius: 20px;
+    background: var(--white);
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+
+  #whotrain-portage .wt-card:hover,
+  #whotrain-portage .wt-change-card:hover,
+  #whotrain-portage .wt-pricing-card:hover {
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+    transform: translateY(-3px);
+  }
+
+  #whotrain-portage .wt-card {
+    padding: 32px 26px;
+  }
+
+  #whotrain-portage .wt-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+    font-size: 1.2rem;
+  }
+
+  #whotrain-portage .wt-card:nth-child(1) .wt-icon {
+    background: var(--orange-mid);
+  }
+
+  #whotrain-portage .wt-card:nth-child(2) .wt-icon {
+    background: var(--rose-mid);
+  }
+
+  #whotrain-portage .wt-card:nth-child(3) .wt-icon {
+    background: var(--purple-mid);
+  }
+
+  #whotrain-portage .wt-eyebrow {
+    margin-bottom: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  #whotrain-portage .wt-card:nth-child(1) .wt-eyebrow {
+    color: var(--orange);
+  }
+
+  #whotrain-portage .wt-card:nth-child(2) .wt-eyebrow {
+    color: var(--rose);
+  }
+
+  #whotrain-portage .wt-card:nth-child(3) .wt-eyebrow {
+    color: var(--purple);
+  }
+
+  #whotrain-portage .wt-card h4 {
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  #whotrain-portage .wt-card p {
+    color: var(--text-2);
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  #whotrain-portage .wt-value {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #whotrain-portage .wt-value h2 {
+    margin-bottom: 16px;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+  }
+
+  #whotrain-portage .wt-value em {
+    padding-right: 0.15em;
+    background: linear-gradient(135deg, var(--orange), var(--rose));
+    background-clip: text;
+    font-style: italic;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #whotrain-portage .wt-value p {
+    max-width: 590px;
+    margin: 0 auto;
+    color: var(--text-2);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  #whotrain-portage .wt-change-card {
+    padding: 32px 28px;
+    text-align: center;
+  }
+
+  #whotrain-portage .wt-change-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 16px;
+    border-radius: 16px;
+    background: var(--orange-soft);
+    font-size: 1.4rem;
+  }
+
+  #whotrain-portage .wt-change-card h3 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  #whotrain-portage .wt-change-card p {
+    color: var(--text-2);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  #whotrain-portage .wt-feature-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 26px 24px;
+    border: 1px solid var(--divider);
+    border-radius: 16px;
+    background: var(--white);
+  }
+
+  #whotrain-portage .wt-feature-icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--orange-soft);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  #whotrain-portage .wt-feature-card h4 {
+    margin-bottom: 3px;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  #whotrain-portage .wt-feature-card p {
+    color: var(--text-2);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  #whotrain-portage .wt-callout {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 36px 40px;
+    border: 1px solid rgba(253,127,8,0.12);
+    border-radius: 20px;
+    background: var(--orange-soft);
+  }
+
+  #whotrain-portage .wt-callout-eyebrow {
+    display: inline-flex;
+    margin-bottom: 14px;
+    color: var(--orange);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  #whotrain-portage .wt-callout h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  #whotrain-portage .wt-callout p {
+    color: var(--text-2);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  #whotrain-portage .wt-table-wrap {
+    overflow-x: auto;
+  }
+
+  #whotrain-portage .wt-compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.88rem;
+  }
+
+  #whotrain-portage .wt-compare-table th {
+    padding: 16px 20px;
+    border-bottom: 2px solid var(--divider);
+    color: var(--text-3);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  #whotrain-portage .wt-compare-table th:nth-child(3) {
+    border-radius: 14px 14px 0 0;
+    background: var(--orange-soft);
+    color: var(--orange);
+  }
+
+  #whotrain-portage .wt-compare-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--divider);
+    vertical-align: top;
+  }
+
+  #whotrain-portage .wt-compare-table td:first-child {
+    font-weight: 500;
+  }
+
+  #whotrain-portage .wt-compare-table td:nth-child(2) {
+    color: var(--text-2);
+  }
+
+  #whotrain-portage .wt-compare-table td:nth-child(3) {
+    background: var(--orange-soft);
+    font-weight: 500;
+  }
+
+  #whotrain-portage .wt-compare-table tr:last-child td {
+    border-bottom: 0;
+  }
+
+  #whotrain-portage .wt-compare-table tr:last-child td:nth-child(3) {
+    border-radius: 0 0 14px 14px;
+  }
+
+  #whotrain-portage .wt-check {
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  #whotrain-portage .wt-steps {
+    display: flex;
+    flex-direction: column;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  #whotrain-portage .wt-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    padding-bottom: 36px;
+  }
+
+  #whotrain-portage .wt-step:last-child {
+    padding-bottom: 0;
+  }
+
+  #whotrain-portage .wt-step-line {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    position: relative;
+    width: 44px;
+  }
+
+  #whotrain-portage .wt-step-dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  #whotrain-portage .wt-step:nth-child(1) .wt-step-dot,
+  #whotrain-portage .wt-step:nth-child(5) .wt-step-dot {
+    background: var(--orange-mid);
+    color: var(--orange);
+  }
+
+  #whotrain-portage .wt-step:nth-child(2) .wt-step-dot,
+  #whotrain-portage .wt-step:nth-child(6) .wt-step-dot {
+    background: var(--rose-mid);
+    color: var(--rose);
+  }
+
+  #whotrain-portage .wt-step:nth-child(3) .wt-step-dot {
+    background: rgba(52,199,89,0.12);
+    color: var(--green);
+  }
+
+  #whotrain-portage .wt-step:nth-child(4) .wt-step-dot {
+    background: var(--purple-mid);
+    color: var(--purple);
+  }
+
+  #whotrain-portage .wt-step-line::after {
+    content: '';
+    position: absolute;
+    top: 44px;
+    left: 50%;
+    width: 2px;
+    height: calc(100% - 44px);
+    transform: translateX(-50%);
+    background: var(--divider);
+  }
+
+  #whotrain-portage .wt-step:last-child .wt-step-line::after {
+    display: none;
+  }
+
+  #whotrain-portage .wt-step-content {
+    padding-top: 8px;
+  }
+
+  #whotrain-portage .wt-step-content h4 {
+    margin-bottom: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  #whotrain-portage .wt-step-content p {
+    color: var(--text-2);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  #whotrain-portage .wt-pricing-card {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 28px;
+    text-align: center;
+  }
+
+  #whotrain-portage .wt-pricing-profile {
+    margin-bottom: 12px;
+    color: var(--orange);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  #whotrain-portage .wt-pricing-value {
+    margin-bottom: 4px;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+  }
+
+  #whotrain-portage .wt-pricing-desc {
+    color: var(--text-3);
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  #whotrain-portage .wt-faq-list {
+    display: grid;
+    max-width: 820px;
+    margin: 0 auto;
+    gap: 12px;
+  }
+
+  #whotrain-portage .wt-faq-item {
+    padding: 22px 24px;
+    border: 1px solid var(--divider);
+    border-radius: 16px;
+    background: var(--white);
+  }
+
+  #whotrain-portage .wt-faq-item h4 {
+    margin-bottom: 8px;
+    font-size: 0.98rem;
+    font-weight: 700;
+  }
+
+  #whotrain-portage .wt-faq-item p {
+    color: var(--text-2);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 768px) {
+    #whotrain-portage .wt-section {
+      padding: 64px 20px;
+    }
+
+    #whotrain-portage .wt-hero {
+      padding: 34px 20px 70px;
+    }
+
+    #whotrain-portage .wt-card-grid-3,
+    #whotrain-portage .wt-pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    #whotrain-portage .wt-feature-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #whotrain-portage .wt-callout {
+      padding: 32px 28px;
+    }
+
+    #whotrain-portage .wt-compare-table {
+      font-size: 0.8rem;
+    }
+
+    #whotrain-portage .wt-compare-table th,
+    #whotrain-portage .wt-compare-table td {
+      padding: 10px 12px;
+    }
+
+    #whotrain-portage .wt-btn {
+      width: 100%;
+      max-width: 330px;
+      white-space: normal;
+      text-align: center;
+      line-height: 1.25;
+    }
+  }
+</style>
+
+<div id="whotrain-portage">
+  <section class="wt-hero">
+    <div class="wt-hero-inner">
+      <div class="wt-hero-eyebrow">Structures de portage · CAE · Coopératives</div>
+      <h1>Ajoutez la formation à votre offre de portage.<br><span class="wt-gradient">Sans gérer Qualiopi.</span></h1>
+      <p class="wt-hero-sub">Avec Whotrain et MC Consulting, vos formateurs peuvent proposer des formations éligibles aux financements OPCO tout en restant rattachés à votre structure.<br><br>Vous continuez à gérer le portage, l'accompagnement et la facturation. Whotrain apporte la plateforme. MC Consulting apporte le cadre Qualiopi.</p>
+      <a href="https://www.whotrain.com/portage-salarial-formateur#contactportage" target="_top" class="wt-btn">Évaluer la compatibilité de votre structure →</a>
+      <p class="wt-hero-proof">Partenariat gratuit · Cadre Qualiopi MC Consulting · Formateurs autonomes</p>
+    </div>
+  </section>
+
+  <section class="wt-section">
+    <div class="wt-section-inner">
+      <div class="wt-section-header">
+        <h2>Pourquoi les sociétés de portage rejoignent Whotrain</h2>
+        <p>Un moyen simple d'enrichir votre offre sans modifier votre cœur de métier.</p>
+      </div>
+      <div class="wt-feature-grid">
+        <div class="wt-feature-card"><div class="wt-feature-icon">+</div><div><h4>Développer leur offre</h4><p>Proposez un nouveau service à vos formateurs sans modifier votre cœur de métier.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">↗</div><div><h4>Générer davantage d'activité</h4><p>Permettez à vos portés d'accéder à davantage de missions et d'opportunités.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">Q</div><div><h4>Éviter la complexité Qualiopi</h4><p>Sans audit, sans documentation qualité à maintenir, sans certification à obtenir.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">≡</div><div><h4>Rester concentré sur votre métier</h4><p>Vous gérez le portage. Nous gérons le cadre formation.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wt-section">
+    <div class="wt-section-inner">
+      <div class="wt-section-header">
+        <h2>Pour quels acteurs ?</h2>
+        <p>Cette solution s'adresse notamment aux structures qui accompagnent des experts métiers, des consultants ou des formateurs.</p>
+      </div>
+      <div class="wt-feature-grid">
+        <div class="wt-feature-card"><div class="wt-feature-icon">PS</div><div><h4>Sociétés de portage salarial</h4><p>Pour enrichir l'offre proposée aux consultants formateurs.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">CAE</div><div><h4>Coopératives d'activité et d'emploi</h4><p>Pour accompagner des entrepreneurs salariés qui vendent de la formation.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">CO</div><div><h4>Coopératives de formateurs</h4><p>Pour mutualiser le cadre formation sans alourdir la structure.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">RC</div><div><h4>Réseaux de consultants</h4><p>Pour proposer un cadre opérationnel aux experts qui forment.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">FR</div><div><h4>Collectifs de freelances</h4><p>Pour ouvrir des opportunités de formation à des indépendants qualifiés.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">EX</div><div><h4>Structures accompagnant des experts</h4><p>Pour rendre leurs savoir-faire accessibles aux entreprises clientes.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wt-section">
+    <div class="wt-section-inner">
+      <div class="wt-section-header">
+        <h2>Un même besoin, trois enjeux</h2>
+        <p>Pour les structures qui accompagnent des formateurs, Qualiopi peut vite devenir un sujet lourd à porter seul.</p>
+      </div>
+      <div class="wt-card-grid-3">
+        <div class="wt-card">
+          <div class="wt-icon">✓</div>
+          <div class="wt-eyebrow">Conformité</div>
+          <h4>Qualiopi pèse vite lourd</h4>
+          <p>Audits, preuves, programmes, évaluations, conformité documentaire : sur des volumes modérés, la charge peut devenir disproportionnée.</p>
+        </div>
+        <div class="wt-card">
+          <div class="wt-icon">↗</div>
+          <div class="wt-eyebrow">Développement</div>
+          <h4>Vos formateurs veulent vendre plus facilement</h4>
+          <p>Le cadre Qualiopi leur permet d'adresser des entreprises qui souhaitent mobiliser leur OPCO.</p>
+        </div>
+        <div class="wt-card">
+          <div class="wt-icon">★</div>
+          <div class="wt-eyebrow">Différenciation</div>
+          <h4>Votre offre doit se différencier</h4>
+          <p>Dans un marché concurrentiel, proposer un accès à un cadre Qualiopi devient un véritable avantage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wt-section">
+    <div class="wt-section-inner">
+      <div class="wt-value">
+        <h2>Votre métier reste le portage.<br><em>Le cadre formation est orchestré.</em></h2>
+        <p>Whotrain vous permet d'enrichir votre offre sans transformer votre structure en organisme de formation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wt-section">
+    <div class="wt-section-inner">
+      <div class="wt-section-header">
+        <h2>Ce qui change avec Whotrain</h2>
+        <p>Un dispositif pensé pour vos formateurs, mais aussi pour votre gestion quotidienne.</p>
+      </div>
+      <div class="wt-card-grid-3">
+        <div class="wt-change-card">
+          <div class="wt-change-icon">+</div>
+          <h3>Un service supplémentaire pour vos portés</h3>
+          <p>Vous pouvez leur proposer un canal d'activité complémentaire et un cadre adapté aux formations financées.</p>
+        </div>
+        <div class="wt-change-card">
+          <div class="wt-change-icon">≡</div>
+          <h3>Un flux administratif lisible</h3>
+          <p>Rattachement, validation, bons de commande, facturation : chaque étape est tracée dans la plateforme.</p>
+        </div>
+        <div class="wt-change-card">
+          <div class="wt-change-icon">□</div>
+          <h3>Un risque Qualiopi non internalisé</h3>
+          <p>Les missions réalisées dans ce dispositif s'appuient sur le cadre Qualiopi de MC Consulting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wt-section">
+    <div class="wt-section-inner">
+      <div class="wt-section-header">
+        <h2>En interne vs avec Whotrain</h2>
+        <p>Une façon plus légère de proposer un cadre formation à vos professionnels.</p>
+      </div>
+      <div class="wt-table-wrap">
+        <table class="wt-compare-table">
+          <thead>
+            <tr>
+              <th style="width:40%">Sujet</th>
+              <th style="width:30%">Gestion en interne</th>
+              <th style="width:30%">Avec Whotrain</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Certification Qualiopi</td><td>À obtenir et maintenir</td><td><span class="wt-check">✓</span> Portée par MC Consulting</td></tr>
+            <tr><td>Documentation qualité</td><td>À produire et suivre</td><td><span class="wt-check">✓</span> Orchestrée dans le flux</td></tr>
+            <tr><td>Audits et surveillance</td><td>À préparer</td><td><span class="wt-check">✓</span> Non internalisés</td></tr>
+            <tr><td>Acquisition</td><td>Dépend essentiellement des formateurs</td><td><span class="wt-check">✓</span> Canal complémentaire Whotrain</td></tr>
+            <tr><td>Espace de suivi</td><td>À construire</td><td><span class="wt-check">✓</span> Inclus</td></tr>
+            <tr><td>Engagement</td><td>Coûts fixes possibles</td><td><span class="wt-check">✓</span> Aucun volume minimum</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="wt-section">
+    <div class="wt-section-inner">
+      <div class="wt-section-header">
+        <h2>Votre espace structure</h2>
+        <p>Tout ce qu'il faut pour suivre vos formateurs rattachés et garder un flux clair.</p>
+      </div>
+      <div class="wt-feature-grid">
+        <div class="wt-feature-card"><div class="wt-feature-icon">ID</div><div><h4>Formateurs rattachés</h4><p>Visualisez les profils liés à votre structure.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">OK</div><div><h4>Validation des rattachements</h4><p>Confirmez les demandes de rattachement depuis votre espace.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">M</div><div><h4>Missions à facturer</h4><p>Identifiez rapidement les missions à traiter côté facturation.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">BC</div><div><h4>Bons de commande disponibles</h4><p>Retrouvez les documents utiles pour chaque mission concrétisée.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">€</div><div><h4>Montants en attente</h4><p>Suivez les montants associés aux missions en cours.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">CSV</div><div><h4>Export mensuel</h4><p>Exportez les éléments utiles à votre suivi administratif et comptable.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">ADM</div><div><h4>Suivi administratif centralisé</h4><p>Gardez les informations clés au même endroit.</p></div></div>
+        <div class="wt-feature-card"><div class="wt-feature-icon">↺</div><div><h4>Historique des missions</h4><p>Gardez une trace claire des rattachements, missions et documents liés à votre structure.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wt-section">
+    <div class="wt-section-inner">
+      <div class="wt-callout">
+        <div class="wt-callout-eyebrow">Cadre Qualiopi</div>
+        <h3>Cadre Qualiopi porté par MC Consulting</h3>
+        <p>Pour les missions concernées, MC Consulting intervient comme organisme de formation partenaire certifié Qualiopi.<br><br>Vos formateurs peuvent ainsi proposer des formations entrant dans un cadre de financement OPCO, sous réserve des règles applicables à chaque dossier.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wt-section" id="fonctionnement">
+    <div class="wt-section-inner">
+      <div class="wt-section-header">
+        <h2>Comment ça marche</h2>
+        <p>De l'ouverture de votre espace à la facturation, le parcours reste clair pour chaque acteur.</p>
+      </div>
+      <div class="wt-steps">
+        <div class="wt-step"><div class="wt-step-line"><div class="wt-step-dot">1</div></div><div class="wt-step-content"><h4>Nous ouvrons votre espace structure</h4><p>Nous validons ensemble le cadre du partenariat et les modalités pratiques.</p></div></div>
+        <div class="wt-step"><div class="wt-step-line"><div class="wt-step-dot">2</div></div><div class="wt-step-content"><h4>Vos formateurs s'inscrivent</h4><p>Ils créent leur profil Whotrain et indiquent leur rattachement à votre structure.</p></div></div>
+        <div class="wt-step"><div class="wt-step-line"><div class="wt-step-dot">3</div></div><div class="wt-step-content"><h4>Vous validez le rattachement</h4><p>Depuis votre espace, vous confirmez que le formateur est bien porté ou accompagné par votre organisation.</p></div></div>
+        <div class="wt-step"><div class="wt-step-line"><div class="wt-step-dot">4</div></div><div class="wt-step-content"><h4>Ils répondent aux opportunités</h4><p>Ils publient leurs offres, échangent avec les entreprises et fixent leurs tarifs.</p></div></div>
+        <div class="wt-step"><div class="wt-step-line"><div class="wt-step-dot">5</div></div><div class="wt-step-content"><h4>La mission est cadrée</h4><p>Whotrain orchestre les documents. MC Consulting intervient sur le cadre Qualiopi.</p></div></div>
+        <div class="wt-step"><div class="wt-step-line"><div class="wt-step-dot">6</div></div><div class="wt-step-content"><h4>Votre structure facture</h4><p>Vous facturez selon le flux prévu puis rémunérez le formateur selon vos règles internes.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wt-section">
+    <div class="wt-section-inner">
+      <div class="wt-section-header">
+        <h2>Une tarification simple</h2>
+        <p>Vous connaissez les règles dès le départ.</p>
+      </div>
+      <div class="wt-pricing-grid">
+        <div class="wt-pricing-card">
+          <div class="wt-pricing-profile">Votre structure</div>
+          <div class="wt-pricing-value">0 €</div>
+          <div class="wt-pricing-desc">Aucun abonnement. Aucun frais d'inscription. Aucun engagement de volume.</div>
+        </div>
+        <div class="wt-pricing-card">
+          <div class="wt-pricing-profile">Mission apportée par Whotrain</div>
+          <div class="wt-pricing-value">20%</div>
+          <div class="wt-pricing-desc">Commission appliquée lorsque la mission vient de la plateforme.</div>
+        </div>
+        <div class="wt-pricing-card">
+          <div class="wt-pricing-profile">Client apporté par le formateur</div>
+          <div class="wt-pricing-value">10%</div>
+          <div class="wt-pricing-desc">Commission réduite lorsque le formateur vient avec son propre client.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wt-section">
+    <div class="wt-section-inner">
+      <div class="wt-section-header">
+        <h2>Questions fréquentes</h2>
+        <p>Les réponses aux points clés avant d'ouvrir votre espace structure.</p>
+      </div>
+      <div class="wt-faq-list">
+        <div class="wt-faq-item">
+          <h4>Devons-nous obtenir Qualiopi ?</h4>
+          <p>Non. Le dispositif s'appuie sur MC Consulting, organisme de formation certifié Qualiopi.</p>
+        </div>
+        <div class="wt-faq-item">
+          <h4>Devons-nous modifier notre fonctionnement de portage ?</h4>
+          <p>Non. Vous continuez à gérer vos formateurs selon vos règles habituelles.</p>
+        </div>
+        <div class="wt-faq-item">
+          <h4>Nos formateurs restent-ils rattachés à notre structure ?</h4>
+          <p>Oui. Whotrain ne modifie pas votre relation avec eux.</p>
+        </div>
+        <div class="wt-faq-item">
+          <h4>Y a-t-il un abonnement ou un engagement minimum ?</h4>
+          <p>Non. L'accès est gratuit pour votre structure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

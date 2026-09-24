@@ -1,0 +1,102 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import EmbedPage from '../layouts/EmbedPage.astro';
+import Youtube from '../components/Youtube.astro';
+import { loadEmbed } from '../lib/embed';
+import { formatDate, isoDate, isPublicPost, readingMinutes } from '../lib/content';
+import pages from '../config/pages.json';
+import site from '../config/site.json';
+
+type PageConfig = (typeof pages)[number];
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).filter(isPublicPost);
+  const legal = await getCollection('legal');
+  return [
+    ...pages.map((page) => ({ params: { slug: page.slug }, props: { kind: 'page' as const, page } })),
+    ...posts.map((post) => ({ params: { slug: post.id }, props: { kind: 'blog' as const, post } })),
+    ...legal.map((entry) => ({ params: { slug: entry.id }, props: { kind: 'legal' as const, entry } })),
+  ];
+}
+
+interface Props {
+  kind: 'page' | 'blog' | 'legal';
+  page?: PageConfig;
+  post?: CollectionEntry<'blog'>;
+  entry?: CollectionEntry<'legal'>;
+}
+
+const { kind, page, post, entry } = Astro.props;
+
+if (kind === 'page' && page) {
+  Astro; // keep the branch local to the template via flags below
+}
+
+const isPage = kind === 'page' && page;
+const isBlog = kind === 'blog' && post;
+const isLegal = kind === 'legal' && entry;
+
+const blogRender = isBlog ? await render(post) : null;
+const legalRender = isLegal ? await render(entry) : null;
+const Content = blogRender?.Content ?? legalRender?.Content;
+const embed = isBlog && post.data.embed ? loadEmbed(post.data.embed) : null;
+const minutes = isBlog
+  ? readingMinutes(`${post.body ?? ''} ${post.data.summary} ${embed?.body.replace(/<[^>]+>/g, ' ') ?? ''}`)
+  : 1;
+---
+
+{isPage && (
+  <EmbedPage file={page.embed} title={page.title} description={page.description} noindex={page.noindex} />
+)}
+
+{!isPage && (
+  <Base
+    title={isBlog ? post.data.title : entry!.data.title}
+    description={isBlog ? post.data.description : entry!.data.description}
+    image={isBlog ? post.data.cover : undefined}
+    ogType={isBlog ? 'article' : 'website'}
+    jsonLd={isBlog ? {
+      '@type': 'BlogPosting',
+      headline: post.data.title,
+      description: post.data.description,
+      datePublished: isoDate(post.data.date),
+      author: { '@type': 'Person', name: post.data.author },
+      publisher: { '@id': `${site.url}/#organization` },
+      mainEntityOfPage: new URL(`/${post.id}`, Astro.site).href,
+      image: post.data.cover ? new URL(post.data.cover, Astro.site).href : undefined,
+    } : undefined}
+  >
+    {embed && <Fragment slot="head" set:html={`${embed.links}\n${embed.styles}`} />}
+    <article class="wt-page">
+      <div class="wt-wrap wt-prose">
+        <p class="wt-kicker">{isBlog ? post.data.category : 'Information'}</p>
+        <h1>{isBlog ? post.data.title : entry!.data.title}</h1>
+        <p class="wt-meta">
+          {isBlog ? `${post.data.author} · ${formatDate(post.data.date)} · ${minutes} min` : `Mis à jour le ${formatDate(entry!.data.updated)}`}
+        </p>
+        {isBlog && post.data.youtube && <Youtube id={post.data.youtube} title={post.data.title} />}
+        {isBlog && post.data.cover && !post.data.embed && <img class="wt-cover" src={post.data.cover} alt={post.data.coverAlt || ''} />}
+        {Content && <Content />}
+        {embed && <Fragment set:html={embed.body} />}
+        {isBlog && post.data.faq.length > 0 && (
+          <section class="wt-faq">
+            <h2>Questions fréquentes</h2>
+            {post.data.faq.map((item) => (
+              <details>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </section>
+        )}
+      </div>
+    </article>
+    {embed && (
+      <Fragment slot="scripts">
+        {embed.scripts.map((code) => <script is:inline set:html={code} />)}
+      </Fragment>
+    )}
+  </Base>
+)}

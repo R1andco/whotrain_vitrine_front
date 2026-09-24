@@ -1,0 +1,33 @@
+---
+import '../styles/shell.css';
+import Seo from '../components/Seo.astro';
+import Banner from '../components/Banner.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const props = Astro.props;
+---
+
+<html lang="fr">
+  <head>
+    <Seo {...props}>
+      <slot name="head" />
+    </Seo>
+  </head>
+  <body>
+    <Banner />
+    <Header />
+    <slot />
+    <Footer />
+    <slot name="scripts" />
+  </body>
+</html>

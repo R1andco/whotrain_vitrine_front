@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import { formatDate, publishedPosts } from '../../lib/content';
+
+const posts = await publishedPosts();
+---
+
+<Base
+  title="Blog"
+  description="Articles Whotrain pour les entreprises et les formateurs : financement, pédagogie, Qualiopi et retours de la communauté."
+>
+  <section class="wt-page">
+    <div class="wt-wrap">
+      <p class="wt-kicker">Blog</p>
+      <h1>Ressources pour acheter et animer la formation</h1>
+      <p class="wt-lead">Un format unique : sujet, auteur, date, résumé factuel. Les nouveaux articles suivent le même modèle.</p>
+      <div class="wt-cards">
+        {posts.map((post) => (
+          <a class="wt-card" href={`/${post.id}`}>
+            {post.data.cover && <img src={post.data.cover} alt="" />}
+            <div>
+              <p class="wt-kicker">{post.data.category}</p>
+              <strong>{post.data.title}</strong>
+              <p>{formatDate(post.data.date)}</p>
+              <p>{post.data.summary}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

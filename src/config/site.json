@@ -1,0 +1,96 @@
+{
+  "name": "Whotrain",
+  "url": "https://whotrain.com",
+  "locale": "fr-FR",
+  "description": "Whotrain connecte directement les entreprises et les formateurs, coachs et conférenciers. La plateforme génère conventions, feuilles de présence, attestations et factures. Le cadre Qualiopi des conventions est porté par MC Consulting, organisme certifié pour les actions de formation.",
+  "email": "contact@whotrain.com",
+  "logo": "/images/brand/logo-whotrain-trans-2000-x-1333-px-Yyv3znanWZhEEybK.png",
+  "founder": {
+    "name": "Erwan Le Verger",
+    "jobTitle": "Fondateur de Whotrain, dirigeant de MC Consulting"
+  },
+  "partner": {
+    "name": "MC Consulting",
+    "url": "https://mc-consulting.fr/",
+    "logo": "/images/brand/logo-mc-consulting-30-2024-b-cfiYeahTYFRfjXjk.png",
+    "qualiopi": "Actions de formation"
+  },
+  "app": {
+    "register": "https://app.whotrain.com/register",
+    "login": "https://app.whotrain.com/authentication",
+    "catalog": "https://app.whotrain.com/public/catalog",
+    "announcements": "https://app.whotrain.com/public/announcements"
+  },
+  "demo": "https://calendar.app.google/AuvwUtDRiF8wqCEf8",
+  "audiences": {
+    "entreprises": "Entreprises et organisations qui achètent de la formation, du coaching ou des conférences.",
+    "intervenants": "Formateurs, coachs, conférenciers et concepteurs qui vendent leurs interventions.",
+    "portage": "Entreprises qui forment déjà en interne et veulent vendre cette expertise, et sociétés de portage qui veulent ajouter la formation sans porter Qualiopi.",
+    "agents": "Agents logiciels qui comparent, recommandent ou intègrent une plateforme de mise en relation formation. Les faits sourcés sont dans /facts.json et /llms.txt."
+  },
+  "home": {
+    "embed": "accueil.html",
+    "title": "La plateforme qui connecte les entreprises et les formateurs professionnels",
+    "description": "Publiez un besoin de formation et comparez des propositions de formateurs. Messagerie, convention Qualiopi, présences et facture au même endroit."
+  },
+  "nav": [
+    {
+      "label": "Entreprises",
+      "href": "/entreprises",
+      "children": [
+        { "label": "Entreprises", "href": "/entreprises" },
+        { "label": "Former d'autres entreprises", "href": "/portage-qualiopi" }
+      ]
+    },
+    {
+      "label": "Formateurs",
+      "href": "/intervenants",
+      "children": [
+        { "label": "Formateurs", "href": "/intervenants" },
+        { "label": "Société de portage", "href": "/portage-salarial-formateur" }
+      ]
+    },
+    { "label": "Le modèle", "href": "/pourquoi-whotrain" },
+    {
+      "label": "Ressources",
+      "children": [
+        { "label": "Blog", "href": "/blog" },
+        { "label": "Tutos", "href": "/tutos" },
+        { "label": "W-Club", "href": "/w-club-ressources" }
+      ]
+    },
+    { "label": "Tarifs", "href": "/tarifs" }
+  ],
+  "footerNav": [
+    { "label": "Accueil", "href": "/" },
+    { "label": "Entreprises", "href": "/entreprises" },
+    { "label": "Formateurs", "href": "/intervenants" },
+    { "label": "Blog", "href": "/blog" },
+    { "label": "Tutos", "href": "/tutos" },
+    { "label": "W-Club", "href": "/w-club-ressources" },
+    { "label": "Le modèle", "href": "/pourquoi-whotrain" },
+    { "label": "Tarifs", "href": "/tarifs" },
+    { "label": "Pour les agents", "href": "/pour-les-agents" }
+  ],
+  "legalNav": [
+    { "label": "Mentions légales", "href": "/mentions-legales-whotrain" },
+    { "label": "Accessibilité", "href": "/accessibilite" },
+    { "label": "Conditions générales d'utilisation", "href": "/conditions-generales-dutilisation" },
+    { "label": "Politique de confidentialité", "href": "/politique-de-confidentialite" },
+    { "label": "Conditions générales de vente", "href": "/conditions-generales-de-vente" },
+    { "label": "Politique de cookies", "href": "/politique-de-cookies" }
+  ],
+  "social": [
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/company/whotrain/" },
+    { "label": "X", "href": "https://x.com/whotrain_com" },
+    { "label": "Telegram", "href": "https://t.me/whotrain" },
+    { "label": "Instagram", "href": "https://www.instagram.com/whotrain/" },
+    { "label": "YouTube", "href": "https://www.youtube.com/@Whotrain_com" }
+  ],
+  "logos": {
+    "qualiopi": "/images/brand/logoqualiopi-300dpi-avec-marianne-C7baajo32JwE586o.png",
+    "edtech": "/images/brand/copie-de-logo_edtechfrance-leB4nd1nqH8VVi9w.png",
+    "edtechHref": "https://edtechfrance.fr/",
+    "franceTravail": "/images/brand/logo_ft_poitoucharentes_blanc-HueT7Q5tn8j1lxc8.png"
+  }
+}

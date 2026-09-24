@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Youtube from '../../components/Youtube.astro';
+import { formatDate } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const videos = await getCollection('videos');
+  return videos.map((video) => ({ params: { slug: video.id }, props: { video } }));
+}
+
+const { video } = Astro.props;
+const { Content } = await render(video);
+const audienceLabel = {
+  entreprises: 'Entreprises',
+  intervenants: 'Intervenants',
+  tous: 'Tous',
+};
+---
+
+<Base title={video.data.title} description={video.data.description} ogType="article" image={`https://i.ytimg.com/vi/${video.data.youtubeId}/hqdefault.jpg`}>
+  <article class="wt-page">
+    <div class="wt-wrap wt-prose">
+      <p class="wt-kicker">{audienceLabel[video.data.audience]}</p>
+      <h1>{video.data.title}</h1>
+      <p class="wt-meta">{formatDate(video.data.date)}</p>
+      <p>{video.data.summary}</p>
+      <Youtube id={video.data.youtubeId} title={video.data.title} />
+      <Content />
+    </div>
+  </article>
+</Base>

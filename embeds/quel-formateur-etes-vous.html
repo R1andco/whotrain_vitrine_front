@@ -1,0 +1,920 @@
+<meta charset="utf-8">
+<div id="whotrain-quiz-embed">
+  <section class="wt-screen wt-welcome is-active" data-screen="welcome">
+    <div class="wt-hero">
+      <div>
+        <p class="wt-kicker">Quiz pédagogique Whotrain</p>
+        <h2>Quel formateur êtes-vous ?</h2>
+        <p>
+          Découvrez votre style dominant, votre posture d'animation et les
+          leviers qui rendent vos formations mémorables.
+        </p>
+        <button class="wt-button wt-button-primary" type="button" data-start="">
+          Commencer le quiz
+        </button>
+      </div>
+      <div class="wt-axis-card" aria-hidden="true">
+        <span class="top">Facilitateur</span>
+        <span class="right">Expérience</span>
+        <span class="bottom">Expert</span>
+        <span class="left">Transmission</span>
+        <i></i>
+      </div>
+    </div>
+  </section>
+
+  <section class="wt-screen wt-quiz" data-screen="quiz">
+    <div class="wt-progress-line">
+      <span data-count="">Question 1/16</span>
+      <span data-axis="">Approche pédagogique</span>
+    </div>
+    <div class="wt-progress" aria-hidden="true"><i data-progress=""></i></div>
+    <fieldset class="wt-question">
+      <legend data-question=""></legend>
+      <div class="wt-scale-labels">
+        <span data-low=""></span>
+        <span data-high=""></span>
+      </div>
+      <div class="wt-scale" data-scale=""></div>
+    </fieldset>
+    <div class="wt-actions">
+      <button class="wt-button wt-button-ghost" type="button" data-prev="">
+        Précédent
+      </button>
+      <button class="wt-button wt-button-primary" type="button" data-next="">
+        Suivant
+      </button>
+    </div>
+  </section>
+
+  <section class="wt-screen wt-qualify" data-screen="qualify">
+    <p class="wt-kicker">Votre profil est prêt</p>
+    <h2>Plus que quelques informations pour découvrir votre résultat complet.</h2>
+    <form data-form="">
+      <fieldset>
+        <legend>Depuis combien de temps formez-vous ?</legend>
+        <label><input required type="radio" name="experience" value="Moins d&#x27;un an">Moins d'un an</label>
+        <label><input type="radio" name="experience" value="1 à 3 ans">1 à 3 ans</label>
+        <label><input type="radio" name="experience" value="3 à 10 ans">3 à 10 ans</label>
+        <label><input type="radio" name="experience" value="Plus de 10 ans">Plus de 10 ans</label>
+      </fieldset>
+      <fieldset>
+        <legend>Quel est votre statut aujourd'hui ?</legend>
+        <label><input required type="radio" name="status" value="Formateur salarié">Formateur salarié</label>
+        <label><input type="radio" name="status" value="Formateur indépendant sans certification Qualiopi">Formateur indépendant sans certification Qualiopi</label>
+        <label><input type="radio" name="status" value="Formateur indépendant certifié Qualiopi">Formateur indépendant certifié Qualiopi</label>
+        <label><input type="radio" name="status" value="Formateur occasionnel ou activité secondaire">Formateur occasionnel / activité secondaire</label>
+        <label><input type="radio" name="status" value="En projet de devenir formateur">En projet de devenir formateur</label>
+      </fieldset>
+      <fieldset>
+        <legend>Comment trouvez-vous la majorité de vos missions ?</legend>
+        <label><input required type="radio" name="missions" value="Bouche-à-oreille">Bouche-à-oreille</label>
+        <label><input type="radio" name="missions" value="Réseau LinkedIn">Réseau LinkedIn</label>
+        <label><input type="radio" name="missions" value="Organismes de formation">Organismes de formation</label>
+        <label><input type="radio" name="missions" value="Réponse à des appels d&#x27;offres">Réponse à des appels d'offres</label>
+        <label><input type="radio" name="missions" value="Plateformes de mise en relation">Plateformes de mise en relation</label>
+        <label><input type="radio" name="missions" value="Je cherche mes premières missions">Je cherche actuellement mes premières missions</label>
+      </fieldset>
+      <div class="wt-email">
+        <label for="wt-email">Recevez votre profil détaillé et des conseils personnalisés.</label>
+        <input id="wt-email" required type="email" name="email" autocomplete="email" placeholder="votre@email.fr">
+        <label class="wt-consent">
+          <input required type="checkbox" name="consent" value="yes">
+          J'accepte que Whotrain utilise ces informations pour m'envoyer mon profil et des contenus adaptés.
+        </label>
+      </div>
+      <div class="wt-actions">
+        <button class="wt-button wt-button-ghost" type="button" data-back="">Revenir</button>
+        <button class="wt-button wt-button-primary" type="submit">Découvrir mon profil</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="wt-screen wt-result" data-screen="result">
+    <p class="wt-kicker">Votre profil dominant</p>
+    <h2 data-result-profile=""></h2>
+    <p class="wt-signature" data-signature=""></p>
+    <div class="wt-result-grid">
+      <article class="wt-panel wt-panel-large">
+        <p class="wt-panel-title">Synthèse</p>
+        <h3 data-subprofile=""></h3>
+        <p class="wt-secondary" data-secondary=""></p>
+        <p data-description=""></p>
+        <div class="wt-profile-bars" data-profile-bars=""></div>
+      </article>
+      <article class="wt-panel">
+        <p class="wt-panel-title">Approche pédagogique</p>
+        <div data-axis-bars=""></div>
+      </article>
+      <article class="wt-panel">
+        <p class="wt-panel-title">Forces</p>
+        <ul data-strengths=""></ul>
+      </article>
+      <article class="wt-panel">
+        <p class="wt-panel-title">Point de vigilance</p>
+        <ul data-watchouts=""></ul>
+      </article>
+      <article class="wt-panel wt-panel-large">
+        <p class="wt-panel-title">Partager</p>
+        <p data-share=""></p>
+        <div class="wt-actions">
+          <button class="wt-button wt-button-primary" type="button" data-share-linkedin="">Partager sur LinkedIn</button>
+          <button class="wt-button wt-button-ghost" type="button" data-restart="">Refaire le quiz</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="wt-toast" data-toast="" role="status" aria-live="polite"></div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..1000&display=swap');
+
+  #whotrain-quiz-embed {
+    --wt-ink: #1a1620;
+    --wt-text: #3a343c;
+    --wt-muted: #817f7f;
+    --wt-paper: #fdf6fb;
+    --wt-line: #ececec;
+    --wt-rose: #fe36aa;
+    --wt-rose-soft: #fff0f8;
+    --wt-rose-deep: #d61f8a;
+    --wt-orange: #fd7f08;
+    --wt-pink: #ff7ac6;
+    color: var(--wt-ink);
+    font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0;
+  }
+
+  #whotrain-quiz-embed * {
+    box-sizing: border-box;
+  }
+
+  #whotrain-quiz-embed button,
+  #whotrain-quiz-embed input {
+    font: inherit;
+  }
+
+  #whotrain-quiz-embed button {
+    cursor: pointer;
+  }
+
+  #whotrain-quiz-embed .wt-screen {
+    display: none;
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    border: 1px solid var(--wt-line);
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ffffff 0%, var(--wt-paper) 100%);
+    padding: clamp(22px, 4vw, 44px);
+  }
+
+  #whotrain-quiz-embed .wt-screen.is-active {
+    display: block;
+  }
+
+  #whotrain-quiz-embed .wt-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+    gap: clamp(22px, 4vw, 48px);
+    align-items: center;
+    min-height: 460px;
+  }
+
+  #whotrain-quiz-embed .wt-kicker,
+  #whotrain-quiz-embed .wt-panel-title {
+    margin: 0 0 12px;
+    color: var(--wt-rose);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    text-transform: none;
+  }
+
+  #whotrain-quiz-embed h2,
+  #whotrain-quiz-embed h3,
+  #whotrain-quiz-embed p {
+    overflow-wrap: anywhere;
+  }
+
+  #whotrain-quiz-embed h2,
+  #whotrain-quiz-embed h3 {
+    margin: 0;
+    line-height: 1.05;
+  }
+
+  #whotrain-quiz-embed h2 {
+    font-size: clamp(2.45rem, 7vw, 5.8rem);
+  }
+
+  #whotrain-quiz-embed h3 {
+    font-size: clamp(1.35rem, 3vw, 2rem);
+  }
+
+  #whotrain-quiz-embed .wt-hero p,
+  #whotrain-quiz-embed .wt-signature {
+    max-width: 700px;
+    color: var(--wt-text);
+    font-size: clamp(1.05rem, 2vw, 1.28rem);
+    font-weight: 650;
+    line-height: 1.45;
+  }
+
+  #whotrain-quiz-embed .wt-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-weight: 850;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  #whotrain-quiz-embed [data-start] {
+    margin-top: 10px;
+  }
+
+  #whotrain-quiz-embed .wt-button-primary {
+    background: var(--wt-rose);
+    color: #fff;
+    box-shadow: 0 12px 26px rgba(254, 54, 170, 0.26);
+  }
+
+  #whotrain-quiz-embed .wt-button-primary:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  #whotrain-quiz-embed .wt-button-ghost {
+    background: #fff;
+    border-color: var(--wt-line);
+    color: var(--wt-ink);
+  }
+
+  #whotrain-quiz-embed .wt-axis-card {
+    position: relative;
+    width: min(320px, 100%);
+    aspect-ratio: 1;
+    margin: 0 auto;
+    border: 1px solid var(--wt-line);
+    border-radius: 8px;
+    background:
+      linear-gradient(90deg, transparent 49.5%, rgba(26, 22, 32, 0.12) 49.5%, rgba(26, 22, 32, 0.12) 50.5%, transparent 50.5%),
+      linear-gradient(0deg, transparent 49.5%, rgba(26, 22, 32, 0.12) 49.5%, rgba(26, 22, 32, 0.12) 50.5%, transparent 50.5%),
+      radial-gradient(circle at 75% 18%, rgba(253, 127, 8, 0.18), transparent 36%),
+      radial-gradient(circle at 20% 80%, rgba(254, 54, 170, 0.18), transparent 34%),
+      #fff;
+  }
+
+  #whotrain-quiz-embed .wt-axis-card span {
+    position: absolute;
+    color: var(--wt-muted);
+    font-size: 0.82rem;
+    font-weight: 900;
+  }
+
+  #whotrain-quiz-embed .wt-axis-card .top {
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #whotrain-quiz-embed .wt-axis-card .right {
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+  }
+
+  #whotrain-quiz-embed .wt-axis-card .bottom {
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #whotrain-quiz-embed .wt-axis-card .left {
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+  }
+
+  #whotrain-quiz-embed .wt-axis-card i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    border: 3px solid #fff;
+    border-radius: 999px;
+    background: var(--wt-orange);
+    box-shadow: 0 8px 18px rgba(253, 127, 8, 0.35);
+    transform: translate(-50%, -50%);
+  }
+
+  #whotrain-quiz-embed .wt-progress-line,
+  #whotrain-quiz-embed .wt-actions,
+  #whotrain-quiz-embed .wt-bar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  #whotrain-quiz-embed .wt-progress-line {
+    color: var(--wt-muted);
+    font-weight: 850;
+  }
+
+  #whotrain-quiz-embed .wt-progress,
+  #whotrain-quiz-embed .wt-bar-track {
+    height: 10px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #f0e6ee;
+  }
+
+  #whotrain-quiz-embed .wt-progress {
+    margin: 18px 0 40px;
+  }
+
+  #whotrain-quiz-embed .wt-progress i {
+    display: block;
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--wt-rose), var(--wt-orange));
+  }
+
+  #whotrain-quiz-embed .wt-bar-track i {
+    display: block;
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--wt-rose);
+  }
+
+  #whotrain-quiz-embed .wt-question {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  #whotrain-quiz-embed .wt-question legend {
+    display: block;
+    width: 100%;
+    margin: 0 0 28px;
+    font-size: clamp(1.65rem, 4.5vw, 3.1rem);
+    font-weight: 950;
+    line-height: 1.08;
+  }
+
+  #whotrain-quiz-embed .wt-scale-labels {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    margin-bottom: 14px;
+    color: var(--wt-text);
+    font-weight: 850;
+    line-height: 1.35;
+  }
+
+  #whotrain-quiz-embed .wt-scale-labels span:last-child {
+    text-align: right;
+  }
+
+  #whotrain-quiz-embed .wt-scale {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #whotrain-quiz-embed .wt-scale button {
+    display: grid;
+    place-items: center;
+    min-height: 76px;
+    border: 1px solid var(--wt-line);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--wt-muted);
+    font-size: clamp(1.15rem, 2vw, 1.55rem);
+    font-weight: 950;
+  }
+
+  #whotrain-quiz-embed .wt-scale button.is-selected {
+    border-color: rgba(254, 54, 170, 0.36);
+    background: var(--wt-rose-soft);
+    color: var(--wt-rose);
+  }
+
+  #whotrain-quiz-embed .wt-scale-number {
+    display: inline-grid;
+    place-items: center;
+  }
+
+  #whotrain-quiz-embed .wt-scale-copy {
+    display: none;
+  }
+
+  #whotrain-quiz-embed .wt-actions {
+    margin-top: 34px;
+  }
+
+  #whotrain-quiz-embed form {
+    display: grid;
+    gap: 22px;
+    margin-top: 24px;
+  }
+
+  #whotrain-quiz-embed form fieldset {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0 0 22px;
+    border: 0;
+    border-bottom: 1px solid var(--wt-line);
+  }
+
+  #whotrain-quiz-embed form legend,
+  #whotrain-quiz-embed .wt-email > label:first-child {
+    grid-column: 1 / -1;
+    margin-bottom: 2px;
+    font-size: 1.1rem;
+    font-weight: 900;
+  }
+
+  #whotrain-quiz-embed form label {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    min-height: 48px;
+    border: 1px solid var(--wt-line);
+    border-radius: 8px;
+    padding: 13px 14px;
+    background: #fff;
+    color: var(--wt-text);
+    font-weight: 760;
+    line-height: 1.25;
+  }
+
+  #whotrain-quiz-embed input[type="radio"],
+  #whotrain-quiz-embed input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 1px 0 0;
+    accent-color: var(--wt-rose);
+    flex: 0 0 auto;
+  }
+
+  #whotrain-quiz-embed .wt-email {
+    display: grid;
+    gap: 12px;
+  }
+
+  #whotrain-quiz-embed .wt-email input[type="email"] {
+    width: 100%;
+    min-height: 54px;
+    border: 1px solid var(--wt-line);
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: #fff;
+    color: var(--wt-ink);
+    font-weight: 760;
+  }
+
+  #whotrain-quiz-embed form .wt-consent {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--wt-muted);
+    font-size: 0.92rem;
+  }
+
+  #whotrain-quiz-embed .wt-result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 26px;
+  }
+
+  #whotrain-quiz-embed .wt-panel {
+    min-height: 210px;
+    border: 1px solid var(--wt-line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.86);
+    padding: clamp(18px, 3vw, 26px);
+  }
+
+  #whotrain-quiz-embed .wt-panel-large {
+    grid-column: span 2;
+  }
+
+  #whotrain-quiz-embed .wt-panel p,
+  #whotrain-quiz-embed .wt-panel li {
+    color: var(--wt-text);
+    font-weight: 720;
+    line-height: 1.48;
+  }
+
+  #whotrain-quiz-embed .wt-panel ul {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  #whotrain-quiz-embed .wt-secondary {
+    margin: 6px 0 14px;
+    color: var(--wt-muted);
+    font-size: 0.95rem;
+    font-weight: 800;
+  }
+
+  #whotrain-quiz-embed .wt-secondary b {
+    color: var(--wt-rose);
+    font-weight: 900;
+  }
+
+  #whotrain-quiz-embed .wt-bar {
+    display: grid;
+    grid-template-columns: minmax(0, 150px) 1fr auto;
+    gap: 10px;
+    align-items: center;
+    margin-top: 12px;
+    font-weight: 850;
+  }
+
+  #whotrain-quiz-embed .wt-bar-track {
+    min-width: 70px;
+  }
+
+  #whotrain-quiz-embed .wt-bar:nth-child(2n) i {
+    background: var(--wt-orange);
+  }
+
+  #whotrain-quiz-embed .wt-bar:nth-child(3n) i {
+    background: var(--wt-pink);
+  }
+
+  #whotrain-quiz-embed .wt-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    z-index: 9999;
+    max-width: min(440px, calc(100vw - 32px));
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: var(--wt-ink);
+    color: #fff;
+    font-weight: 850;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 12px);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  #whotrain-quiz-embed .wt-toast.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  @media (max-width: 900px) {
+    #whotrain-quiz-embed .wt-hero,
+    #whotrain-quiz-embed .wt-result-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #whotrain-quiz-embed .wt-panel-large {
+      grid-column: auto;
+    }
+  }
+
+  @media (max-width: 620px) {
+    #whotrain-quiz-embed .wt-screen {
+      padding: 20px;
+    }
+
+    #whotrain-quiz-embed .wt-hero {
+      min-height: auto;
+    }
+
+    #whotrain-quiz-embed .wt-axis-card {
+      width: min(250px, 100%);
+    }
+
+    #whotrain-quiz-embed .wt-progress-line,
+    #whotrain-quiz-embed .wt-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    #whotrain-quiz-embed form fieldset {
+      grid-template-columns: 1fr;
+    }
+
+    #whotrain-quiz-embed .wt-scale-labels {
+      display: none;
+    }
+
+    #whotrain-quiz-embed .wt-scale {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    #whotrain-quiz-embed .wt-scale button {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      justify-items: start;
+      min-height: 58px;
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 1rem;
+    }
+
+    #whotrain-quiz-embed .wt-scale-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #f9f4f8;
+      color: var(--wt-ink);
+      font-size: 1.1rem;
+      font-weight: 950;
+    }
+
+    #whotrain-quiz-embed .wt-scale button.is-selected .wt-scale-number {
+      background: var(--wt-rose);
+      color: #fff;
+    }
+
+    #whotrain-quiz-embed .wt-scale-copy {
+      display: block;
+      color: var(--wt-text);
+      font-size: 0.95rem;
+      font-weight: 780;
+      line-height: 1.25;
+    }
+
+    #whotrain-quiz-embed .wt-scale-copy:empty::before {
+      content: "Position intermédiaire";
+      color: var(--wt-muted);
+      font-weight: 720;
+    }
+
+    #whotrain-quiz-embed .wt-bar {
+      grid-template-columns: 1fr auto;
+    }
+
+    #whotrain-quiz-embed .wt-bar-track {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+  }
+</style>
+
+<script>
+(() => {
+  const root = document.querySelector("#whotrain-quiz-embed");
+  if (!root) return;
+
+  const LEAD_WEBHOOK_URL = "https://n8n.mc-consulting.fr/webhook/a0a5236f-b38d-4c20-91f5-a098747a6b6e";
+  const SHARE_URL = "https://www.whotrain.com/quel-formateur-etes-vous";
+  const questions = [
+    ["approach", "Lorsque je prépare une formation, je passe le plus de temps à :", "Structurer les notions à transmettre", "Concevoir des activités pour faire découvrir ces notions"],
+    ["approach", "Pour moi, les participants apprennent surtout quand :", "Ils comprennent clairement les concepts", "Ils les expérimentent eux-mêmes"],
+    ["approach", "Lorsque j'introduis un nouveau sujet :", "J'explique d'abord la théorie", "Je fais vivre une expérience avant la théorie"],
+    ["approach", "Dans une journée de formation idéale :", "Les apports du formateur occupent une place importante", "Les activités et mises en pratique occupent une place importante"],
+    ["approach", "Face à une notion difficile :", "Je la découpe et l'explique progressivement", "Je crée une situation permettant de la découvrir"],
+    ["approach", "Le moment que je préfère dans une formation est :", "Lorsque je transmets une idée importante", "Lorsque les participants découvrent quelque chose par eux-mêmes"],
+    ["approach", "Mes supports de formation servent principalement à :", "Structurer les connaissances", "Déclencher des activités et des échanges"],
+    ["approach", "Quand je conçois une séquence pédagogique :", "Je pars du contenu à transmettre", "Je pars de l'expérience que je veux faire vivre"],
+    ["posture", "Lorsqu'un participant bloque :", "Je lui explique la bonne méthode", "Je l'aide à trouver sa propre solution"],
+    ["posture", "Quand une question surgit pendant la formation :", "Je réponds directement", "Je sollicite d'abord les réflexions du groupe"],
+    ["posture", "Lors d'un débat :", "J'interviens pour recadrer rapidement", "Je laisse le groupe construire sa réflexion"],
+    ["posture", "Mon rôle principal est :", "Apporter mon expertise", "Faire émerger les ressources du groupe"],
+    ["posture", "Lorsque quelqu'un formule une idée incomplète :", "Je complète immédiatement", "Je pose des questions pour l'aider à approfondir"],
+    ["posture", "Face à une erreur :", "Je corrige rapidement", "J'utilise l'erreur comme support de réflexion"],
+    ["posture", "Je ressens le plus de satisfaction lorsque :", "Les participants reconnaissent mon expertise", "Les participants trouvent eux-mêmes leurs réponses"],
+    ["posture", "À la fin d'une formation réussie :", "Les participants repartent avec des réponses claires", "Les participants repartent avec de nouvelles pistes à explorer"],
+  ];
+
+  const profiles = {
+    maitre: {
+      name: "Le Maître",
+      signature: "Je suis là pour transmettre ce que je sais.",
+      description: "Votre force est la clarté. Vous installez un cadre solide, vous rendez les notions lisibles et vous rassurez les participants par votre maîtrise du sujet.",
+      strengths: ["Expertise solide", "Grande clarté pédagogique", "Cadre rassurant", "Crédibilité forte"],
+      watchouts: ["Veiller à laisser suffisamment de place aux échanges", "Transformer certains apports en exercices pour renforcer l'appropriation"],
+      subs: [["Le Professeur", "Expert de la transmission structurée des connaissances."], ["Le Référent", "Expert terrain qui partage son expérience et ses bonnes pratiques."]],
+    },
+    architecte: {
+      name: "L'Architecte",
+      signature: "Je vais vous faire comprendre par l'action.",
+      description: "Vous concevez des situations qui font progresser. Vos formations sont concrètes, orientées résultats et structurées autour de cas pratiques.",
+      strengths: ["Cas pratiques pertinents", "Simulations efficaces", "Forte orientation résultats", "Progression pédagogique lisible"],
+      watchouts: ["Simplifier les activités lorsque le groupe découvre le sujet", "Laisser une part d'autonomie aux participants dans l'analyse"],
+      subs: [["L'Ingénieur pédagogique", "Conçoit des parcours précis et méthodiques."], ["Le Stratège", "Utilise simulations et cas réels pour développer les compétences."]],
+    },
+    facilitateur: {
+      name: "Le Facilitateur",
+      signature: "Le savoir est déjà dans le groupe.",
+      description: "Vous créez les conditions de l'échange. Vous faites circuler les idées, vous donnez de la place aux expériences et vous stimulez l'intelligence collective.",
+      strengths: ["Intelligence collective", "Engagement des participants", "Partage d'expériences", "Climat propice à la participation"],
+      watchouts: ["Maintenir un fil conducteur clair", "Apporter des repères nouveaux lorsque le groupe en a besoin"],
+      subs: [["Le Connecteur", "Fait circuler les idées et les expériences du groupe."], ["Le Médiateur", "Favorise l'expression et la participation de chacun."]],
+    },
+    catalyseur: {
+      name: "Le Catalyseur",
+      signature: "Je crée les conditions pour que l'apprentissage se produise.",
+      description: "Vous provoquez des déclics. Vous aimez l'expérimentation, les prises de conscience et les apprentissages qui transforment durablement la pratique.",
+      strengths: ["Déclics puissants", "Forte implication des participants", "Transformation durable", "Apprentissage par l'action"],
+      watchouts: ["Sécuriser les participants qui préfèrent un cadre très explicite", "Rendre l'évaluation des acquis visible en fin de séquence"],
+      subs: [["L'Explorateur", "Fait apprendre par l'expérimentation et la découverte."], ["Le Révélateur", "Provoque les prises de conscience et les changements durables."]],
+    },
+  };
+
+  const state = { current: 0, answers: Array(questions.length).fill(null), result: null };
+  const $ = (selector) => root.querySelector(selector);
+  const screens = root.querySelectorAll(".wt-screen");
+
+  function show(name) {
+    screens.forEach((screen) => screen.classList.toggle("is-active", screen.dataset.screen === name));
+    root.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function renderQuestion() {
+    const question = questions[state.current];
+    $("[data-count]").textContent = `Question ${state.current + 1}/${questions.length}`;
+    $("[data-axis]").textContent = question[0] === "approach" ? "Approche pédagogique" : "Posture d'animation";
+    $("[data-progress]").style.width = `${(state.current / questions.length) * 100}%`;
+    $("[data-question]").textContent = question[1];
+    $("[data-low]").textContent = question[2];
+    $("[data-high]").textContent = question[3];
+    $("[data-prev]").disabled = state.current === 0;
+    $("[data-next]").disabled = state.answers[state.current] === null;
+    $("[data-next]").textContent = state.current === questions.length - 1 ? "Continuer" : "Suivant";
+    $("[data-scale]").innerHTML = [1, 2, 3, 4, 5].map((value) => {
+      const label = {
+        1: question[2],
+        2: "Plutôt 1",
+        3: "Équilibre",
+        4: "Plutôt 5",
+        5: question[3],
+      }[value];
+      return `<button type="button" class="${state.answers[state.current] === value ? "is-selected" : ""}" data-value="${value}" aria-label="${value} sur 5 : ${label}"><span class="wt-scale-number">${value}</span><span class="wt-scale-copy">${label}</span></button>`;
+    }).join("");
+  }
+
+  function highSide(values) {
+    if (!values.length) return 50;
+    return Math.round(values.reduce((sum, value) => sum + value - 1, 0) / (values.length * 4) * 100);
+  }
+
+  function axisScores() {
+    const approach = questions.map((q, i) => q[0] === "approach" ? state.answers[i] : null).filter(Boolean);
+    const posture = questions.map((q, i) => q[0] === "posture" ? state.answers[i] : null).filter(Boolean);
+    const experience = highSide(approach);
+    const facilitator = highSide(posture);
+    return { transmission: 100 - experience, experience, expert: 100 - facilitator, facilitator };
+  }
+
+  function calculateResult() {
+    const scores = axisScores();
+    const ranked = [
+      ["maitre", "Le Maître", Math.round((scores.transmission + scores.expert) / 2), scores.transmission * scores.expert],
+      ["architecte", "L'Architecte", Math.round((scores.experience + scores.expert) / 2), scores.experience * scores.expert],
+      ["facilitateur", "Le Facilitateur", Math.round((scores.transmission + scores.facilitator) / 2), scores.transmission * scores.facilitator],
+      ["catalyseur", "Le Catalyseur", Math.round((scores.experience + scores.facilitator) / 2), scores.experience * scores.facilitator],
+    ].sort((a, b) => b[3] - a[3] || b[2] - a[2]);
+    const key = ranked[0][0];
+    const subIndex = {
+      maitre: scores.transmission >= scores.expert,
+      architecte: scores.expert >= scores.experience,
+      facilitateur: scores.transmission >= scores.facilitator,
+      catalyseur: scores.experience >= scores.facilitator,
+    }[key] ? 0 : 1;
+    const profile = profiles[key];
+    const sub = profile.subs[subIndex];
+    const approach = scores.experience >= scores.transmission ? `Expérience ${scores.experience} %` : `Transmission ${scores.transmission} %`;
+    const posture = scores.facilitator >= scores.expert ? `Facilitateur ${scores.facilitator} %` : `Expert ${scores.expert} %`;
+    return {
+      scores,
+      ranked,
+      profile,
+      sub,
+      share: `Je viens de faire le quiz Whotrain : mon profil de formateur est ${profile.name}, avec une nuance ${sub[0]}. Mon style : ${approach} et ${posture}.`,
+    };
+  }
+
+  function bar(label, value) {
+    return `<div class="wt-bar"><span>${label}</span><span class="wt-bar-track" aria-hidden="true"><i style="width:${value}%"></i></span><strong>${value} %</strong></div>`;
+  }
+
+  function renderResult(result) {
+    const secondary = result.ranked[1];
+    $("[data-result-profile]").textContent = `${result.profile.name} (${result.ranked[0][2]} %)`;
+    $("[data-signature]").textContent = result.profile.signature;
+    $("[data-subprofile]").textContent = `Votre nuance : ${result.sub[0]}`;
+    $("[data-secondary]").innerHTML = `Profil secondaire : <b>${secondary[1]}</b> (${secondary[2]} %)`;
+    $("[data-description]").textContent = `${result.profile.description} ${result.sub[1]}`;
+    $("[data-profile-bars]").innerHTML = result.ranked.map((item) => bar(item[1], item[2])).join("");
+    $("[data-axis-bars]").innerHTML = [
+      bar("Transmission", result.scores.transmission),
+      bar("Expérience", result.scores.experience),
+      bar("Expert", result.scores.expert),
+      bar("Facilitateur", result.scores.facilitator),
+    ].join("");
+    $("[data-strengths]").innerHTML = result.profile.strengths.map((item) => `<li>${item}</li>`).join("");
+    $("[data-watchouts]").innerHTML = result.profile.watchouts.map((item) => `<li>${item}</li>`).join("");
+    $("[data-share]").textContent = result.share;
+  }
+
+  function toast(message) {
+    const target = $("[data-toast]");
+    target.textContent = message;
+    target.classList.add("is-visible");
+    window.clearTimeout(toast.timer);
+    toast.timer = window.setTimeout(() => target.classList.remove("is-visible"), 2200);
+  }
+
+  async function saveLead(formData, result) {
+    const payload = {
+      createdAt: new Date().toISOString(),
+      email: formData.get("email"),
+      qualification: {
+        experience: formData.get("experience"),
+        status: formData.get("status"),
+        missions: formData.get("missions"),
+        consent: formData.get("consent") === "yes",
+      },
+      answers: questions.map((question, index) => ({ question: index + 1, axis: question[0], answer: state.answers[index] })),
+      scores: result.scores,
+      primaryProfile: result.profile.name,
+      primaryScore: result.ranked[0][2],
+      subprofile: result.sub[0],
+      secondaryProfile: result.ranked[1][1],
+      secondaryScore: result.ranked[1][2],
+    };
+    localStorage.setItem("whotrain_quiz_last_lead", JSON.stringify(payload));
+    if (!LEAD_WEBHOOK_URL) return;
+    try {
+      await fetch(LEAD_WEBHOOK_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+    } catch (error) {
+      console.warn("Whotrain quiz webhook failed", error);
+    }
+  }
+
+  root.addEventListener("click", (event) => {
+    const target = event.target.closest("button");
+    if (!target || !root.contains(target)) return;
+    if (target.matches("[data-start]")) {
+      renderQuestion();
+      show("quiz");
+    } else if (target.matches("[data-value]")) {
+      state.answers[state.current] = Number(target.dataset.value);
+      renderQuestion();
+    } else if (target.matches("[data-next]")) {
+      if (state.answers[state.current] === null) return toast("Choisissez une position pour continuer.");
+      if (state.current < questions.length - 1) {
+        state.current += 1;
+        renderQuestion();
+      } else {
+        $("[data-progress]").style.width = "100%";
+        show("qualify");
+      }
+    } else if (target.matches("[data-prev]") && state.current > 0) {
+      state.current -= 1;
+      renderQuestion();
+    } else if (target.matches("[data-back]")) {
+      show("quiz");
+    } else if (target.matches("[data-share-linkedin]") && state.result) {
+      const text = `${state.result.share}\n\n${SHARE_URL}`;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => {});
+      }
+      const composer = `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(text)}`;
+      window.open(composer, "_blank", "noopener");
+      toast("Texte copié. Collez-le dans la publication si LinkedIn ne le pré-remplit pas.");
+    } else if (target.matches("[data-restart]")) {
+      state.current = 0;
+      state.answers = Array(questions.length).fill(null);
+      state.result = null;
+      $("[data-form]").reset();
+      show("welcome");
+    }
+  });
+
+  $("[data-form]").addEventListener("submit", (event) => {
+    event.preventDefault();
+    state.result = calculateResult();
+    renderResult(state.result);
+    saveLead(new FormData(event.currentTarget), state.result);
+    show("result");
+  });
+})();
+</script>

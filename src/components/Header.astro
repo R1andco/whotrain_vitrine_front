@@ -1,0 +1,55 @@
+---
+import site from '../config/site.json';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+function current(href: string) {
+  if (href === '/') return path === '/';
+  return path === href || path.startsWith(`${href}/`);
+}
+
+const links = site.nav.flatMap((item) => {
+  if (!item.children) return [item];
+  const alreadyListed = item.href && item.children.some((child) => child.href === item.href);
+  return alreadyListed || !item.href ? item.children : [{ label: item.label, href: item.href }, ...item.children];
+});
+
+function sectionCurrent(item: (typeof site.nav)[number]) {
+  if (item.href && current(item.href)) return true;
+  return item.children?.some((child) => current(child.href)) ?? false;
+}
+---
+
+<header class="wt-header">
+  <div class="wt-header-inner">
+    <a class="wt-logo" href="/" aria-label="Whotrain, accueil">
+      <img src={site.logo} alt="Whotrain" width="126" height="84" />
+    </a>
+    <nav class="wt-nav" aria-label="Navigation principale">
+      {site.nav.map((item) => item.children ? (
+        <div class="wt-drop">
+          {item.href ? (
+            <a href={item.href} aria-current={sectionCurrent(item) ? 'page' : undefined}>{item.label}</a>
+          ) : (
+            <button type="button" aria-haspopup="true">{item.label}</button>
+          )}
+          <div class="wt-drop-panel">
+            {item.children.map((child) => <a href={child.href} aria-current={current(child.href) ? 'page' : undefined}>{child.label}</a>)}
+          </div>
+        </div>
+      ) : (
+        <a href={item.href} aria-current={current(item.href) ? 'page' : undefined}>{item.label}</a>
+      ))}
+    </nav>
+    <a class="wt-login" href={site.app.login}>Connexion</a>
+    <a class="wt-cta" href={site.app.register}>Inscription</a>
+    <details class="wt-menu">
+      <summary>Menu</summary>
+      <div class="wt-menu-panel">
+        {links.map((item) => <a href={item.href}>{item.label}</a>)}
+        <a href={site.app.login}>Connexion</a>
+        <a class="wt-cta" href={site.app.register}>Inscription</a>
+      </div>
+    </details>
+  </div>
+</header>

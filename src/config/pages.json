@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "entreprises",
+    "embed": "entreprises.html",
+    "title": "Entreprises",
+    "description": "Entreprises : optimisez vos formations professionnelles avec Whotrain, gagnez du temps, trouvez rapidement le bon formateur et réduisez vos coûts et votre gestion administrative.",
+    "noindex": false
+  },
+  {
+    "slug": "intervenants",
+    "embed": "intervenants.html",
+    "title": "Intervenants (formateurs, coachs, conférenciers, concepteurs)",
+    "description": "Intervenants : développez votre activité, trouvez des missions sans prospecter, simplifiez la gestion administrative et bénéficiez de ressources pour développer votre activité.",
+    "noindex": false
+  },
+  {
+    "slug": "portage-qualiopi",
+    "embed": "portage-qualiopi.html",
+    "title": "Vendre des formations sans créer d'organisme de formation",
+    "description": "Vos salariés forment déjà vos équipes ? Vendez vos formations à d'autres entreprises grâce au portage Qualiopi Whotrain, sans créer d'organisme de formation ni gérer l'administratif.",
+    "noindex": false
+  },
+  {
+    "slug": "portage-salarial-formateur",
+    "embed": "portage-salarial-formateur.html",
+    "title": "Portage salarial formateur avec cadre Qualiopi",
+    "description": "Proposez un cadre Qualiopi à vos formateurs sans devenir organisme de formation. Solution dédiée aux sociétés de portage, CAE et coopératives.",
+    "noindex": false
+  },
+  {
+    "slug": "pourquoi-whotrain",
+    "embed": "pourquoi-whotrain.html",
+    "title": "Pourquoi Whotrain ?",
+    "description": "Découvrez Whotrain, la plateforme qui simplifie la formation professionnelle. Connectez formateurs, entreprises et apprenants. Pourquoi nous avons construit cette plateforme.",
+    "noindex": false
+  },
+  {
+    "slug": "w-club-ressources",
+    "embed": "w-club-ressources.html",
+    "title": "W-Club, le centre de ressources des formateurs Whotrain",
+    "description": "W-Club est le centre de ressources de Whotrain. Conseils pratiques, tendances RH, innovation pédagogique, témoignages de formateurs et retours d'expérience d'entreprises.",
+    "noindex": false
+  },
+  {
+    "slug": "tarifs",
+    "embed": "tarifs.html",
+    "title": "Tarifs de la formation professionnelle",
+    "description": "Tarifs Whotrain : abonnements pour les entreprises et commission sur mission pour les formateurs, sans marge cachée. Le détail à jour est sur cette page.",
+    "noindex": false
+  },
+  {
+    "slug": "quel-formateur-etes-vous",
+    "embed": "quel-formateur-etes-vous.html",
+    "title": "Quel formateur êtes-vous ?",
+    "description": "Quiz Whotrain : identifiez votre style dominant parmi quatre profils de formateur, le Maître, l'Architecte, le Facilitateur et le Catalyseur.",
+    "noindex": false
+  },
+  {
+    "slug": "mon-resultat",
+    "embed": "mon-resultat.html",
+    "title": "Résultat du quiz formateur",
+    "description": "Page de résultat du quiz Quel formateur êtes-vous.",
+    "noindex": true
+  }
+]

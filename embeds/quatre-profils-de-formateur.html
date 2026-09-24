@@ -1,0 +1,689 @@
+<div class="wt-article">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&display=swap');
+
+    .wt-article {
+      --wt-rose: #FE36AA;
+      --wt-orange: #FD7F08;
+      --wt-ink: #1A1A1F;
+      --wt-body: #34343C;
+      --wt-soft: #6B6B75;
+      --wt-line: #E7E7EC;
+      --wt-paper: #FFFFFF;
+      --wt-wash: #FAFAFB;
+
+      --p1: #1E5AA8;   /* Le Maitre . bleu */
+      --p2: #2F7D4A;   /* L'Architecte . vert */
+      --p3: #C4870C;   /* Le Facilitateur . ambre */
+      --p4: #6E3FB0;   /* Le Catalyseur . violet */
+
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--wt-body);
+      line-height: 1.65;
+      font-size: 18px;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 8px 20px 24px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .wt-article *,
+    .wt-article *::before,
+    .wt-article *::after { box-sizing: border-box; }
+
+    .wt-article p { margin: 0 0 1.1em; }
+    .wt-article strong { font-weight: 700; color: var(--wt-ink); }
+    .wt-article img { max-width: 100%; height: auto; display: block; }
+
+    /* ---------- En-tete ---------- */
+    .wt-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--wt-rose);
+      margin: 0 0 14px;
+    }
+    .wt-title {
+      font-size: clamp(34px, 6vw, 52px);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--wt-ink);
+      margin: 0 0 16px;
+    }
+    .wt-lede {
+      font-size: clamp(19px, 2.4vw, 22px);
+      line-height: 1.55;
+      color: var(--wt-soft);
+      font-weight: 400;
+      margin: 0 0 28px;
+      max-width: 680px;
+    }
+    .wt-rule {
+      height: 4px;
+      width: 76px;
+      border: 0;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--wt-rose), var(--wt-orange));
+      margin: 0 0 30px;
+    }
+    .wt-hero {
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 0 0 14px;
+      background: var(--wt-wash);
+    }
+    .wt-credit {
+      font-size: 13px;
+      color: var(--wt-soft);
+      margin: 0 0 36px;
+    }
+
+    /* ---------- Chapo ---------- */
+    .wt-intro p { font-size: 19px; }
+    .wt-intro { margin-bottom: 14px; }
+
+    /* ---------- Sommaire ---------- */
+    .wt-toc {
+      border: 1px solid var(--wt-line);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin: 8px 0 46px;
+      background: var(--wt-wash);
+    }
+    .wt-toc-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--wt-soft);
+      margin: 0 0 12px;
+    }
+    .wt-toc ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+      counter-reset: toc;
+    }
+    .wt-toc li { counter-increment: toc; }
+    .wt-toc a {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--wt-ink);
+      font-weight: 500;
+      padding: 4px 0;
+    }
+    .wt-toc a::before {
+      content: counter(toc, decimal-leading-zero);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--wt-rose);
+      letter-spacing: 0.02em;
+    }
+    .wt-toc a:hover { color: var(--wt-rose); }
+
+    /* ---------- Section profil ---------- */
+    .wt-profile {
+      scroll-margin-top: 24px;
+      padding-top: 30px;
+      margin-bottom: 8px;
+    }
+    .wt-profile + .wt-profile { border-top: 1px solid var(--wt-line); }
+
+    .wt-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 6px;
+      margin: 0 0 16px;
+    }
+    .wt-pname {
+      font-size: clamp(30px, 5vw, 42px);
+      line-height: 1.06;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 6px;
+      color: var(--wt-ink);
+    }
+    .wt-prole {
+      font-size: 20px;
+      font-weight: 500;
+      margin: 0 0 22px;
+    }
+    .wt-pfig {
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 0 0 30px;
+      background: var(--wt-wash);
+    }
+
+    .wt-profile h3 {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 32px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid;
+    }
+
+    .wt-profile ul { margin: 0 0 1.1em; padding-left: 0; list-style: none; }
+    .wt-profile ul li {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 8px;
+    }
+    .wt-profile ul li::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 12px;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+    }
+
+    .wt-steps { margin: 0 0 1.1em; padding: 0; list-style: none; counter-reset: step; }
+    .wt-steps > li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 52px;
+      margin-bottom: 18px;
+      min-height: 36px;
+    }
+    .wt-steps > li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: -2px;
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 17px;
+      color: #fff;
+    }
+    .wt-steps .wt-step-t {
+      display: block;
+      font-weight: 700;
+      color: var(--wt-ink);
+      margin-bottom: 2px;
+    }
+
+    /* de X a Y */
+    .wt-shift {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: stretch;
+      gap: 14px;
+      margin: 18px 0 22px;
+    }
+    .wt-shift .cell {
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-size: 17px;
+      line-height: 1.4;
+    }
+    .wt-shift .from {
+      background: var(--wt-wash);
+      border: 1px solid var(--wt-line);
+      color: var(--wt-soft);
+    }
+    .wt-shift .to {
+      color: var(--wt-ink);
+      font-weight: 500;
+    }
+    .wt-shift .lab {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      opacity: 0.85;
+    }
+    .wt-shift .arrow {
+      align-self: center;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* phrase miroir */
+    .wt-mirror {
+      margin: 30px 0 6px;
+      padding: 26px 28px;
+      border-radius: 16px;
+      color: #fff;
+      position: relative;
+    }
+    .wt-mirror .q {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin: 0 0 10px;
+    }
+    .wt-mirror p {
+      font-size: clamp(20px, 2.6vw, 24px);
+      line-height: 1.4;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    /* ---------- Cloture ---------- */
+    .wt-end {
+      margin-top: 48px;
+      padding: 34px 32px;
+      border-radius: 18px;
+      background: linear-gradient(120deg, #1A1A1F 0%, #29202B 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .wt-end::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(254,54,170,0.45), rgba(253,127,8,0.05) 70%);
+      pointer-events: none;
+    }
+    .wt-end h3 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin: 0 0 12px;
+      color: #fff;
+    }
+    .wt-end p {
+      color: #D8D8DE;
+      font-size: 18px;
+      margin: 0 0 22px;
+      max-width: 560px;
+    }
+    .wt-cta {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+      padding: 14px 26px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--wt-rose), var(--wt-orange));
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .wt-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(254,54,170,0.32);
+    }
+
+    /* ---------- Couleurs par profil ---------- */
+    #maitre h3 { border-color: var(--p1); color: var(--p1); }
+    #maitre .wt-badge { background: var(--p1); }
+    #maitre .wt-prole { color: var(--p1); }
+    #maitre ul li::before { background: var(--p1); }
+    #maitre .wt-steps > li::before { background: var(--p1); }
+    #maitre .wt-shift .to { border: 1px solid var(--p1); background: rgba(30,90,168,0.06); }
+    #maitre .wt-shift .arrow { color: var(--p1); }
+    #maitre .wt-mirror { background: linear-gradient(135deg, var(--p1), #143E78); }
+
+    #architecte h3 { border-color: var(--p2); color: var(--p2); }
+    #architecte .wt-badge { background: var(--p2); }
+    #architecte .wt-prole { color: var(--p2); }
+    #architecte ul li::before { background: var(--p2); }
+    #architecte .wt-steps > li::before { background: var(--p2); }
+    #architecte .wt-shift .to { border: 1px solid var(--p2); background: rgba(47,125,74,0.07); }
+    #architecte .wt-shift .arrow { color: var(--p2); }
+    #architecte .wt-mirror { background: linear-gradient(135deg, var(--p2), #1F5E37); }
+
+    #facilitateur h3 { border-color: var(--p3); color: var(--p3); }
+    #facilitateur .wt-badge { background: var(--p3); }
+    #facilitateur .wt-prole { color: var(--p3); }
+    #facilitateur ul li::before { background: var(--p3); }
+    #facilitateur .wt-steps > li::before { background: var(--p3); }
+    #facilitateur .wt-shift .to { border: 1px solid var(--p3); background: rgba(196,135,12,0.08); }
+    #facilitateur .wt-shift .arrow { color: var(--p3); }
+    #facilitateur .wt-mirror { background: linear-gradient(135deg, var(--p3), #9A6800); }
+
+    #catalyseur h3 { border-color: var(--p4); color: var(--p4); }
+    #catalyseur .wt-badge { background: var(--p4); }
+    #catalyseur .wt-prole { color: var(--p4); }
+    #catalyseur ul li::before { background: var(--p4); }
+    #catalyseur .wt-steps > li::before { background: var(--p4); }
+    #catalyseur .wt-shift .to { border: 1px solid var(--p4); background: rgba(110,63,176,0.07); }
+    #catalyseur .wt-shift .arrow { color: var(--p4); }
+    #catalyseur .wt-mirror { background: linear-gradient(135deg, var(--p4), #4D2A82); }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 620px) {
+      .wt-article { font-size: 17px; padding: 6px 16px 20px; }
+      .wt-toc ol { grid-template-columns: 1fr; }
+      .wt-shift { grid-template-columns: 1fr; }
+      .wt-shift .arrow { transform: rotate(90deg); justify-self: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wt-cta { transition: none; }
+    }
+  </style>
+
+  <!-- ============ EN-TETE ============ -->
+
+
+  <figure class="wt-hero">
+    <!-- /images/embeds/les-4-profls-de-formateur-8KJ9o1lrv7kSuZkC.png
+
+ -->
+    <img src="/images/embeds/les-4-profls-de-formateur-8KJ9o1lrv7kSuZkC.png
+
+" alt="Les quatre profils de formateur : le Maître, l&#x27;Architecte, le Facilitateur, le Catalyseur" loading="lazy">
+  </figure>
+  <p class="wt-credit">Les quatre profils en un coup d'oeil.</p>
+
+  <!-- ============ CHAPO ============ -->
+  <div class="wt-intro">
+    <p>Il n'y a pas une bonne façon de former. Il y a des postures. Deux formateurs peuvent traiter le même sujet, viser le même objectif et conduire deux journées radicalement différentes. Ce qui les sépare n'est pas le niveau. C'est la manière dont chacun comprend son rôle face au groupe.</p>
+    <p>Nous avons regroupé ces manières en quatre profils. Lisez-les comme des repères, pas comme des cases. La plupart des formateurs en combinent plusieurs et se reconnaissent surtout dans un profil dominant. L'intérêt n'est pas de se ranger dans une catégorie. C'est d'identifier sa force naturelle et l'angle mort qui va avec.</p>
+  </div>
+
+  <!-- ============ SOMMAIRE ============ -->
+  <nav class="wt-toc" aria-label="Sommaire">
+    <p class="wt-toc-label">Les profils</p>
+    <ol>
+      <li><a href="#maitre">Le Maître</a></li>
+      <li><a href="#architecte">L'Architecte</a></li>
+      <li><a href="#facilitateur">Le Facilitateur</a></li>
+      <li><a href="#catalyseur">Le Catalyseur</a></li>
+    </ol>
+  </nav>
+
+  <!-- ====================================================== -->
+  <!-- PROFIL 1 . LE MAITRE                                    -->
+  <!-- ====================================================== -->
+  <section class="wt-profile" id="maitre">
+    <span class="wt-badge">Profil 1</span>
+    <h2 class="wt-pname">Le Maître</h2>
+    <p class="wt-prole">Le formateur de la transmission claire</p>
+
+    <figure class="wt-pfig">
+      <!-- /images/embeds/profil-le-maitre-xhtcV55PZANNX0EZ.png -->
+      <img src="/images/embeds/profil-le-maitre-xhtcV55PZANNX0EZ.png" alt="Le Maître, le formateur du savoir" loading="lazy">
+    </figure>
+
+    <h3>Portrait général</h3>
+    <p>Le Maître est le formateur de la transmission claire. Il aime comprendre profondément son sujet, le structurer, le rendre lisible, puis le transmettre avec précision. Il ne vient pas en formation pour improviser ou « faire discuter ». Il vient pour apporter un savoir, une méthode, une logique, un cadre. Son objectif est simple : que les participants repartent avec des repères solides.</p>
+    <p>Le Maître rassure parce qu'il maîtrise. Il sait où il va. Il connaît son sujet. Il prépare ses contenus. Il donne de la valeur par la qualité de ses explications, la précision de ses exemples et la solidité de son cadre. C'est souvent le profil que l'on retrouve chez les formateurs experts, les formateurs techniques, les formateurs réglementaires, les spécialistes métier ou les professionnels qui ont beaucoup d'expérience terrain à transmettre.</p>
+
+    <h3>Ce qui l'anime</h3>
+    <p>Le Maître est animé par la transmission. Il veut que les participants comprennent vraiment. Il aime clarifier ce qui est flou, mettre de l'ordre dans des notions complexes, donner des méthodes applicables.</p>
+    <p>Il a souvent une forme d'exigence intérieure : il veut être utile, précis, sérieux. Il n'aime pas les formations creuses, les animations sans contenu, les ateliers où l'on parle beaucoup sans repartir avec quelque chose de concret. Pour lui, une formation réussie doit laisser une trace claire.</p>
+
+    <h3>Sa manière de préparer</h3>
+    <p>Le Maître prépare souvent à partir du contenu. Il se demande :</p>
+    <ul>
+      <li>Quelles sont les notions essentielles ?</li>
+      <li>Dans quel ordre faut-il les présenter ?</li>
+      <li>Quels exemples vont permettre de comprendre ?</li>
+      <li>Quels supports vont aider les participants à retenir ?</li>
+      <li>Quelles erreurs faut-il éviter ?</li>
+    </ul>
+    <p>Il aime structurer ses séquences, prévoir ses apports, préparer ses supports et sécuriser son déroulé. Sa formation est rarement brouillonne. Elle suit une progression logique.</p>
+
+    <h3>Sa manière d'animer</h3>
+    <p>En animation, le Maître prend naturellement une place centrale. Il explique, illustre, répond aux questions, corrige, reformule. Il peut captiver un groupe lorsqu'il parle d'un sujet qu'il connaît bien. Son autorité vient moins de sa posture que de sa compétence. Les participants sentent qu'il sait de quoi il parle.</p>
+    <p>Il peut être très bon pour poser un cadre, transmettre une méthode, expliquer une notion difficile, sécuriser des publics débutants et clarifier des sujets techniques ou réglementaires.</p>
+
+    <h3>Ses forces</h3>
+    <p>Le Maître apporte quatre grandes forces. D'abord, <strong>la clarté</strong> : il rend les choses compréhensibles. Ensuite, <strong>la crédibilité</strong> : il maîtrise son sujet et cela se sent. Puis, <strong>la structure</strong> : les participants savent où ils vont. Enfin, <strong>la sécurité</strong> : il rassure les apprenants qui ont besoin d'un cadre précis pour apprendre.</p>
+    <p>Dans certains contextes, ce profil est indispensable. Quand le sujet est complexe, réglementaire, technique ou sensible, les participants ont besoin d'un formateur qui sait transmettre avec rigueur.</p>
+
+    <h3>Ses angles morts</h3>
+    <p>Le principal risque du Maître est de trop porter la formation sur ses épaules. Comme il maîtrise son sujet, il peut avoir tendance à parler beaucoup, à expliquer longtemps, à vouloir tout transmettre. Le danger est alors de confondre « avoir expliqué » avec « avoir fait apprendre ».</p>
+    <p>Or les participants ne retiennent pas seulement ce qu'ils entendent. Ils retiennent aussi ce qu'ils manipulent, reformulent, testent, discutent et mettent en pratique. Le Maître peut aussi avoir du mal à lâcher le contrôle. Il peut trouver les échanges trop longs, les exercices trop imprécis, les détours du groupe trop éloignés du sujet. Son défi n'est donc pas de devenir moins expert. Son défi est de transformer son expertise en expérience d'apprentissage.</p>
+
+    <h3>Son rapport au groupe</h3>
+    <p>Le Maître voit souvent le groupe comme un public à faire progresser. Il aime répondre aux questions, clarifier les incompréhensions et transmettre ce qu'il sait. Mais il peut sous-estimer la richesse de ce que le groupe possède déjà : expériences, pratiques, erreurs, cas réels, questionnements.</p>
+    <p>Quand il apprend à mieux utiliser le groupe, sa formation gagne en puissance. Il ne perd pas son statut d'expert. Au contraire, il devient capable de mettre son expertise au service des situations concrètes vécues par les participants.</p>
+
+    <h3>Son défi de progression</h3>
+    <div class="wt-shift">
+      <div class="cell from"><span class="lab">De</span>« J'ai transmis mon contenu »</div>
+      <div class="arrow">→</div>
+      <div class="cell to"><span class="lab">À</span>« Les participants se sont approprié le contenu »</div>
+    </div>
+    <p>Ce n'est pas la même chose. Pour progresser, il doit introduire davantage de moments où les participants agissent : reformulation, quiz, cas pratiques, mini-défis, analyse d'erreurs, mise en situation, débat guidé, transfert vers leur contexte réel. Son objectif n'est pas de supprimer les apports. Son objectif est de mieux les rythmer.</p>
+
+    <h3>Ce qu'il doit travailler pour passer un cap</h3>
+    <ol class="wt-steps">
+      <li><span class="wt-step-t">Réduire le volume d'apports</span>Tout ce qui est vrai n'a pas forcément besoin d'être dit. Le bon contenu n'est pas le contenu complet. C'est le contenu utile, au bon moment, pour le bon public.</li>
+      <li><span class="wt-step-t">Faire pratiquer plus vite</span>Le Maître gagne en impact lorsqu'il accepte de faire pratiquer avant que tout soit parfaitement expliqué. L'expérience crée souvent le besoin d'explication.</li>
+      <li><span class="wt-step-t">Mesurer l'appropriation</span>Il doit vérifier régulièrement ce qu'ils ont compris, ce qu'ils savent refaire, où ils bloquent et ce qu'ils vont appliquer demain. C'est là que sa formation devient réellement efficace.</li>
+    </ol>
+
+    <div class="wt-mirror">
+      <p class="q">Phrase miroir</p>
+      <p>Vous n'avez pas besoin de prouver que vous savez. Vous avez besoin de créer les conditions pour que les autres sachent faire.</p>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- PROFIL 2 . L'ARCHITECTE                                 -->
+  <!-- ====================================================== -->
+  <section class="wt-profile" id="architecte">
+    <span class="wt-badge">Profil 2</span>
+    <h2 class="wt-pname">L'Architecte</h2>
+    <p class="wt-prole">Le formateur de la progression</p>
+
+    <figure class="wt-pfig">
+      <!-- /images/embeds/profil-l-architecte-YG7q0EwDDR7nBOyI.png -->
+      <img src="/images/embeds/profil-l-architecte-YG7q0EwDDR7nBOyI.png" alt="L&#x27;Architecte, le formateur de la progression" loading="lazy">
+    </figure>
+
+    <h3>Portrait général</h3>
+    <p>L'Architecte est le formateur de la progression. Là où d'autres transmettent un savoir, lui construit un parcours. Il ne cherche pas seulement à faire comprendre. Il cherche à faire acquérir une compétence. Pour lui, apprendre signifie faire.</p>
+    <p>Il aime les exercices, les simulations, les études de cas, les mises en situation. Chaque activité a une fonction précise dans son scénario pédagogique. L'Architecte pense souvent comme un ingénieur. Il assemble des séquences, construit des étapes, crée des situations d'apprentissage et guide les participants vers un objectif concret.</p>
+
+    <h3>Ce qui l'anime</h3>
+    <p>Ce qui motive l'Architecte, ce sont les résultats visibles. Il aime voir un participant incapable de réaliser une tâche le matin et capable de la réaliser le soir. Il ne cherche pas seulement à transmettre des connaissances. Il cherche à provoquer des progrès observables. Pour lui, une bonne formation se mesure moins à ce qui a été dit qu'à ce qui a été acquis.</p>
+
+    <h3>Sa manière de préparer</h3>
+    <p>L'Architecte prépare souvent à partir des compétences à développer. Il se demande :</p>
+    <ul>
+      <li>Que doivent savoir faire les participants à la fin ?</li>
+      <li>Quelles situations permettront de développer cette compétence ?</li>
+      <li>Quels exercices créer ?</li>
+      <li>Quels cas pratiques utiliser ?</li>
+      <li>Comment faire monter progressivement le niveau de difficulté ?</li>
+    </ul>
+    <p>Il construit des parcours cohérents où chaque activité sert un objectif précis.</p>
+
+    <h3>Sa manière d'animer</h3>
+    <p>Pendant la formation, il garde le cap. Les participants sont actifs, mais l'Architecte reste le chef d'orchestre. Il distribue les exercices, anime les débriefings, apporte des corrections, fait émerger les apprentissages et relie les expériences à la pratique professionnelle. Son groupe travaille beaucoup. Ses formations sont rarement passives.</p>
+
+    <h3>Ses forces</h3>
+    <p>L'Architecte possède quatre atouts majeurs. D'abord, <strong>la mise en pratique</strong> : les participants apprennent en faisant. Ensuite, <strong>le transfert terrain</strong> : les situations proposées ressemblent souvent à la réalité professionnelle. Troisième force, <strong>la progression</strong> : il sait construire une montée en compétences étape par étape. Enfin, <strong>l'efficacité</strong> : ses formations produisent souvent des résultats concrets rapidement.</p>
+
+    <h3>Ses angles morts</h3>
+    <p>Le principal risque de l'Architecte est de vouloir tout contrôler. Comme il a pensé chaque étape de son dispositif, il peut avoir du mal à laisser de la place à l'imprévu.</p>
+    <p>Il peut également construire des exercices trop sophistiqués. Parfois, les participants passent plus de temps à comprendre l'exercice qu'à apprendre. Autre risque : vouloir résoudre tous les problèmes pédagogiques par des activités. Or certaines notions méritent parfois une explication simple et directe.</p>
+
+    <h3>Son rapport au groupe</h3>
+    <p>L'Architecte considère souvent le groupe comme un terrain d'entraînement. Il aime observer les comportements, analyser les réactions, comprendre les mécanismes d'apprentissage. Le groupe devient une matière vivante qui permet de tester, ajuster et progresser. Il apprécie les participants engagés et curieux. Il est parfois déstabilisé par les groupes très passifs.</p>
+
+    <h3>Son défi de progression</h3>
+    <div class="wt-shift">
+      <div class="cell from"><span class="lab">De</span>« Je construis le parcours »</div>
+      <div class="arrow">→</div>
+      <div class="cell to"><span class="lab">À</span>« Je laisse les participants construire une partie du parcours »</div>
+    </div>
+    <p>Son prochain niveau consiste à introduire davantage de co-construction et d'autonomie. Il n'a pas besoin de perdre sa structure. Il doit simplement accepter que tout ne soit pas entièrement prévu.</p>
+
+    <h3>Ce qu'il doit travailler pour passer un cap</h3>
+    <ol class="wt-steps">
+      <li><span class="wt-step-t">Simplifier</span>Une activité simple et puissante vaut souvent mieux qu'un dispositif complexe.</li>
+      <li><span class="wt-step-t">Faire davantage confiance au groupe</span>Les participants peuvent parfois produire des solutions plus riches que celles imaginées au départ.</li>
+      <li><span class="wt-step-t">Développer l'écoute</span>L'Architecte gagne en impact lorsqu'il adapte son scénario aux besoins émergents du groupe.</li>
+    </ol>
+
+    <div class="wt-mirror">
+      <p class="q">Phrase miroir</p>
+      <p>Vous construisez déjà d'excellents parcours. Votre prochain défi consiste à laisser davantage de place à ce que les participants vont y construire eux-mêmes.</p>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- PROFIL 3 . LE FACILITATEUR                              -->
+  <!-- ====================================================== -->
+  <section class="wt-profile" id="facilitateur">
+    <span class="wt-badge">Profil 3</span>
+    <h2 class="wt-pname">Le Facilitateur</h2>
+    <p class="wt-prole">Le formateur de l'intelligence collective</p>
+
+    <figure class="wt-pfig">
+      <!-- /images/embeds/profil-le-facilitateur-j6sZxCioS52BIzlG.png -->
+      <img src="/images/embeds/profil-le-facilitateur-j6sZxCioS52BIzlG.png" alt="Le Facilitateur, le formateur de l&#x27;intelligence collective" loading="lazy">
+    </figure>
+
+    <h3>Portrait général</h3>
+    <p>Le Facilitateur est le formateur de l'intelligence collective. Il est convaincu que les participants possèdent déjà une partie des réponses. Son rôle n'est pas seulement de transmettre un savoir. Il consiste à créer les conditions qui permettent au groupe de réfléchir, partager et apprendre ensemble.</p>
+    <p>Il accorde beaucoup d'importance aux interactions, aux échanges et aux retours d'expérience. Pour lui, une salle de formation est avant tout un lieu de réflexion collective.</p>
+
+    <h3>Ce qui l'anime</h3>
+    <p>Le Facilitateur aime faire émerger. Il aime voir des idées se connecter, des expériences se croiser et des solutions apparaître grâce au groupe. Il éprouve souvent plus de satisfaction lorsqu'un participant aide un autre participant que lorsqu'il apporte lui-même la réponse. Ce qui le motive, c'est la richesse humaine.</p>
+
+    <h3>Sa manière de préparer</h3>
+    <p>Le Facilitateur prépare moins de contenu que d'autres profils. En revanche, il prépare :</p>
+    <ul>
+      <li>des questions,</li>
+      <li>des ateliers,</li>
+      <li>des temps d'échange,</li>
+      <li>des séquences collaboratives,</li>
+      <li>des méthodes d'animation.</li>
+    </ul>
+    <p>Il réfléchit davantage aux dynamiques de groupe qu'aux supports.</p>
+
+    <h3>Sa manière d'animer</h3>
+    <p>En animation, il distribue la parole. Il écoute beaucoup. Il reformule. Il questionne. Il aide chacun à participer. Il crée rapidement un climat de confiance qui favorise l'engagement. Les participants se sentent souvent écoutés et considérés.</p>
+
+    <h3>Ses forces</h3>
+    <p>Le Facilitateur possède quatre grandes forces. Premièrement, <strong>l'engagement</strong> : les participants deviennent acteurs. Deuxièmement, <strong>la richesse des échanges</strong> : l'expérience du groupe devient une ressource pédagogique. Troisièmement, <strong>la confiance</strong> : il crée un climat propice à l'apprentissage. Enfin, <strong>l'adaptabilité</strong> : il sait ajuster son animation à la réalité du groupe.</p>
+
+    <h3>Ses angles morts</h3>
+    <p>Le principal risque du Facilitateur est le manque de cadre. À vouloir laisser de la place à chacun, il peut parfois perdre le fil conducteur. Certains participants peuvent repartir avec de bons échanges mais peu de repères structurés.</p>
+    <p>Autre risque : surestimer ce que le groupe sait déjà. Toutes les compétences ne peuvent pas émerger spontanément. Parfois, un apport expert reste nécessaire.</p>
+
+    <h3>Son rapport au groupe</h3>
+    <p>Le groupe est sa matière première. Là où certains voient un public, lui voit une ressource. Il croit profondément que l'apprentissage est souvent plus puissant lorsqu'il est partagé. Les groupes riches en expérience le stimulent particulièrement.</p>
+
+    <h3>Son défi de progression</h3>
+    <div class="wt-shift">
+      <div class="cell from"><span class="lab">De</span>« Le groupe produit des idées »</div>
+      <div class="arrow">→</div>
+      <div class="cell to"><span class="lab">À</span>« Le groupe repart avec des apprentissages structurés »</div>
+    </div>
+    <p>Son prochain niveau consiste à mieux formaliser ce qui émerge.</p>
+
+    <h3>Ce qu'il doit travailler pour passer un cap</h3>
+    <ol class="wt-steps">
+      <li><span class="wt-step-t">Structurer davantage</span>Les échanges gagnent en valeur lorsqu'ils débouchent sur des conclusions claires.</li>
+      <li><span class="wt-step-t">Assumer son expertise</span>Le Facilitateur oublie parfois qu'il possède lui aussi des connaissances utiles à partager.</li>
+      <li><span class="wt-step-t">Produire des livrables</span>Synthèses, méthodes, outils ou plans d'action renforcent l'impact des échanges.</li>
+    </ol>
+
+    <div class="wt-mirror">
+      <p class="q">Phrase miroir</p>
+      <p>Le groupe est une ressource. Mais votre expertise aussi.</p>
+    </div>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- PROFIL 4 . LE CATALYSEUR                                -->
+  <!-- ====================================================== -->
+  <section class="wt-profile" id="catalyseur">
+    <span class="wt-badge">Profil 4</span>
+    <h2 class="wt-pname">Le Catalyseur</h2>
+    <p class="wt-prole">Le formateur de la transformation</p>
+
+    <figure class="wt-pfig">
+      <!-- /images/embeds/le-catalyseur-I1eKQ3wTLYPVpek9.png -->
+      <img src="/images/embeds/le-catalyseur-I1eKQ3wTLYPVpek9.png" alt="Le Catalyseur, le formateur de la transformation" loading="lazy">
+    </figure>
+
+    <h3>Portrait général</h3>
+    <p>Le Catalyseur est le formateur de la transformation. Il ne cherche pas seulement à transmettre des connaissances ou développer des compétences. Il cherche à provoquer des déclics. Pour lui, apprendre signifie souvent changer de regard, remettre en question certaines habitudes ou expérimenter de nouvelles façons d'agir. Ses formations marquent souvent les participants longtemps après leur fin.</p>
+
+    <h3>Ce qui l'anime</h3>
+    <p>Le Catalyseur aime les prises de conscience. Il aime voir un participant comprendre quelque chose d'important sur lui-même, sur son métier ou sur sa manière d'agir. Ce qui le motive n'est pas seulement la progression. C'est la transformation. Il cherche à produire un avant et un après.</p>
+
+    <h3>Sa manière de préparer</h3>
+    <p>Le Catalyseur prépare souvent des expériences. Il réfléchit à :</p>
+    <ul>
+      <li>ce qui va surprendre,</li>
+      <li>ce qui va faire réfléchir,</li>
+      <li>ce qui va provoquer un déclic,</li>
+      <li>ce qui va remettre en question certaines croyances.</li>
+    </ul>
+    <p>Il s'intéresse beaucoup aux émotions, aux comportements et aux mécanismes de changement.</p>
+
+    <h3>Sa manière d'animer</h3>
+    <p>Il aime faire vivre. Les participants expérimentent, analysent, ressentent, débattent et prennent du recul. L'animation est souvent très dynamique. Il pose beaucoup de questions. Il crée des situations qui poussent à réfléchir autrement.</p>
+
+    <h3>Ses forces</h3>
+    <p>Le Catalyseur possède quatre atouts majeurs. D'abord, <strong>l'engagement</strong> : les participants vivent les apprentissages. Ensuite, <strong>l'impact émotionnel</strong> : les messages sont souvent mémorisés longtemps. Troisième force, <strong>la remise en question constructive</strong> : il aide les participants à sortir de leurs automatismes. Enfin, <strong>la transformation durable</strong> : il agit souvent sur les comportements plus que sur les connaissances.</p>
+
+    <h3>Ses angles morts</h3>
+    <p>Le principal risque du Catalyseur est de sous-estimer le besoin de structure. Certains participants adorent les expériences. D'autres ont besoin de repères, de méthodes et de conclusions concrètes.</p>
+    <p>Autre risque : privilégier le déclic au détriment du plan d'action. Une prise de conscience est utile. Mais elle ne garantit pas un changement durable.</p>
+
+    <h3>Son rapport au groupe</h3>
+    <p>Le groupe est un laboratoire. Le Catalyseur observe les réactions, les prises de conscience et les évolutions. Il aime accompagner les participants dans leurs réflexions. Il apprécie particulièrement les groupes ouverts au changement.</p>
+
+    <h3>Son défi de progression</h3>
+    <div class="wt-shift">
+      <div class="cell from"><span class="lab">De</span>« Les participants ont vécu quelque chose de fort »</div>
+      <div class="arrow">→</div>
+      <div class="cell to"><span class="lab">À</span>« Les participants changent réellement leurs pratiques »</div>
+    </div>
+    <p>Son prochain niveau consiste à transformer les déclics en actions concrètes.</p>
+
+    <h3>Ce qu'il doit travailler pour passer un cap</h3>
+    <ol class="wt-steps">
+      <li><span class="wt-step-t">Formaliser davantage</span>Les prises de conscience doivent déboucher sur des méthodes et des outils.</li>
+      <li><span class="wt-step-t">Structurer le transfert</span>Le changement se construit dans la durée.</li>
+      <li><span class="wt-step-t">Mesurer les résultats</span>Le Catalyseur gagne en impact lorsqu'il rend visibles les progrès réalisés après la formation.</li>
+    </ol>
+
+    <div class="wt-mirror">
+      <p class="q">Phrase miroir</p>
+      <p>Un déclic change une perception. Une action répétée change un comportement.</p>
+    </div>
+  </section>
+
+  <!-- ============ CLOTURE ============ -->
+  <div class="wt-end">
+    <h3>Et vous, quel formateur êtes-vous ?</h3>
+    <p>Aucun de ces profils n'est figé. Le bon formateur n'est pas celui qui appartient à une catégorie. C'est celui qui connaît sa force et travaille son angle mort. Whotrain met les entreprises en relation directe avec les formateurs indépendants, quel que soit leur profil.</p>
+    <a class="wt-cta" href="https://www.whotrain.com/quel-formateur-etes-vous">Découvrez votre profil</a>
+  </div>
+
+</div>

@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import { publishedPosts } from '../lib/content';
+import site from '../config/site.json';
+
+const posts = await publishedPosts();
+---
+
+<Base
+  title="Pour les agents"
+  description="Faits sourcés sur Whotrain à l'usage des agents logiciels : ce que fait la plateforme, pour qui, et où lire les pages canoniques."
+>
+  <article class="wt-page">
+    <div class="wt-wrap wt-prose">
+      <p class="wt-kicker">B2A</p>
+      <h1>Whotrain pour les agents</h1>
+      <p>{site.description}</p>
+      <h2>Publics</h2>
+      <ul>
+        <li><strong>Entreprises.</strong> {site.audiences.entreprises}</li>
+        <li><strong>Intervenants.</strong> {site.audiences.intervenants}</li>
+        <li><strong>Portage.</strong> {site.audiences.portage}</li>
+        <li><strong>Agents.</strong> {site.audiences.agents}</li>
+      </ul>
+      <h2>Sources à citer</h2>
+      <ul>
+        <li><a href="/facts.json">/facts.json</a> — faits structurés.</li>
+        <li><a href="/llms.txt">/llms.txt</a> — carte du site pour les modèles.</li>
+        <li><a href="/tarifs">/tarifs</a> — prix en vigueur. Ne pas recopier un tarif depuis une autre page.</li>
+        <li><a href="/conditions-generales-de-vente">Conditions générales de vente</a> et <a href="/conditions-generales-dutilisation">conditions d'utilisation</a>.</li>
+      </ul>
+      <h2>Articles publiés</h2>
+      <ul>
+        {posts.map((post) => <li><a href={`/${post.id}`}>{post.data.title}</a> — {post.data.summary}</li>)}
+      </ul>
+    </div>
+  </article>
+</Base>
