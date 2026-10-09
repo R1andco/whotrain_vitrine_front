@@ -51,8 +51,26 @@
 
   /* CARD FORMULAIRE */
   .fgw-card { background: var(--white); border-radius: 16px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04); animation: fadeUp .5s .1s ease both; }
-  .fgw-body { padding: 26px 28px 22px; display: flex; flex-direction: column; gap: 22px; }
+  .fgw-body { padding: 28px 28px 18px; display: flex; flex-direction: column; gap: 16px; }
   .fgw-field { display: flex; flex-direction: column; gap: 8px; }
+  .fgw-step { display: none; flex-direction: column; gap: 10px; }
+  .fgw-step.on { display: flex; animation: fgFade .28s ease; }
+  .fgw-ask { align-self: flex-start; max-width: 86%; margin: 0; padding: 12px 16px; background: #f2f2f4; color: var(--text); border-radius: 18px 18px 18px 6px; font-size: 15px; line-height: 1.45; }
+  .fgw-reply { align-self: flex-end; width: min(100%, 520px); margin-left: 48px; padding: 12px 14px; background: var(--white); border: 1.5px solid var(--border); border-radius: 18px 18px 6px 18px; display: flex; flex-direction: column; gap: 6px; }
+  .fgw-reply:focus-within { border-color: var(--rose); box-shadow: 0 0 0 3px rgba(254,54,170,.09); }
+  .fgw-pair { align-self: flex-end; width: min(100%, 520px); margin-left: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .fgw-pair .fgw-reply { width: auto; margin-left: 0; }
+  .fgw-reply .fgw-tags-wrap,
+  .fgw-reply .fgw-input,
+  .fgw-reply .fgw-period { border: none; box-shadow: none; background: transparent; }
+  .fgw-reply .fgw-input { padding: 2px 0; }
+  .fgw-reply .fgw-input:focus { border: none; box-shadow: none; }
+  .fgw-reply .fgw-tags-wrap { padding: 2px 0; min-height: 32px; }
+  .fgw-reply .fgw-period-trigger { padding: 2px 0; }
+  .fgw-more { align-self: flex-end; width: 32px; height: 24px; margin-right: 8px; border: none; background: transparent; color: var(--text-3); cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
+  .fgw-more:hover { color: var(--rose); }
+  .fgw-more[hidden] { display: none; }
+  .fgw-footer.is-off { display: none; }
   .fgw-label { font-size: 13.5px; font-weight: 500; }
   .fgw-label .req { color: var(--rose); }
 
@@ -256,6 +274,8 @@
     .compare-table { font-size: .8rem; }
     .compare-table thead th, .compare-table tbody td { padding: 10px 12px; }
     .fgw-row { grid-template-columns: 1fr; }
+    .fgw-pair { grid-template-columns: 1fr; margin-left: 28px; }
+    .fgw-reply { margin-left: 28px; }
     .fgw-months { grid-template-columns: repeat(3, 1fr); }
     .fgw-body { padding: 20px 18px; }
     .fgw-footer { padding: 16px 18px; flex-direction: column; align-items: flex-start; gap: 12px; }
@@ -279,52 +299,34 @@
       <div id="fgw-form">
         <div class="fgw-body">
 
-          <div class="fgw-field">
-            <label class="fgw-label">Type de prestation <span class="req">*</span></label>
-            <div class="fgw-radios">
-              <input type="radio" name="fgw_type" id="fgt1" value="training">
-              <label for="fgt1"><span class="rr"></span>Formation</label>
-              <input type="radio" name="fgw_type" id="fgt2" value="coaching">
-              <label for="fgt2"><span class="rr"></span>Coaching</label>
-              <input type="radio" name="fgw_type" id="fgt3" value="conference">
-              <label for="fgt3"><span class="rr"></span>Conférence</label>
+          <div class="fgw-step on" id="step-skills">
+            <p class="fgw-ask">Quelles compétences souhaitez-vous développer ?</p>
+            <div class="fgw-reply">
+              <div class="fgw-tags-wrap" id="tags-wrap" onclick="document.getElementById(&#x27;tag-in&#x27;).focus()">
+                <input type="text" id="tag-in" class="fgw-tag-input" placeholder="Ex : management, vente, RSE…" autocomplete="off" aria-label="Compétences">
+              </div>
+              <span class="fgw-hint">Entrée pour ajouter</span>
+              <span class="fgw-err" id="e-skills">Ajoutez au moins une compétence.</span>
             </div>
-            <span class="fgw-err" id="e-type">Sélectionnez un type de prestation.</span>
           </div>
+          <button type="button" class="fgw-more" data-next="step-besoin" onclick="fgwNext(this)" aria-label="Afficher le besoin">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </button>
 
-          <div class="fgw-field">
-            <label class="fgw-label">Format <span class="req">*</span></label>
-            <div class="fgw-radios">
-              <input type="radio" name="fgw_fmt" id="fgf1" value="face-to-face">
-              <label for="fgf1"><span class="rr"></span>Présentiel</label>
-              <input type="radio" name="fgw_fmt" id="fgf2" value="remote">
-              <label for="fgf2"><span class="rr"></span>Distanciel</label>
-              <input type="radio" name="fgw_fmt" id="fgf3" value="hybrid">
-              <label for="fgf3"><span class="rr"></span>Hybride</label>
-              <input type="radio" name="fgw_fmt" id="fgf4" value="e-learning">
-              <label for="fgf4"><span class="rr"></span>E-learning</label>
+          <div class="fgw-step" id="step-besoin">
+            <p class="fgw-ask">Décrivez votre besoin, le public, le format souhaité et les infos qui vous semblent importantes.</p>
+            <div class="fgw-reply">
+              <textarea id="fgw-desc" class="fgw-input fgw-textarea" maxlength="4000" placeholder="Votre besoin…" aria-label="Besoin"></textarea>
+              <span class="fgw-err" id="e-desc">Décrivez votre besoin.</span>
             </div>
-            <span class="fgw-err" id="e-fmt">Choisissez un format.</span>
           </div>
+          <button type="button" class="fgw-more" data-next="step-date" onclick="fgwNext(this)" aria-label="Afficher la date" hidden>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </button>
 
-          <div class="fgw-field">
-            <label class="fgw-label">Compétences recherchées <span class="req">*</span></label>
-            <div class="fgw-tags-wrap" id="tags-wrap" onclick="document.getElementById(&#x27;tag-in&#x27;).focus()">
-              <input type="text" id="tag-in" class="fgw-tag-input" placeholder="Sélectionner des compétences…" autocomplete="off">
-            </div>
-            <span class="fgw-hint">Tapez une compétence et appuyez sur Entrée ou virgule pour l'ajouter</span>
-            <span class="fgw-err" id="e-skills">Ajoutez au moins une compétence.</span>
-          </div>
-
-          <div class="fgw-field">
-            <label class="fgw-label" for="fgw-desc">Description <span class="req">*</span></label>
-            <textarea id="fgw-desc" class="fgw-input fgw-textarea" maxlength="4000" placeholder="Objectifs pédagogiques, public cible, nombre de participants, contexte…"></textarea>
-            <span class="fgw-char-count"><span id="fgw-chars">0</span> / 4000 caractères</span>
-            <span class="fgw-err" id="e-desc">Décrivez votre besoin.</span>
-          </div>
-
-          <div class="fgw-field">
-            <label class="fgw-label">Période souhaitée</label>
+          <div class="fgw-step" id="step-date">
+            <p class="fgw-ask">Quelle date ou période ?</p>
+            <div class="fgw-reply">
             <div class="fgw-period" id="fgw-period">
               <div class="fgw-period-trigger" id="fgw-ptrig" onclick="togglePeriod()">
                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
@@ -341,7 +343,7 @@
                 </div>
                 <div id="v-months">
                   <div class="fgw-months" id="fgw-months-grid"></div>
-                  <p class="fgw-period-note">Sélectionnez un ou plusieurs mois</p>
+                  <p class="fgw-period-note">Plusieurs mois possibles. Entrée, ou un clic à côté, pour fermer.</p>
                 </div>
                 <div class="fgw-cal" id="v-cal">
                   <div class="fgw-cal-nav">
@@ -353,39 +355,29 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="fgw-field">
-            <label class="fgw-label" for="fgw-loc">Localisation</label>
-            <input type="text" id="fgw-loc" class="fgw-input" placeholder="Ville ou adresse">
-            <span class="fgw-radius-note">
-              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="var(--text-3)" stroke-width="1.2"></circle><circle cx="6.5" cy="6.5" r="2" fill="var(--text-3)"></circle></svg>
-              Rayon de recherche automatique : 600 km
-            </span>
-          </div>
-
-          <div class="fgw-row">
-            <div class="fgw-field">
-              <label class="fgw-label" for="fgw-fn">Prénom <span class="req">*</span></label>
-              <input type="text" id="fgw-fn" class="fgw-input" placeholder="Marie" autocomplete="given-name">
-              <span class="fgw-err" id="e-fn">Votre prénom est requis.</span>
-            </div>
-            <div class="fgw-field">
-              <label class="fgw-label" for="fgw-ln">Nom <span class="req">*</span></label>
-              <input type="text" id="fgw-ln" class="fgw-input" placeholder="Dupont" autocomplete="family-name">
-              <span class="fgw-err" id="e-ln">Votre nom est requis.</span>
             </div>
           </div>
+          <button type="button" class="fgw-more" data-next="step-contact" onclick="fgwNext(this)" aria-label="Afficher le contact" hidden>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </button>
 
-          <div class="fgw-field">
-            <label class="fgw-label" for="fgw-em">Email professionnel <span class="req">*</span></label>
-            <input type="email" id="fgw-em" class="fgw-input" placeholder="marie.dupont@entreprise.com" autocomplete="email">
-            <span class="fgw-err" id="e-em">Email invalide.</span>
+          <div class="fgw-step" id="step-contact">
+            <p class="fgw-ask">Votre prénom et votre email</p>
+            <div class="fgw-pair">
+              <div class="fgw-reply">
+                <input type="text" id="fgw-fn" class="fgw-input" placeholder="Prénom" autocomplete="given-name" aria-label="Prénom">
+                <span class="fgw-err" id="e-fn">Votre prénom est requis.</span>
+              </div>
+              <div class="fgw-reply">
+                <input type="email" id="fgw-em" class="fgw-input" placeholder="Email" autocomplete="email" aria-label="Email">
+                <span class="fgw-err" id="e-em">Email invalide.</span>
+              </div>
+            </div>
           </div>
 
         </div>
 
-        <div class="fgw-footer">
+        <div class="fgw-footer is-off" id="fgw-footer">
           <span class="fgw-footer-note">Sans inscription · Données sécurisées</span>
           <button type="button" class="fgw-submit-btn" onclick="fgwSubmit()">
             <span id="fgw-btn-lbl">Trouver des formateurs →</span>
@@ -609,6 +601,11 @@
   var calDate   = new Date();
 
   document.addEventListener('click', function(e) { if (!periodEl.contains(e.target)) periodEl.classList.remove('open'); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter' || !periodEl.classList.contains('open') || pMode !== 'month') return;
+    e.preventDefault();
+    periodEl.classList.remove('open');
+  }, true);
   window.togglePeriod = function() { periodEl.classList.toggle('open'); if (periodEl.classList.contains('open')) buildMonths(); };
   window.clearPeriod  = function() { selMonths = []; selDate = null; updatePDisplay(); buildMonths(); };
 
@@ -636,11 +633,14 @@
       btn.type = 'button'; btn.className = 'fgw-mo';
       btn.textContent = MO_FR[d.getMonth()] + ' ' + String(d.getFullYear()).slice(2);
       if (selMonths.indexOf(key) !== -1) btn.classList.add('on');
-      (function(k) { btn.addEventListener('click', function() {
+      (function(k, button) { button.addEventListener('click', function(ev) {
+        ev.stopPropagation();
         var idx = selMonths.indexOf(k);
-        if (idx === -1) selMonths.push(k); else selMonths.splice(idx, 1);
-        selDate = null; updatePDisplay(); buildMonths();
-      }); })(key);
+        if (idx === -1) { selMonths.push(k); button.classList.add('on'); }
+        else { selMonths.splice(idx, 1); button.classList.remove('on'); }
+        selDate = null;
+        updatePDisplay();
+      }); })(key, btn);
       g.appendChild(btn);
     }
   }
@@ -695,25 +695,44 @@
   function err(id, on)  { document.getElementById(id).classList.toggle('on', on); }
   function ierr(id, on) { document.getElementById(id).classList.toggle('err', on); }
 
-  document.querySelectorAll('input[name="fgw_type"]').forEach(function(e){ e.addEventListener('change', function(){ err('e-type', false); }); });
-  document.querySelectorAll('input[name="fgw_fmt"]').forEach(function(e) { e.addEventListener('change', function(){ err('e-fmt', false); }); });
+  function plain(text) {
+    return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+  function inferFormat(text) {
+    var t = plain(text);
+    var presentiel = /presentiel|sur site|en salle/.test(t);
+    var distanciel = /distanciel|a distance|en ligne|visio/.test(t);
+    var hybride = /hybride/.test(t);
+    if (hybride || (presentiel && distanciel)) return 'hybrid';
+    if (presentiel) return 'face-to-face';
+    if (distanciel) return 'remote';
+    return 'remote';
+  }
+
   tagIn.addEventListener('input', function(){ if (tags.length) { err('e-skills', false); tagsWrp.classList.remove('err'); } });
+
+  window.fgwNext = function(btn) {
+    var next = document.getElementById(btn.getAttribute('data-next'));
+    if (!next) return;
+    next.classList.add('on');
+    btn.hidden = true;
+    var follower = next.nextElementSibling;
+    if (follower && follower.classList.contains('fgw-more')) follower.hidden = false;
+    else document.getElementById('fgw-footer').classList.remove('is-off');
+    var focusable = next.querySelector('input, textarea');
+    if (focusable) focusable.focus();
+  };
   document.getElementById('fgw-fn').addEventListener('input', function(){ err('e-fn', false); ierr('fgw-fn', false); });
-  document.getElementById('fgw-ln').addEventListener('input', function(){ err('e-ln', false); ierr('fgw-ln', false); });
   document.getElementById('fgw-em').addEventListener('input', function(){ err('e-em', false); ierr('fgw-em', false); });
   document.getElementById('fgw-desc').addEventListener('input', function(){
     err('e-desc', false); ierr('fgw-desc', false);
-    document.getElementById('fgw-chars').textContent = this.value.length;
   });
 
   function validate() {
     var ok = true;
-    if (!radio('fgw_type'))      { err('e-type', true); ok = false; }
-    if (!radio('fgw_fmt'))       { err('e-fmt', true); ok = false; }
     if (!tags.length)            { err('e-skills', true); tagsWrp.classList.add('err'); ok = false; }
     if (!val('fgw-desc'))        { err('e-desc', true); ierr('fgw-desc', true); ok = false; }
     if (!val('fgw-fn'))          { err('e-fn', true); ierr('fgw-fn', true); ok = false; }
-    if (!val('fgw-ln'))          { err('e-ln', true); ierr('fgw-ln', true); ok = false; }
     if (!isEmail(val('fgw-em'))) { err('e-em', true); ierr('fgw-em', true); ok = false; }
     return ok;
   }
@@ -721,15 +740,15 @@
   window.fgwSubmit = function() {
     if (!validate()) return;
     var payload = {
-      announcement_type : radio('fgw_type'),
+      announcement_type : 'training',
       skills_text       : tags.join(', '),
-      on_place          : radio('fgw_fmt'),
-      location          : val('fgw-loc'),
+      on_place          : inferFormat(val('fgw-desc')),
+      location          : '',
       search_radius     : RADIUS,
       period_text       : getPeriodVal(),
       description       : val('fgw-desc'),
       first_name        : val('fgw-fn'),
-      last_name         : val('fgw-ln'),
+      last_name         : '',
       email             : val('fgw-em'),
       session_count     : 1
     };
@@ -756,11 +775,11 @@
       if (count === null) {
         cEl.textContent = '...'; mLbl.textContent = 'Votre besoin a bien été enregistré';
         cTxt.textContent = 'Vous allez recevoir un email de confirmation. Créez votre espace pour suivre votre demande.';
-        cBtn.textContent = 'Créer mon espace gratuit →';
+        cBtn.textContent = 'Accéder à mon espace gratuitement →';
       } else if (count === 0) {
         cEl.textContent = '0'; mLbl.textContent = 'formateur disponible pour le moment';
         cTxt.textContent = "Votre besoin est enregistré. Nous vous contacterons dès qu'un formateur correspondant est disponible.";
-        cBtn.textContent = 'Créer mon espace gratuit →';
+        cBtn.textContent = 'Accéder à mon espace gratuitement →';
       } else {
         animCount(cEl, count, 700);
         mLbl.textContent = count > 1 ? 'formateurs correspondent à votre besoin' : 'formateur correspond à votre besoin';
