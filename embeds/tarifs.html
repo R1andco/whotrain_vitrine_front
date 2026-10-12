@@ -120,6 +120,7 @@
     transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
     flex: 1; max-width: 480px; position: relative; overflow: hidden;
     isolation: isolate;
+    display: flex; flex-direction: column;
   }
   .price-card:hover { box-shadow: var(--card-hover-shadow); transform: translateY(-4px); }
 
@@ -133,6 +134,15 @@
 
   .card-title { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 8px; }
   .card-desc { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 28px; }
+  .formateur-title {
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px; line-height: 1.45;
+  }
+  .formateur-sub {
+    font-size: 0.92rem; color: var(--text-secondary);
+    line-height: 1.55; margin-bottom: 28px;
+  }
 
   /* Price */
   .price-row { display: flex; align-items: baseline; gap: 5px; margin-bottom: 4px; }
@@ -149,7 +159,7 @@
   .card-divider { height: 1px; background: var(--border); margin: 0 0 24px; }
 
   /* Features */
-  .features { list-style: none; margin-bottom: 32px; }
+  .features { list-style: none; margin-bottom: 32px; flex: 1; }
   .features li {
     display: flex; align-items: flex-start; gap: 10px;
     font-size: 0.9rem; color: var(--text-secondary);
@@ -191,6 +201,7 @@
     text-decoration: none; border: none;
     position: relative; z-index: 10;
     pointer-events: auto !important;
+    margin-top: auto;
   }
   .cta-rose { background: var(--rose); color: var(--white); }
   .cta-rose:hover { filter: brightness(0.92); transform: scale(1.015); }
@@ -225,6 +236,7 @@
     transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
     box-shadow: 0 8px 50px rgba(0,0,0,0.2);
     isolation: isolate;
+    display: flex; flex-direction: column;
   }
   .pro-card:hover { transform: translateY(-4px); box-shadow: 0 12px 60px rgba(0,0,0,0.28); }
   .pro-glow {
@@ -313,6 +325,7 @@
     transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
     box-shadow: 0 8px 50px rgba(0,0,0,0.2);
     isolation: isolate;
+    display: flex; flex-direction: column;
   }
   .deal-card:hover { transform: translateY(-4px); box-shadow: 0 12px 60px rgba(0,0,0,0.28); }
   .deal-glow {
@@ -327,52 +340,48 @@
     background: radial-gradient(circle, rgba(254,54,170,0.18) 0%, transparent 70%);
     pointer-events: none;
   }
-  .deal-badge {
-    display: inline-flex; align-items: center; gap: 5px;
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(10px);
-    color: rgba(255,255,255,0.9);
-    font-size: 0.72rem; font-weight: 600;
-    padding: 6px 14px; border-radius: 980px;
-    margin-bottom: 20px;
-    text-transform: uppercase; letter-spacing: 0.06em;
+  .deal-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: relative; z-index: 2;
+    padding-bottom: 32px;
+    min-height: 0;
   }
+  .deal-card .card-eyebrow { margin-bottom: 10px; }
   .deal-title {
     font-size: 1.4rem; font-weight: 600;
     color: rgba(255,255,255,0.7);
-    margin-bottom: 16px; position: relative; z-index: 2; line-height: 1.4;
+    margin-bottom: 0; line-height: 1.45;
   }
   .deal-percent {
     font-size: 5rem; font-weight: 700;
     letter-spacing: -0.05em; line-height: 1;
-    position: relative; z-index: 2;
     background: linear-gradient(135deg, #fff 20%, var(--orange));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
-  .deal-highlight {
-    font-size: 1.1rem; font-weight: 600;
-    color: var(--white); margin-bottom: 6px;
-    position: relative; z-index: 2;
+  .deal-commission-sub {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+    line-height: 1.4;
   }
-  .deal-first-mission {
-    display: inline-flex; align-items: center;
-    background: rgba(253,127,8,0.16);
-    color: var(--white);
-    border: 1px solid rgba(253,127,8,0.34);
-    font-size: 0.84rem; font-weight: 700;
-    padding: 7px 12px; border-radius: 980px;
-    margin-bottom: 14px;
-    position: relative; z-index: 2;
+  .deal-card .features {
+    flex: none;
+    margin-bottom: 0;
+  }
+  .deal-card .features li { color: rgba(255,255,255,0.75); }
+  .deal-card .features .ic {
+    background: rgba(253,127,8,0.18); color: var(--orange);
   }
   .deal-subtext {
     font-size: 0.88rem;
     color: rgba(255,255,255,0.5);
-    position: relative; z-index: 2;
-    line-height: 1.5; margin-bottom: 32px;
+    line-height: 1.65; margin-bottom: 0;
   }
   .deal-cta {
     display: block; width: 100%; padding: 15px 20px;
@@ -382,6 +391,7 @@
     background: var(--white); color: var(--text-primary);
     transition: all 0.25s; position: relative; z-index: 10;
     pointer-events: auto !important;
+    margin-top: auto;
   }
   .deal-cta:hover { background: #f0f0f0; transform: scale(1.015); }
 
@@ -610,9 +620,9 @@
   <div class="panel" id="panel-formateur">
     <div class="card-row">
       <div class="price-card">
-        <div class="card-eyebrow orange">Commission</div>
-        <div class="card-title">Formateurs</div>
-        <div class="card-desc">Rejoignez la plateforme, consultez les annonces et décrochez des missions. Aucun abonnement — vous ne payez qu'à la mission.</div>
+        <div class="card-eyebrow orange">Apport d'affaire + admin</div>
+        <div class="formateur-title">Vous trouvez des missions<br>sur Whotrain</div>
+        <div class="formateur-sub">Consultez les annonces et décrochez des missions<br>Aucun abonnement</div>
 
         <div class="commission-big orange">20%</div>
         <div class="commission-sub">de commission par mission réalisée</div>
@@ -633,12 +643,23 @@
       <div class="deal-card">
         <div class="deal-glow"></div>
         <div class="deal-glow-2"></div>
-        <div class="deal-badge">✦ Offre spéciale</div>
-        <div class="deal-title">Invitez votre entreprise<br>cliente sur Whotrain</div>
-        <div class="deal-percent">10%</div>
-        <div class="deal-highlight">au lieu de 20% de commission</div>
-        <div class="deal-first-mission">0% pour la première mission avec votre client</div>
-        <div class="deal-subtext">Sans limite de durée pour l'entreprise.<br>Un avantage gagnant-gagnant pour vous et votre client.</div>
+        <div class="deal-body">
+          <div class="deal-header">
+            <div class="card-eyebrow orange">Admin + Qualiopi</div>
+            <div class="deal-title">Invitez votre entreprise<br>cliente sur Whotrain</div>
+          </div>
+          <div class="deal-price-block">
+            <div class="deal-percent">10%</div>
+            <div class="deal-commission-sub">de commission par mission réalisée</div>
+            <ul class="features">
+              <li><span class="ic">✓</span> Cadre qualité portés par MC Consulting, OF certifié Qualiopi</li>
+              <li><span class="ic">✓</span> Financement OPCO possible</li>
+              <li><span class="ic">✓</span> Gestion administrative</li>
+              <li><span class="ic">✓</span> Génération des documents : CF, FP, AIF, évaluations</li>
+            </ul>
+          </div>
+          <div class="deal-subtext">Gratuit pour votre client.<br>Un avantage gagnant-gagnant pour vous et votre client.</div>
+        </div>
         <a href="https://app.whotrain.com/register" target="_blank" rel="noopener" class="deal-cta">Inviter un client →</a>
       </div>
     </div>
@@ -701,7 +722,7 @@
   </div>
   <div class="faq-item">
     <div class="faq-q">Comment fonctionne la commission pour les formateurs ?<span class="arrow">▼</span></div>
-    <div class="faq-a"><p>La commission est de 20% sur chaque mission réalisée via Whotrain. Si vous invitez votre propre client sur la plateforme, la première mission est à 0% de commission, puis cette commission passe à 10%, sans limite de durée.</p></div>
+    <div class="faq-a"><p>La commission est de 20% sur chaque mission réalisée via Whotrain. Si vous invitez votre propre client sur la plateforme, cette commission passe à 10%, sans limite de durée.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q">Les formations sont-elles éligibles aux financements OPCO ?<span class="arrow">▼</span></div>
