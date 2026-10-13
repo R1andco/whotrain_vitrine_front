@@ -13,7 +13,7 @@ export const GET: APIRoute = async () => {
     '',
     'Les prix en vigueur sont uniquement sur https://whotrain.com/tarifs.',
     `Contact : ${site.email}. Fondateur : ${site.founder.name}.`,
-    `Organisme de formation partenaire : ${site.partner.name} (${site.partner.url}), certification Qualiopi pour les ${site.partner.qualiopi.toLowerCase()}.`,
+    `Organisme de formation partenaire : ${site.partner.name} (${site.partner.url}), certification Qualiopi pour les ${site.partner.qualiopi.toLowerCase()}. Certificat : ${site.url}${site.partner.certificate}.`,
     '',
     '## Pages',
     `- [Accueil](${site.url}/): promesse et fonctionnement.`,

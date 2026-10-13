@@ -1,10 +1,10 @@
 ---
 title: "Mention légales - Whotrain"
 description: "Mentions légales : Le contenu du site (textes, logos, visuels, vidéos, interfaces, architecture, code…) est la propriété exclusive de WhoTrain ou de ses partenaires, sauf…"
-updated: 2026-09-23
+updated: 2026-10-13
 summary: "Mentions légales : Le contenu du site (textes, logos, visuels, vidéos, interfaces, architecture, code…) est la propriété exclusive de WhoTrain ou de ses partenaires, sauf…"
 ---
-**Dernière mise à jour : 19 septembre 2025**
+**Dernière mise à jour : 13 octobre 2026**
 **1. Éditeur du site**Le présent site est édité par : **WhoTrain**, SASU au capital social de 1 000 €
 Siège social : 3 avenue de la Porte Royale, 17000 La Rochelle, France
 SIRET : 943 326 256 00014 – RCS La Rochelle
@@ -34,3 +34,5 @@ Les supports pédagogiques partagés par les formateurs restent leur propriété
 **6. Limitation de responsabilité**WhoTrain met tout en œuvre pour fournir un site sécurisé et fonctionnel, mais ne peut être tenu responsable des interruptions de service ou dommages liés à l’utilisation du site.
 **7. Droit applicable et juridiction compétent**Les présentes mentions légales sont régies par le droit français.
 En cas de litige, seul le **Tribunal de commerce de La Rochelle** sera compétent.
+**8. Certification Qualiopi**Les conventions de formation proposées via Whotrain sont portées par MC Consulting, organisme de formation certifié Qualiopi au titre des actions de formation. Certificat Bureau Veritas n° FR089747-1, valable jusqu'au 29 juin 2027.
+[Consulter le certificat (PDF)](/documents/certificat-qualiopi-mc-consulting.pdf)
