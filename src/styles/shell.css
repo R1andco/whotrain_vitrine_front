@@ -224,6 +224,11 @@ body {
   max-width: 640px;
 }
 
+.wt-qualiopi a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .wt-copy {
   margin-top: 22px;
   color: rgba(255, 255, 255, 0.6);

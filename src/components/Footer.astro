@@ -27,12 +27,12 @@ const year = new Date().getFullYear();
       </div>
     </div>
     <div class="wt-logos">
-      <img src={site.logos.qualiopi} alt="Certification Qualiopi, actions de formation" />
+      <a href={site.partner.certificate}><img src={site.logos.qualiopi} alt="Certificat Qualiopi de MC Consulting, actions de formation" /></a>
       <a href={site.logos.edtechHref}><img src={site.logos.edtech} alt="EdTech France" /></a>
       <a href={site.partner.url}><img src={site.partner.logo} alt={site.partner.name} /></a>
       <img src={site.logos.franceTravail} alt="France Travail Poitou-Charentes" />
     </div>
-    <p class="wt-qualiopi">La certification qualité a été délivrée au titre de la catégorie d'action suivante : {site.partner.qualiopi}. Organisme de formation partenaire : {site.partner.name}.</p>
+    <p class="wt-qualiopi">La certification qualité a été délivrée au titre de la catégorie d'action suivante : {site.partner.qualiopi}. Organisme de formation partenaire : {site.partner.name}. <a href={site.partner.certificate}>Voir le certificat</a></p>
     <p class="wt-copy">© {site.name} {year}</p>
   </div>
 </footer>

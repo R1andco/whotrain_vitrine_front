@@ -13,7 +13,8 @@
     "name": "MC Consulting",
     "url": "https://mc-consulting.fr/",
     "logo": "/images/brand/logo-mc-consulting-30-2024-b-cfiYeahTYFRfjXjk.png",
-    "qualiopi": "Actions de formation"
+    "qualiopi": "Actions de formation",
+    "certificate": "/documents/certificat-qualiopi-mc-consulting.pdf"
   },
   "app": {
     "register": "https://app.whotrain.com/register",

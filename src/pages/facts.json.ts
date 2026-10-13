@@ -16,6 +16,7 @@ export const GET: APIRoute = async () => {
       name: site.partner.name,
       url: site.partner.url,
       qualiopiCategory: site.partner.qualiopi,
+      certificate: `${site.url}${site.partner.certificate}`,
     },
     audiences: site.audiences,
     pricingUrl: `${site.url}/tarifs`,
