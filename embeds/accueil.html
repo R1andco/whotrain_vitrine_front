@@ -51,12 +51,6 @@
   .btn-rose:hover { filter: brightness(0.94); }
 
   .board { padding: 120px 0 72px; }
-  .board-kicker {
-    position: absolute;
-    left: 85px;
-    top: 8px;
-    margin: 0;
-  }
   .board-fit {
     width: min(1440px, 100%);
     margin: 0 auto;
@@ -75,9 +69,10 @@
   }
   .board-title {
     position: absolute;
-    left: 85px;
+    left: 0;
     top: 32px;
-    width: auto;
+    width: 1440px;
+    text-align: center;
     white-space: nowrap;
     font-size: 48px;
     font-weight: 700;
@@ -233,8 +228,7 @@
       position: relative; width: auto; height: auto; transform: none;
       display: flex; flex-direction: column; gap: 14px;
     }
-    .board-kicker { position: static; }
-    .board-title { position: static; width: auto; font-size: clamp(1.15rem, 4.6vw, 2.2rem); }
+    .board-title { position: static; width: auto; text-align: center; font-size: clamp(1.15rem, 4.6vw, 2.2rem); }
     .float { position: static; width: auto; height: auto; }
     .split, .proof-inner { display: block; }
     .proof-item { padding: 22px 0; }
@@ -261,7 +255,6 @@
 <section class="board">
   <div class="board-fit">
   <div class="board-stage">
-    <p class="kicker board-kicker">Des formations concrètes, pour vos enjeux</p>
     <h2 class="board-title">Tout ce qu'il faut. Rien de plus.</h2>
     <article class="card float c-annonce" data-drift="-10">
       <div class="card-top">
