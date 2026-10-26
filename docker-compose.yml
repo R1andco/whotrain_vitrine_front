@@ -1,0 +1,13 @@
+# Static Whotrain vitrine behind the existing Traefik on the VPS.
+# Traefik must keep providers.docker.exposedbydefault=false.
+services:
+  vitrine:
+    build: .
+    image: whotrain-vitrine:latest
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.whotrain-vitrine.rule=Host(`srv1566020.hstgr.cloud`)
+      - traefik.http.routers.whotrain-vitrine.entrypoints=websecure
+      - traefik.http.routers.whotrain-vitrine.tls.certresolver=letsencrypt
+      - traefik.http.services.whotrain-vitrine.loadbalancer.server.port=80
